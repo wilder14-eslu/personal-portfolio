@@ -20,7 +20,7 @@ const Project = (props) => {
         />
 
         <div className="mt-4 w-full">
-          <h1 className="text-xl font-semibold font-poppins text-gray-700 capitalize md:text-2xl group-hover:text-white text-gradient">
+          <h1 className="text-xl font-semibold font-poppins text-gray-700 capitalize md:text-2xl group-hover:text-white text-gradient leading-tight break-words">
             {props.title}
           </h1>
           <p className="font-poppins font-normal text-dimWhite mt-3 mb-2">
@@ -43,7 +43,7 @@ const Project = (props) => {
         </div>
       </div>
 
-      <p className="mt-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-300 font-poppins">
+      <p className="mt-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-300 font-poppins break-words">
         {props.content}
       </p>
 

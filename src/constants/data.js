@@ -1,7 +1,9 @@
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
-import { FaAws, FaBrain, FaChartBar, FaChartLine, FaCogs, FaDatabase, FaDocker, FaGithub, FaRobot } from "react-icons/fa";
-import { SiDocker, SiFastapi, SiGit, SiGithubactions, SiGoogle, SiGooglecloud, SiKeras, SiMysql, SiOpenai, SiPostgresql, SiPytorch, SiR, SiReact, SiScikitlearn, SiTensorflow, SiPython } from "react-icons/si";
+import { BsGraphUp, BsLightbulb } from "react-icons/bs";
+import { FaAws, FaBrain, FaChartBar, FaChartLine, FaCogs, FaDatabase, FaDocker, FaEye, FaFire, FaGithub, FaRobot } from "react-icons/fa";
+import { SiDocker, SiFastapi, SiFirebase, SiGit, SiGithubactions, SiGoogle, SiGooglecloud, SiKeras, SiMlflow, SiMysql, SiOpenai, SiPostgresql, SiPrefect, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow, SiVite, SiPython } from "react-icons/si";
+import { RiGeminiFill } from "react-icons/ri";
+import { TbBrandFirebase } from "react-icons/tb";
 
 import ml_project1 from "../assets/ml_project1.jpg";
 import ml_project2 from "../assets/ml_project2.jpg";
@@ -263,10 +265,18 @@ export const en = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "End-to-End credit risk evaluation platform (default prediction), built as a bank-grade MLOps exercise.",
+      content: "End-to-end credit risk ML platform simulating a bank-grade production flow. Benchmarks LR, XGBoost, LightGBM & CatBoost with ROC-AUC, PR-AUC, Gini, KS. Includes MLflow tracking, FastAPI serving, PostgreSQL storage, Prefect orchestration, SHAP explainability, drift monitoring and CI/CD with Docker & GitHub Actions.",
       stack: [
-        { id: "s-1", icon: commonIcons.SiPython },
-        { id: "s-3", icon: commonIcons.SiDocker }
+        { id: "t-1", icon: SiPython, name: "Python" },
+        { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting" },
+        { id: "t-3", icon: SiMlflow, name: "MLflow" },
+        { id: "t-4", icon: SiFastapi, name: "FastAPI" },
+        { id: "t-5", icon: SiPostgresql, name: "PostgreSQL" },
+        { id: "t-6", icon: SiPrefect, name: "Prefect" },
+        { id: "t-7", icon: FaEye, name: "SHAP" },
+        { id: "t-8", icon: SiDocker, name: "Docker" },
+        { id: "t-9", icon: SiGithubactions, name: "GitHub Actions / CI-CD" },
+        { id: "t-10", icon: SiStreamlit, name: "Streamlit" }
       ]
     },
     {
@@ -274,11 +284,17 @@ export const en = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "End-to-end MLOps platform to predict malaria cases and outbreak risk by district (UBIGEO) x epidemiological week in Peru.",
+      content: "ML platform for early detection of malaria spikes and outbreak risk alerts by district and epidemiological week. Implements LightGBM + Optuna, MLflow, SHAP, FastAPI, Evidently for drift monitoring, walk-forward validation, and a performance-based retraining policy. Full Docker + CI reproducibility.",
       stack: [
-        { id: "s-1", icon: commonIcons.SiPython },
-        { id: "s-2", icon: commonIcons.SiFastapi },
-        { id: "s-3", icon: commonIcons.SiGithubactions }
+        { id: "t-1", icon: SiPython, name: "Python" },
+        { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna" },
+        { id: "t-3", icon: SiMlflow, name: "MLflow" },
+        { id: "t-4", icon: FaEye, name: "SHAP" },
+        { id: "t-5", icon: SiFastapi, name: "FastAPI" },
+        { id: "t-6", icon: FaFire, name: "Evidently (Drift)" },
+        { id: "t-7", icon: FaChartLine, name: "Feature Engineering Temporal" },
+        { id: "t-8", icon: SiDocker, name: "Docker" },
+        { id: "t-9", icon: SiGithubactions, name: "CI / GitHub Actions" }
       ]
     },
     {
@@ -287,10 +303,16 @@ export const en = {
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "A matching platform for professional profiles and companies, where a sequential multi-agent system audits real fit between both sides.",
+      content: "Professional matching platform using AI to connect profiles with job opportunities beyond keyword matching. Semantic role classification, structured requirements extraction, vector search, AI agents for compatibility scoring, gap roadmap generation, and progressive consent for personal data. Deployed on Google Cloud Run.",
       stack: [
-        { id: "s-1", icon: commonIcons.SiGooglecloud },
-        { id: "s-2", icon: commonIcons.SiReact }
+        { id: "t-1", icon: SiPython, name: "Python" },
+        { id: "t-2", icon: RiGeminiFill, name: "Gemini + Google ADK" },
+        { id: "t-3", icon: FaRobot, name: "AI Agents" },
+        { id: "t-4", icon: FaDatabase, name: "Embeddings + Vector Search" },
+        { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic" },
+        { id: "t-6", icon: SiReact, name: "React + Vite" },
+        { id: "t-7", icon: TbBrandFirebase, name: "Firestore (Vector DB)" },
+        { id: "t-8", icon: SiGooglecloud, name: "Google Cloud Run" }
       ]
     },
     {
@@ -300,8 +322,8 @@ export const en = {
       image: commonIcons.investigacion,
       content: "Proyectos con documentación: Análisis del Problema de Heterocedasticidad, Consumer Credit Demand, Regresión Logística Bayesiana, etc.",
       stack: [
-        { id: "s-1", icon: commonIcons.SiR },
-        { id: "s-2", icon: commonIcons.SiPython }
+        { id: "s-1", icon: SiR, name: "R" },
+        { id: "s-2", icon: SiPython, name: "Python" }
       ]
     }
   ],
@@ -379,7 +401,7 @@ export const es = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Plataforma de evaluación de riesgo crediticio de extremo a extremo, construida como ejercicio de MLOps de nivel bancario.",
+      content: "Plataforma de riesgo crediticio end-to-end que simula un flujo cercano a producción en una institución financiera. Benchmark de LR, XGBoost, LightGBM y CatBoost con ROC-AUC, PR-AUC, Gini, KS. MLflow, FastAPI, PostgreSQL, Prefect, SHAP, monitoreo de drift y CI/CD con Docker y GitHub Actions.",
       stack: en.projects[0].stack
     },
     {
@@ -387,7 +409,7 @@ export const es = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Plataforma MLOps end-to-end para predecir casos de malaria y riesgo de brote por distrito x semana epidemiológica en Perú.",
+      content: "Plataforma de ML para detección temprana de incrementos de malaria y generación de alertas de riesgo por distrito y semana epidemiológica. LightGBM + Optuna, MLflow, SHAP, FastAPI, Evidently para drift, walk-forward validation y reentrenamiento basado en desempeño. Docker + CI para reproducibilidad.",
       stack: en.projects[1].stack
     },
     {
@@ -396,7 +418,7 @@ export const es = {
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Plataforma de matching profesional basada en un sistema multiagente de IA. Evalúa fit real entre candidatos y empresas sin sesgos.",
+      content: "Plataforma de matching profesional con IA que conecta perfiles con oportunidades laborales más allá de palabras clave. Clasificación semántica de roles, extracción de requisitos, búsqueda vectorial, agentes de IA para compatibilidad, roadmap de brechas y consentimiento progresivo. Desplegado en Google Cloud Run.",
       stack: en.projects[2].stack
     },
     {
