@@ -12,11 +12,11 @@ export const SkillIcon = ({ icon, name }) => {
   const { skills, experiences } = currentData;
 
   return (
-    <div className="flex flex-col">
-      <span className="text-white text-[30px] hover:text-teal-200">
+    <div className="flex flex-col items-center text-center">
+      <span className="text-white text-[28px] hover:text-teal-200">
         {React.createElement(icon)}
       </span>
-      <p className="font-poppins text-dimWhite text-[12px] mt-2">{name}</p>
+      <p className="font-poppins text-dimWhite text-[11px] mt-2 break-words w-full leading-tight">{name}</p>
     </div>
   );
 };

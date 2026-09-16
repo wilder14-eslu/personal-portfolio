@@ -59,7 +59,7 @@ const skills_en = [
     title: "Machine Learning & Deep Learning",
     items: [
       { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn" },
-      { id: "s-8", icon: FaBrain, name: "XGBoost/LightGBM/CatBoost" },
+      { id: "s-8", icon: FaBrain, name: "Gradient Boosting" },
       { id: "s-9", icon: SiTensorflow, name: "TensorFlow & Keras" },
       { id: "s-10", icon: SiPytorch, name: "PyTorch" },
       { id: "s-11", icon: FaChartLine, name: "Time Series & NLP" },
