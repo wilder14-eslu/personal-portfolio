@@ -335,6 +335,7 @@ export const en = {
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
     tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
+    phone: "+51 910 049 106",
     intro: "I am a Statistics student focused on Data Science, Advanced Analytics, Machine Learning and MLOps, interested in transforming business problems into data-driven solutions."
   }
 };
@@ -434,6 +435,7 @@ export const es = {
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
     tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
+    phone: "+51 910 049 106",
     intro: "Soy estudiante de Estadística enfocado en Data Science, Advanced Analytics, Machine Learning y MLOps, con interés en transformar problemas de negocio en soluciones basadas en datos que generen impacto y puedan llevarse a producción. Mi formación en Estadística me permite aportar una perspectiva cuantitativa, mientras que mi experiencia en desarrollo y MLOps me permite llevar soluciones analíticas hacia productos tecnológicos utilizables y mantenibles."
   }
 };

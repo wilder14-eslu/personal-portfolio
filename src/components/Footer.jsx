@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "./Button";
-import { profilePic } from "../assets";
+import { profilePic, peru_flag } from "../assets";
 import { layout } from "../style";
 import data from "../constants/data";
 import { useTranslation } from "react-i18next";
 import { AiFillGithub, AiFillFilePdf } from "react-icons/ai";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   const { i18n } = useTranslation();
@@ -38,6 +39,24 @@ const Footer = () => {
             </a>
           ))}
         </div>
+
+        {/* Phone number with Peru flag */}
+        {aboutMe.phone && (
+          <a
+            href={`tel:${aboutMe.phone.replace(/\s/g, "")}`}
+            className="flex items-center gap-2 mt-4 group w-fit"
+          >
+            <img
+              src={peru_flag}
+              alt="Peru"
+              className="w-6 h-4 object-cover rounded-sm"
+            />
+            <FaPhoneAlt className="text-teal-300 text-[14px]" />
+            <span className="font-poppins text-dimWhite text-[15px] group-hover:text-teal-200 transition-colors">
+              {aboutMe.phone}
+            </span>
+          </a>
+        )}
 
         <div className="grid grid-cols-2">
           {/* styles is a prop */}
