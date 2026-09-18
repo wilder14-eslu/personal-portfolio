@@ -135,6 +135,19 @@ const Math4D = () => {
         <p className="font-poppins text-cyan-400 text-[10px] sm:text-xs uppercase tracking-[0.3em] mt-1 drop-shadow-md">Tesseract Projection</p>
       </div>
 
+      {/* Tooltip for Recruiters */}
+      <div className="absolute top-6 right-6 group/tooltip z-10">
+        <div className="w-8 h-8 rounded-full bg-cyan-900/40 border border-cyan-500/50 flex items-center justify-center text-cyan-400 cursor-help shadow-sm transition-colors hover:bg-cyan-800/60 backdrop-blur-md">
+          <span className="font-poppins font-bold text-sm">i</span>
+        </div>
+        <div className="absolute top-10 right-0 w-64 p-4 bg-black/90 backdrop-blur-xl border border-cyan-900/50 rounded-xl shadow-2xl opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/tooltip:translate-y-0">
+          <p className="text-[12px] text-gray-300 font-poppins leading-relaxed">
+            <span className="text-cyan-400 font-bold block mb-1">For Recruiters & Tech Leads:</span> 
+            This is a real-time mathematical algorithm projecting a <strong>4D Hypercube (Tesseract)</strong>. It is custom-coded to showcase strong foundations in mathematics, algorithmic logic, and advanced software engineering.
+          </p>
+        </div>
+      </div>
+
       <div className="absolute bottom-6 bg-black/40 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-white/10 pointer-events-none transition-all duration-500 group-hover:bg-black/60 group-hover:border-white/20">
          <p className="text-xs sm:text-sm font-poppins text-white text-center font-medium tracking-wide">
            Mathematical Foundation <br/>

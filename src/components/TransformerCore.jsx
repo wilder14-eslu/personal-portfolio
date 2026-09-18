@@ -141,7 +141,20 @@ const TransformerArchitecture = () => {
 
 const TransformerCore = () => {
   return (
-    <div className="w-full h-full min-h-[500px]">
+    <div className="w-full h-full min-h-[500px] relative">
+      {/* Tooltip for Recruiters */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 group z-10">
+        <div className="w-8 h-8 rounded-full bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-600 cursor-help shadow-sm transition-colors hover:bg-blue-200">
+          <span className="font-poppins font-bold text-sm">i</span>
+        </div>
+        <div className="absolute top-10 right-0 w-64 p-4 bg-white/95 backdrop-blur-md border border-gray-100 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover:translate-y-0">
+          <p className="text-[12px] text-gray-600 font-poppins leading-relaxed">
+            <span className="text-blue-600 font-bold block mb-1">For Recruiters & Tech Leads:</span> 
+            This interactive 3D component is a custom-coded representation of a <strong>Transformer Neural Network</strong> (Encoder-Decoder architecture). It demonstrates advanced skills in React, Three.js, and ML architectural visualization.
+          </p>
+        </div>
+      </div>
+
       <Canvas camera={{ position: [0, 1.5, 15], fov: 55 }}>
         <color attach="background" args={['#fafcff']} />
         <ambientLight intensity={1.5} />
