@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Node = ({ title, subtitle, top, color, delay }) => (
   <motion.div
     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-white border-b-4 rounded-xl shadow-lg p-3 w-[140px] z-10"
-    style={{ left: '75%', top, borderColor: color }}
+    style={{ left: '60%', top, borderColor: color }}
     initial={{ opacity: 0, x: 20 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true, amount: 0.5 }}
@@ -34,14 +34,14 @@ const TheoryToPracticeGraph = () => {
       <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-200 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-2000"></div>
 
       <svg className="absolute inset-0 w-full h-full z-0" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <motion.path d="M 15,50 C 45,50 45,20 75,20" stroke="#00b4d8" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} />
-        <motion.path d="M 15,50 L 75,50" stroke="#FF9900" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} />
-        <motion.path d="M 15,50 C 45,50 45,80 75,80" stroke="#ff006e" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }} />
+        <motion.path d="M 10,50 C 40,50 40,20 60,20" stroke="#00b4d8" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} />
+        <motion.path d="M 10,50 L 60,50" stroke="#FF9900" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} />
+        <motion.path d="M 10,50 C 40,50 40,80 60,80" stroke="#ff006e" strokeWidth="0.5" fill="none" strokeDasharray="1.5 1.5" variants={lineVariants} custom={3} initial="hidden" whileInView="visible" viewport={{ once: true }} />
       </svg>
 
       {/* Base Node (Statistics) */}
       <motion.div
-        className="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-cyan-500 text-white rounded-full shadow-xl shadow-blue-500/30 p-4 w-[110px] h-[110px] z-10 border-4 border-white"
+        className="absolute left-[10%] top-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-cyan-500 text-white rounded-full shadow-xl shadow-blue-500/30 p-4 w-[110px] h-[110px] z-10 border-4 border-white"
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
