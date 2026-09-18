@@ -267,7 +267,7 @@ export const en = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Developed a bank-grade, end-to-end Machine Learning platform for credit risk assessment to optimize loan approval processes. Features rigorous model benchmarking (XGBoost, LightGBM) and a robust MLOps pipeline (MLflow, FastAPI, Prefect, Docker, CI/CD). Integrates SHAP for regulatory explainability and data drift monitoring to ensure long-term model reliability.",
+      content: "End-to-end MLOps platform for automated credit risk assessment, directly reducing manual review times and optimizing loan approvals. Architected with XGBoost/LightGBM, CI/CD pipelines, and MLflow for robust model tracking. Includes SHAP explainability and drift monitoring to ensure strict regulatory compliance and sustained ROI.",
       stack: [
         { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
         { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting", color: "#F7931E" },
@@ -286,7 +286,7 @@ export const en = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Engineered an Early Warning ML System to predict and mitigate malaria outbreaks across districts. Designed to support public health decision-making, the platform uses LightGBM, automated retraining policies, and walk-forward validation to guarantee accurate forecasting. Fully containerized and deployed with FastAPI and MLflow for seamless production use.",
+      content: "Predictive ML system designed to proactively mitigate disease outbreaks and optimize the allocation of public health resources. Features automated retraining policies and walk-forward validation for high-accuracy forecasting. Containerized and deployed via FastAPI for seamless integration into real-time operational workflows.",
       stack: [
         { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
         { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna", color: "#1F77B4" },
@@ -305,7 +305,7 @@ export const en = {
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Architected an AI-driven recruitment platform that transcends keyword matching to intelligently connect talent with job opportunities. Leverages LLMs (Gemini), vector search, and autonomous AI agents for semantic role classification and compatibility scoring. Built to enhance HR efficiency and user engagement, deployed on Google Cloud Run.",
+      content: "AI-driven talent acquisition platform leveraging LLMs and vector search to automate role classification and candidate scoring. Significantly reduces time-to-hire and improves match quality through autonomous AI agents. Highly scalable architecture deployed on Google Cloud Run to maximize HR operational efficiency.",
       stack: [
         { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
         { id: "t-2", icon: RiGeminiFill, name: "Gemini + Google ADK", color: "#8E75B2" },
@@ -322,7 +322,7 @@ export const en = {
       title: "Statistical Research & Analysis",
       github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
       image: commonIcons.investigacion,
-      content: "Led in-depth statistical research projects targeting business intelligence and econometric modeling. Topics include Consumer Credit Demand, Bayesian Logistic Regression, and Heteroscedasticity Analysis. Translated complex mathematical insights into strategic recommendations.",
+      content: "Data-driven research initiatives focusing on econometric modeling and consumer behavior. Translated complex statistical analyses (Bayesian Regression, Credit Demand) into strategic, actionable business recommendations for optimized financial decision-making.",
       stack: [
         { id: "s-1", icon: SiR, name: "R", color: "#276DC3" },
         { id: "s-2", icon: SiPython, name: "Python", color: "#3776AB" }
@@ -337,9 +337,9 @@ export const en = {
   ],
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
+    tagLine: "Machine Learning Engineer | MLOps Specialist",
     phone: "+51 910 049 106",
-    intro: "I am a Statistics student and aspiring Machine Learning Engineer passionate about transforming business problems into end-to-end data solutions. My approach starts with deeply understanding business needs to ask the right analytical questions, model the data, and deliver actionable results. I combine my quantitative rigor with MLOps best practices (FastAPI, Docker, CI/CD) to take models beyond experimentation, building scalable and maintainable products. I am currently seeking an internship where I can contribute to Advanced Analytics and ML teams to drive real-world impact."
+    intro: "Machine Learning Engineer specialized in MLOps and scalable AI solutions. I bridge the gap between statistical modeling and production by architecting robust data pipelines and deploying models that drive measurable business value. My expertise lies in automating ML lifecycles (CI/CD, Docker, MLflow, FastAPI) and translating complex data into actionable decision-intelligence systems."
   }
 };
 
@@ -405,7 +405,7 @@ export const es = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Desarrollé una plataforma end-to-end de Machine Learning a nivel bancario para la evaluación de riesgo crediticio, diseñada para optimizar la aprobación de préstamos. Implementa benchmarking riguroso (XGBoost, LightGBM) y un pipeline completo de MLOps (MLflow, FastAPI, Prefect, CI/CD). Integra SHAP para explicabilidad regulatoria y monitoreo de drift para garantizar la fiabilidad del modelo en el tiempo.",
+      content: "Plataforma MLOps end-to-end para la evaluación automatizada de riesgo crediticio, diseñada para reducir drásticamente los tiempos de revisión y optimizar la aprobación de préstamos. Arquitectura basada en XGBoost/LightGBM con pipelines CI/CD y MLflow. Integra explicabilidad (SHAP) y monitoreo de data drift para garantizar cumplimiento regulatorio y retorno de inversión sostenido.",
       stack: en.projects[0].stack
     },
     {
@@ -413,7 +413,7 @@ export const es = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Ingeniería de un Sistema de Alerta Temprana con ML para predecir y mitigar brotes de malaria por distrito. Diseñada para respaldar la toma de decisiones en salud pública, la plataforma utiliza LightGBM, políticas de reentrenamiento automático y validación walk-forward para garantizar predicciones precisas. Totalmente contenerizada y desplegada con FastAPI y MLflow para un uso ágil en producción.",
+      content: "Sistema predictivo ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. Implementa políticas de reentrenamiento automático y validación walk-forward para máxima precisión. Completamente contenerizado y desplegado vía FastAPI para integrarse de manera fluida en flujos operativos y de toma de decisiones en tiempo real.",
       stack: en.projects[1].stack
     },
     {
@@ -422,7 +422,7 @@ export const es = {
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Arquitectura de una plataforma de reclutamiento impulsada por IA que trasciende la búsqueda por palabras clave para conectar talento con oportunidades laborales de forma inteligente. Utiliza LLMs (Gemini), búsqueda vectorial y agentes autónomos para la clasificación semántica y scoring de compatibilidad. Creada para maximizar la eficiencia de RRHH y la retención de usuarios, desplegada en Google Cloud Run.",
+      content: "Plataforma de reclutamiento impulsada por IA (LLMs y búsqueda vectorial) para automatizar la clasificación de roles y scoring de candidatos. Reduce considerablemente el tiempo de contratación y mejora la calidad del match mediante agentes autónomos. Arquitectura escalable desplegada en Google Cloud Run para maximizar la rentabilidad y eficiencia operativa de RRHH.",
       stack: en.projects[2].stack
     },
     {
@@ -430,16 +430,16 @@ export const es = {
       title: "Investigación Estadística y Análisis",
       github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
       image: commonIcons.investigacion,
-      content: "Lideré proyectos de investigación estadística profunda enfocados en inteligencia de negocios y modelamiento econométrico. Los temas incluyen Demanda de Crédito al Consumidor, Regresión Logística Bayesiana y Análisis de Heterocedasticidad. Traducción de insights matemáticos complejos en recomendaciones estratégicas claras.",
+      content: "Iniciativas de investigación basadas en datos centradas en modelamiento econométrico y comportamiento del consumidor. Traducción de análisis estadísticos complejos (Regresión Bayesiana, Demanda de Crédito) en recomendaciones de negocio estratégicas y accionables para la optimización de decisiones financieras.",
       stack: en.projects[3].stack
     }
   ],
   socialMedia: en.socialMedia,
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
+    tagLine: "Machine Learning Engineer | MLOps Specialist",
     phone: "+51 910 049 106",
-    intro: "Soy estudiante de Estadística enfocado en Machine Learning y MLOps, con la convicción de que los datos deben resolver problemas de negocio reales. Mi metodología inicia comprendiendo la necesidad operativa para plantear preguntas analíticas, explorar modelos y construir soluciones accionables end-to-end. Combino mi rigor cuantitativo con ingeniería de software (FastAPI, Docker, CI/CD) para llevar los modelos más allá de la experimentación y convertirlos en productos mantenibles. Busco aportar valor como Intern en equipos de Advanced Analytics y ML para escalar soluciones de alto impacto."
+    intro: "Machine Learning Engineer especializado en MLOps e Inteligencia Artificial escalable. Conecto el modelamiento estadístico con entornos de producción mediante la arquitectura de pipelines robustos y el despliegue de modelos que generan un ROI medible para el negocio. Mi enfoque está en automatizar el ciclo de vida del ML (CI/CD, Docker, MLflow, FastAPI) y traducir datos complejos en sistemas de toma de decisiones estratégicas."
   }
 };
 
