@@ -4,19 +4,24 @@ import data from "../constants/data";
 import { layout } from "../style";
 import { motion } from "framer-motion";
 import { BsLink45Deg } from "react-icons/bs";
+import MLOpsMonitoring from "./MLOpsMonitoring";
+import MLArchitecture from "./MLArchitecture";
 
-export const SkillIcon = ({ icon, name }) => {
+export const SkillIcon = ({ icon, name, color }) => {
   const { i18n } = useTranslation();
   const lang = i18n.language?.split('-')[0] || 'en';
   const currentData = data[lang] || data.en;
   const { skills, experiences } = currentData;
 
   return (
-    <div className="flex flex-col items-center text-center">
-      <span className="text-white text-[28px] hover:text-teal-200">
+    <div className="flex flex-col items-center text-center group cursor-default">
+      <span 
+        className="text-[28px] transition-transform duration-300 group-hover:scale-125"
+        style={{ color: color || "#4b5563" }}
+      >
         {React.createElement(icon)}
       </span>
-      <p className="font-poppins text-dimWhite text-[11px] mt-2 break-words w-full leading-tight">{name}</p>
+      <p className="font-poppins text-gray-600 text-[11px] mt-2 break-words w-full leading-tight group-hover:text-gray-900 transition-colors">{name}</p>
     </div>
   );
 };
@@ -116,12 +121,13 @@ const SkillsAndExperience = () => {
   const { skills, experiences } = currentData;
 
   return (
-    <section id="skills" className="mb-12">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
+    <section id="skills" className="mb-12 w-full">
+      <h1 className="flex-1 font-poppins font-light ss:text-[55px] text-[45px] text-gray-800 ss:leading-[80px] leading-[80px] mb-8">
         {lang === 'es' ? 'Habilidades y Experiencia' : 'Skills & Experience'}
       </h1>
+
       <div
-        className={layout.section}
+        className={`${layout.section} items-start`}
       >
         {/* Skills */}
         <motion.div className={`ml-2 mb-6 ${layout.sectionInfo}`}>
@@ -131,7 +137,7 @@ const SkillsAndExperience = () => {
         </motion.div>
 
         {/* Experience */}
-        <motion.div className="flex flex-1 items-center justify-start flex-col">
+        <motion.div className="flex flex-1 items-start justify-start flex-col">
           {experiences.map((exp, index) => (
             <ExperienceCard key={index} index={index} {...exp} />
           ))}

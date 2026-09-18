@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import data from "../constants/data";
 import { AiFillGithub } from "react-icons/ai";
 import { BsLink45Deg } from "react-icons/bs";
@@ -7,32 +7,30 @@ import { BsLink45Deg } from "react-icons/bs";
 const Project = (props) => {
   const { i18n } = useTranslation();
   const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
-  const { projects } = currentData;
-
+  
   return (
-    <div className="project-card flex-shrink-0 px-8 py-6 transition-colors duration-300 transform border rounded-xl hover:border-transparent group dark:border-gray-700 dark:hover:border-transparent feature-card w-[320px] sm:w-[400px] md:w-[500px] mr-6 sm:mr-8 md:mr-10">
+    <div className="project-card flex-shrink-0 px-8 py-6 transition-colors duration-300 transform border rounded-xl hover:border-transparent group border-gray-200 hover:shadow-utopia feature-card w-[300px] sm:w-[400px] md:w-[450px] snap-center bg-white/50 backdrop-blur-sm">
       <div className="flex flex-col items-start">
         <img
-          className="flex-shrink-0 object-cover w-20 h-20 rounded-full ring-4 ring-gray-300"
+          className="flex-shrink-0 object-cover w-20 h-20 rounded-full ring-4 ring-gray-100"
           src={props.image}
           alt=""
         />
 
         <div className="mt-4 w-full">
-          <h1 className="text-xl font-semibold font-poppins text-gray-700 capitalize md:text-2xl group-hover:text-white text-gradient leading-tight break-words">
+          <h1 className="text-xl font-semibold font-poppins text-gray-800 capitalize md:text-2xl text-gradient leading-tight break-words">
             {props.title}
           </h1>
           <p className="font-poppins font-normal text-dimWhite mt-3 mb-2">
             Tech Stack
           </p>
-          <div className="text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+          <div className="text-gray-500 capitalize group-hover:text-gray-700">
             <div className="flex flex-wrap gap-4">
-              {props.stack.map((tech, index) => (
+              {props.stack.map((tech) => (
                 <div
                   key={tech.id}
-                  index={index}
-                  className="text-dimWhite text-[20px] hover:text-teal-200 tooltip"
+                  className="text-[20px] tooltip transition-transform duration-300 hover:scale-125"
+                  style={{ color: tech.color || "#4b5563" }}
                 >
                   {React.createElement(tech.icon)}
                   <span className="tooltiptext">{tech.name}</span>
@@ -43,30 +41,26 @@ const Project = (props) => {
         </div>
       </div>
 
-      <p className="mt-6 text-gray-500 dark:text-gray-300 group-hover:text-gray-300 font-poppins break-words">
+      <p className="mt-6 text-gray-600 font-poppins break-words leading-relaxed">
         {props.content}
       </p>
 
-      <div className="flex mt-4 -mx-2">
-        {props.github ? (
-          <a href={props.github} target="_blank">
+      <div className="flex mt-6 gap-4">
+        {props.github && (
+          <a href={props.github} target="_blank" rel="noreferrer">
             <AiFillGithub
               size="2rem"
-              className="text-white mr-1 hover:text-teal-200"
+              className="text-gray-700 hover:text-[#00b4d8] transition-colors"
             />
           </a>
-        ) : (
-          ""
         )}
-        {props.link ? (
-          <a href={props.link} target="_blank">
+        {props.link && (
+          <a href={props.link} target="_blank" rel="noreferrer">
             <BsLink45Deg
               size="2rem"
-              className="text-white hover:text-teal-200"
-            ></BsLink45Deg>
+              className="text-gray-700 hover:text-[#00b4d8] transition-colors"
+            />
           </a>
-        ) : (
-          ""
         )}
       </div>
     </div>
@@ -78,89 +72,60 @@ const Projects = () => {
   const lang = i18n.language?.split('-')[0] || 'en';
   const currentData = data[lang] || data.en;
   const { projects } = currentData;
-  const [currentIndex, setCurrentIndex] = useState(0); // State to track current carousel position
-  const [cardTotalWidth, setCardTotalWidth] = useState(0); // State to store total width of each card (width + margin) for scroll calculations
-  const containerRef = useRef(null);
+  const carouselRef = useRef(null);
 
-  // Calculate card width on mount and window resize for responsive carousel
-  useEffect(() => {
-    const updateCardWidth = () => {
-      if (containerRef.current) {
-        const card = containerRef.current.querySelector(".project-card");
-        if (card) {
-          const cardWidth = card.offsetWidth;
-          const cardMargin = parseInt(
-            window.getComputedStyle(card).marginRight,
-            10
-          );
-          setCardTotalWidth(cardWidth + cardMargin);
-        }
-      }
-    };
-    updateCardWidth();
-    window.addEventListener("resize", updateCardWidth);
-    return () => {
-      window.removeEventListener("resize", updateCardWidth);
-    };
-  }, []);
-
-  // Navigation handlers
-  const handleNext = () => {
-    if (currentIndex < projects.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -400, behavior: 'smooth' });
     }
   };
 
-  // Navigate to previous project card
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 400, behavior: 'smooth' });
     }
   };
-
-  const isNextDisabled = currentIndex >= projects.length - 1;
-  const isPrevDisabled = currentIndex === 0;
 
   return (
-    <section id="projects" className="overflow-hidden">
-      <h1 className="flex-1 font-poppins font-semibold ss:text-[55px] text-[45px] text-white ss:leading-[80px] leading-[80px]">
-        Projects
+    <section id="projects" className="w-full">
+      <h1 className="flex-1 font-poppins font-light ss:text-[55px] text-[45px] text-gray-800 ss:leading-[80px] leading-[80px] mb-8">
+        {lang === 'es' ? 'Proyectos' : 'Projects'}
       </h1>
 
-      <div className="container px-2 py-14 mx-auto mb-8">
-        <div className="overflow-hidden">
-          <div
-            ref={containerRef}
-            className="flex transition-transform duration-500 ease-in-out mb-8"
-            style={{
-              transform: `translateX(-${currentIndex * cardTotalWidth}px)`,
-            }}
+      <div className="relative w-full mb-16">
+        {/* Carousel Container */}
+        <div 
+          ref={carouselRef}
+          className="flex overflow-x-auto gap-6 pb-8 pt-4 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {projects.map((project) => (
+            <Project key={project.id} {...project} />
+          ))}
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex justify-end gap-4 mt-2 pr-4">
+          <button
+            onClick={scrollLeft}
+            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-[#00b4d8] hover:text-white hover:border-[#00b4d8] transition-all shadow-sm"
           >
-            {/* Render all project cards */}
-            {projects.map((project, index) => (
-              <Project key={project.id} index={index} {...project} />
-            ))}
-          </div>
-          <div className="flex justify-end mb-8">
-            {/* Navigation buttons */}
-            <button
-              onClick={handlePrev}
-              disabled={isPrevDisabled}
-              // p-2 bg-gray-700 rounded-full disabled:opacity-50 mx-2 hover:bg-gray-600 transition-colors
-              className="p-2 bg-gray-700 rounded-full disabled:opacity-50 mx-2 hover:bg-gray-600 transition-colors text-white"
-            >
-              &lt;
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={isNextDisabled}
-              className="p-2 bg-gray-700 rounded-full disabled:opacity-50 mx-2 hover:bg-gray-600 transition-colors text-white"
-            >
-              &gt;
-            </button>
-          </div>
+            &lt;
+          </button>
+          <button
+            onClick={scrollRight}
+            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-[#00b4d8] hover:text-white hover:border-[#00b4d8] transition-all shadow-sm"
+          >
+            &gt;
+          </button>
         </div>
       </div>
+
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };

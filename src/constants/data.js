@@ -16,6 +16,7 @@ import data_research_icon from "../assets/data_research_icon.jpg";
 import ai_cert_icon from "../assets/ai_cert_icon.jpg";
 import python_coding_icon from "../assets/python_coding_icon.jpg";
 import investigacion from "../assets/investigacion.avif";
+import devpost_icon from "../assets/Devpost.webp";
 
 // Real institution/company photos
 import realml_new from "../assets/realml_new.jpg";
@@ -47,62 +48,62 @@ const skills_en = [
   {
     title: "Languages & Tools",
     items: [
-      { id: "s-1", icon: SiPython, name: "Python" },
-      { id: "s-2", icon: SiR, name: "R" },
-      { id: "s-3", icon: FaDatabase, name: "SQL" },
-      { id: "s-4", icon: SiPostgresql, name: "PostgreSQL" },
-      { id: "s-5", icon: FaChartBar, name: "Power BI" },
-      { id: "s-6", icon: FaCogs, name: "PySpark" }
+      { id: "s-1", icon: SiPython, name: "Python", color: "#3776AB" },
+      { id: "s-2", icon: SiR, name: "R", color: "#276DC3" },
+      { id: "s-3", icon: FaDatabase, name: "SQL", color: "#336791" },
+      { id: "s-4", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+      { id: "s-5", icon: FaChartBar, name: "Power BI", color: "#F2C811" },
+      { id: "s-6", icon: FaCogs, name: "PySpark", color: "#E25A1C" }
     ]
   },
   {
     title: "Machine Learning & Deep Learning",
     items: [
-      { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn" },
-      { id: "s-8", icon: FaBrain, name: "Gradient Boosting" },
-      { id: "s-9", icon: SiTensorflow, name: "TensorFlow & Keras" },
-      { id: "s-10", icon: SiPytorch, name: "PyTorch" },
-      { id: "s-11", icon: FaChartLine, name: "Time Series & NLP" },
-      { id: "s-12", icon: BsGraphUp, name: "Computer Vision" }
+      { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
+      { id: "s-8", icon: FaBrain, name: "Gradient Boosting", color: "#1F77B4" },
+      { id: "s-9", icon: SiTensorflow, name: "TensorFlow & Keras", color: "#FF6F00" },
+      { id: "s-10", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
+      { id: "s-11", icon: FaChartLine, name: "Time Series & NLP", color: "#6C5B7B" },
+      { id: "s-12", icon: BsGraphUp, name: "Computer Vision", color: "#355C7D" }
     ]
   },
   {
     title: "Generative AI & LLMs",
     items: [
-      { id: "s-13", icon: FaRobot, name: "Gen AI & LLMs" },
-      { id: "s-14", icon: SiOpenai, name: "OpenAI & Gemini" },
-      { id: "s-15", icon: FaCogs, name: "RAG & MCP" },
-      { id: "s-16", icon: FaDatabase, name: "Vector Search" },
-      { id: "s-17", icon: FaBrain, name: "AI Agents" },
-      { id: "s-18", icon: FaCogs, name: "Embeddings" }
+      { id: "s-13", icon: FaRobot, name: "Gen AI & LLMs", color: "#FF007F" },
+      { id: "s-14", icon: SiOpenai, name: "OpenAI & Gemini", color: "#10A37F" },
+      { id: "s-15", icon: FaCogs, name: "RAG & MCP", color: "#00C4B6" },
+      { id: "s-16", icon: FaDatabase, name: "Vector Search", color: "#5B2C6F" },
+      { id: "s-17", icon: FaBrain, name: "AI Agents", color: "#F39C12" },
+      { id: "s-18", icon: FaCogs, name: "Embeddings", color: "#2980B9" }
     ]
   },
   {
     title: "MLOps & Data Engineering",
     items: [
-      { id: "s-19", icon: FaCogs, name: "MLOps & MLflow" },
-      { id: "s-20", icon: FaChartLine, name: "SHAP & Drift Detection" },
-      { id: "s-21", icon: FaDatabase, name: "Model Registry" },
-      { id: "s-22", icon: SiFastapi, name: "FastAPI & Pydantic" },
-      { id: "s-23", icon: FaCogs, name: "Prefect & ETL/ELT" }
+      { id: "s-19", icon: FaCogs, name: "MLOps & MLflow", color: "#0194E2" },
+      { id: "s-20", icon: FaChartLine, name: "SHAP & Drift Detection", color: "#FF2B2B" },
+      { id: "s-21", icon: FaDatabase, name: "Model Registry", color: "#138D75" },
+      { id: "s-22", icon: SiFastapi, name: "FastAPI & Pydantic", color: "#009688" },
+      { id: "s-23", icon: FaCogs, name: "Prefect & ETL/ELT", color: "#0052FF" }
     ]
   },
   {
     title: "Cloud & DevOps",
     items: [
-      { id: "s-24", icon: FaAws, name: "AWS, Azure, GCP" },
-      { id: "s-25", icon: SiDocker, name: "Docker & K8s" },
-      { id: "s-26", icon: SiGit, name: "Git & GitHub Actions" },
-      { id: "s-27", icon: FaCogs, name: "CI/CD" }
+      { id: "s-24", icon: FaAws, name: "AWS, Azure, GCP", color: "#FF9900" },
+      { id: "s-25", icon: SiDocker, name: "Docker & K8s", color: "#2496ED" },
+      { id: "s-26", icon: SiGit, name: "Git & GitHub Actions", color: "#F05032" },
+      { id: "s-27", icon: FaCogs, name: "CI/CD", color: "#2088FF" }
     ]
   },
   {
     title: "Metrics, Eval & Soft Skills",
     items: [
-      { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS" },
-      { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation" },
-      { id: "s-30", icon: FaBrain, name: "Analytical Thinking" },
-      { id: "s-31", icon: FaCogs, name: "Problem Solving & Scrum" }
+      { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
+      { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation", color: "#9C27B0" },
+      { id: "s-30", icon: FaBrain, name: "Analytical Thinking", color: "#E67E22" },
+      { id: "s-31", icon: FaCogs, name: "Problem Solving & Scrum", color: "#34495E" }
     ]
   }
 ];
@@ -114,10 +115,10 @@ const skills_es = [
   { ...skills_en[3], title: "MLOps & Data Engineering" },
   { ...skills_en[4], title: "Cloud y DevOps" },
   { ...skills_en[5], title: "Métricas, Eval y Soft Skills", items: [
-    { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS" },
-    { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation" },
-    { id: "s-30", icon: FaBrain, name: "Pensamiento Analítico" },
-    { id: "s-31", icon: FaCogs, name: "Resolución de Problemas y Scrum" }
+    { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
+    { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation", color: "#9C27B0" },
+    { id: "s-30", icon: FaBrain, name: "Pensamiento Analítico", color: "#E67E22" },
+    { id: "s-31", icon: FaCogs, name: "Resolución de Problemas y Scrum", color: "#34495E" }
   ]}
 ];
 
@@ -224,35 +225,35 @@ export const en = {
           title: "Founder & CEO",
           duration: "Mar 2026 - Present",
           content: [
-            { text: "Founder of RealML, an applied machine learning initiative focused on building data-driven products and intelligent systems that solve real-world business and operational problems." },
-            { text: "I lead the development of machine learning and decision intelligence solutions, combining statistical modeling, predictive analytics, and AI to transform data into actionable insights." },
-            { text: "Current focus areas include: Risk modeling, Predictive analytics, ML systems and MLOps, AI-powered products, Optimization." }
+            { text: "Founded and lead RealML, an applied Machine Learning initiative dedicated to architecting data-driven products that address concrete business challenges and improve user experiences." },
+            { text: "Spearhead the end-to-end development of decision intelligence systems, translating raw data into scalable AI solutions that generate measurable value and optimize operational workflows." },
+            { text: "Core expertise: Risk Modeling, Predictive Analytics, MLOps, AI-Powered Products, and Business Process Optimization." }
           ]
         }
       ]
     },
     {
-      organisation: "Municipalidad (Áncash, Perú)",
+      organisation: "Municipalidad",
       logo: commonIcons.municipalidad,
       positions: [
         {
           title: "Human Resources Assistant",
           duration: "2024 (3 months)",
           content: [
-            { text: "Processed and organized personnel data (payrolls, attendance, administrative records) using Excel, coordinating with different internal areas and ensuring institutional information confidentiality." }
+            { text: "Optimized personnel data management (payrolls, attendance, administrative records) using advanced Excel workflows, streamlining inter-departmental communication and ensuring strict data confidentiality." }
           ]
         }
       ]
     },
     {
-      organisation: "Mebol (Food Industry)",
+      organisation: "Mebol",
       logo: commonIcons.mebol_new,
       positions: [
         {
           title: "Warehouse Manager",
           duration: "2023 - 2024 (1 year)",
           content: [
-            { text: "Managed inventory control using Excel and SQL, implementing structured tracking tables that improved information traceability." }
+            { text: "Led inventory control and supply chain tracking using SQL and Excel. Designed and implemented structured data pipelines that significantly improved inventory traceability and reduced operational bottlenecks." }
           ]
         }
       ]
@@ -265,18 +266,18 @@ export const en = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "End-to-end credit risk ML platform simulating a bank-grade production flow. Benchmarks LR, XGBoost, LightGBM & CatBoost with ROC-AUC, PR-AUC, Gini, KS. Includes MLflow tracking, FastAPI serving, PostgreSQL storage, Prefect orchestration, SHAP explainability, drift monitoring and CI/CD with Docker & GitHub Actions.",
+      content: "Developed a bank-grade, end-to-end Machine Learning platform for credit risk assessment to optimize loan approval processes. Features rigorous model benchmarking (XGBoost, LightGBM) and a robust MLOps pipeline (MLflow, FastAPI, Prefect, Docker, CI/CD). Integrates SHAP for regulatory explainability and data drift monitoring to ensure long-term model reliability.",
       stack: [
-        { id: "t-1", icon: SiPython, name: "Python" },
-        { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting" },
-        { id: "t-3", icon: SiMlflow, name: "MLflow" },
-        { id: "t-4", icon: SiFastapi, name: "FastAPI" },
-        { id: "t-5", icon: SiPostgresql, name: "PostgreSQL" },
-        { id: "t-6", icon: SiPrefect, name: "Prefect" },
-        { id: "t-7", icon: FaEye, name: "SHAP" },
-        { id: "t-8", icon: SiDocker, name: "Docker" },
-        { id: "t-9", icon: SiGithubactions, name: "GitHub Actions / CI-CD" },
-        { id: "t-10", icon: SiStreamlit, name: "Streamlit" }
+        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
+        { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting", color: "#F7931E" },
+        { id: "t-3", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
+        { id: "t-4", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+        { id: "t-5", icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
+        { id: "t-6", icon: SiPrefect, name: "Prefect", color: "#0052FF" },
+        { id: "t-7", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
+        { id: "t-8", icon: SiDocker, name: "Docker", color: "#2496ED" },
+        { id: "t-9", icon: SiGithubactions, name: "GitHub Actions / CI-CD", color: "#2088FF" },
+        { id: "t-10", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
       ]
     },
     {
@@ -284,59 +285,60 @@ export const en = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "ML platform for early detection of malaria spikes and outbreak risk alerts by district and epidemiological week. Implements LightGBM + Optuna, MLflow, SHAP, FastAPI, Evidently for drift monitoring, walk-forward validation, and a performance-based retraining policy. Full Docker + CI reproducibility.",
+      content: "Engineered an Early Warning ML System to predict and mitigate malaria outbreaks across districts. Designed to support public health decision-making, the platform uses LightGBM, automated retraining policies, and walk-forward validation to guarantee accurate forecasting. Fully containerized and deployed with FastAPI and MLflow for seamless production use.",
       stack: [
-        { id: "t-1", icon: SiPython, name: "Python" },
-        { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna" },
-        { id: "t-3", icon: SiMlflow, name: "MLflow" },
-        { id: "t-4", icon: FaEye, name: "SHAP" },
-        { id: "t-5", icon: SiFastapi, name: "FastAPI" },
-        { id: "t-6", icon: FaFire, name: "Evidently (Drift)" },
-        { id: "t-7", icon: FaChartLine, name: "Feature Engineering Temporal" },
-        { id: "t-8", icon: SiDocker, name: "Docker" },
-        { id: "t-9", icon: SiGithubactions, name: "CI / GitHub Actions" }
+        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
+        { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna", color: "#1F77B4" },
+        { id: "t-3", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
+        { id: "t-4", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
+        { id: "t-5", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+        { id: "t-6", icon: FaFire, name: "Evidently (Drift)", color: "#E25A1C" },
+        { id: "t-7", icon: FaChartLine, name: "Feature Engineering Temporal", color: "#6C5B7B" },
+        { id: "t-8", icon: SiDocker, name: "Docker", color: "#2496ED" },
+        { id: "t-9", icon: SiGithubactions, name: "CI / GitHub Actions", color: "#2088FF" }
       ]
     },
     {
       id: "proj-3",
-      title: "Rumbo - AI Agent Recruitment Matching Platform",
+      title: "Rumbo - AI Agent Recruitment Platform",
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Professional matching platform using AI to connect profiles with job opportunities beyond keyword matching. Semantic role classification, structured requirements extraction, vector search, AI agents for compatibility scoring, gap roadmap generation, and progressive consent for personal data. Deployed on Google Cloud Run.",
+      content: "Architected an AI-driven recruitment platform that transcends keyword matching to intelligently connect talent with job opportunities. Leverages LLMs (Gemini), vector search, and autonomous AI agents for semantic role classification and compatibility scoring. Built to enhance HR efficiency and user engagement, deployed on Google Cloud Run.",
       stack: [
-        { id: "t-1", icon: SiPython, name: "Python" },
-        { id: "t-2", icon: RiGeminiFill, name: "Gemini + Google ADK" },
-        { id: "t-3", icon: FaRobot, name: "AI Agents" },
-        { id: "t-4", icon: FaDatabase, name: "Embeddings + Vector Search" },
-        { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic" },
-        { id: "t-6", icon: SiReact, name: "React + Vite" },
-        { id: "t-7", icon: TbBrandFirebase, name: "Firestore (Vector DB)" },
-        { id: "t-8", icon: SiGooglecloud, name: "Google Cloud Run" }
+        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
+        { id: "t-2", icon: RiGeminiFill, name: "Gemini + Google ADK", color: "#8E75B2" },
+        { id: "t-3", icon: FaRobot, name: "AI Agents", color: "#F39C12" },
+        { id: "t-4", icon: FaDatabase, name: "Embeddings + Vector Search", color: "#5B2C6F" },
+        { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic", color: "#009688" },
+        { id: "t-6", icon: SiReact, name: "React + Vite", color: "#61DAFB" },
+        { id: "t-7", icon: TbBrandFirebase, name: "Firestore (Vector DB)", color: "#FFCA28" },
+        { id: "t-8", icon: SiGooglecloud, name: "Google Cloud Run", color: "#4285F4" }
       ]
     },
     {
       id: "proj-4",
-      title: "Proyectos-de-Investigacion",
+      title: "Statistical Research & Analysis",
       github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
       image: commonIcons.investigacion,
-      content: "Proyectos con documentación: Análisis del Problema de Heterocedasticidad, Consumer Credit Demand, Regresión Logística Bayesiana, etc.",
+      content: "Led in-depth statistical research projects targeting business intelligence and econometric modeling. Topics include Consumer Credit Demand, Bayesian Logistic Regression, and Heteroscedasticity Analysis. Translated complex mathematical insights into strategic recommendations.",
       stack: [
-        { id: "s-1", icon: SiR, name: "R" },
-        { id: "s-2", icon: SiPython, name: "Python" }
+        { id: "s-1", icon: SiR, name: "R", color: "#276DC3" },
+        { id: "s-2", icon: SiPython, name: "Python", color: "#3776AB" }
       ]
     }
   ],
   socialMedia: [
     { id: "sm-1", icon: commonIcons.AiFillLinkedin, link: "https://www.linkedin.com/in/wilder-eslu/" },
     { id: "sm-2", icon: commonIcons.AiFillGithub, link: "https://github.com/wilder14-eslu" },
-    { id: "sm-3", icon: commonIcons.AiFillMail, link: "mailto:esluwilder@gmail.com" }
+    { id: "sm-3", icon: commonIcons.AiFillMail, link: "mailto:esluwilder@gmail.com" },
+    { id: "sm-4", img: devpost_icon, link: "https://devpost.com/wilder14-eslu?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" }
   ],
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
     tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
     phone: "+51 910 049 106",
-    intro: "I am a Statistics student focused on Data Science, Advanced Analytics, Machine Learning and MLOps, interested in transforming business problems into data-driven solutions."
+    intro: "I am a Statistics student and aspiring Machine Learning Engineer passionate about transforming business problems into end-to-end data solutions. My approach starts with deeply understanding business needs to ask the right analytical questions, model the data, and deliver actionable results. I combine my quantitative rigor with MLOps best practices (FastAPI, Docker, CI/CD) to take models beyond experimentation, building scalable and maintainable products. I am currently seeking an internship where I can contribute to Advanced Analytics and ML teams to drive real-world impact."
   }
 };
 
@@ -361,35 +363,35 @@ export const es = {
           title: "Founder & CEO",
           duration: "Mar 2026 - Actualidad",
           content: [
-            { text: "Fundé y dirijo RealML, iniciativa personal de investigación aplicada en Machine Learning enfocada en construir productos basados en datos." },
-            { text: "Lidero el desarrollo de soluciones de riesgo, analítica predictiva y sistemas de Machine Learning." },
-            { text: "Áreas de enfoque: Modelamiento de riesgo, analítica predictiva, sistemas de ML y MLOps, productos impulsados por IA." }
+            { text: "Fundador y líder de RealML, iniciativa de Machine Learning aplicado dedicada a la arquitectura de productos de datos que resuelven desafíos de negocio reales y mejoran la experiencia del usuario." },
+            { text: "Dirijo el desarrollo end-to-end de sistemas de inteligencia de decisiones, transformando datos crudos en soluciones de IA escalables que generan valor medible y optimizan flujos operativos." },
+            { text: "Áreas clave: Modelamiento de Riesgos, Analítica Predictiva, MLOps, Productos impulsados por IA y Optimización de Procesos." }
           ]
         }
       ]
     },
     {
-      organisation: "Municipalidad (Áncash, Perú)",
+      organisation: "Municipalidad",
       logo: commonIcons.municipalidad,
       positions: [
         {
           title: "Auxiliar de Recursos Humanos",
           duration: "2024 (3 meses)",
           content: [
-            { text: "Procesé y organicé datos de personal (planillas, asistencia, registros administrativos) en Excel, coordinando con distintas áreas internas y asegurando la confidencialidad de la información institucional." }
+            { text: "Optimicé la gestión de datos de personal (planillas, asistencia, registros administrativos) mediante flujos de trabajo avanzados en Excel, agilizando la comunicación interdepartamental y garantizando una estricta confidencialidad." }
           ]
         }
       ]
     },
     {
-      organisation: "Mebol. Industria alimentaria.",
+      organisation: "Mebol",
       logo: commonIcons.mebol_new,
       positions: [
         {
           title: "Encargado de Almacén",
           duration: "2023 a 2024 (1 año)",
           content: [
-            { text: "Administré el control de inventarios mediante Excel y SQL, implementando tablas de seguimiento estructuradas que mejoraron la trazabilidad de la información." }
+            { text: "Lideré el control de inventario y el seguimiento logístico utilizando SQL y Excel. Diseñé e implementé pipelines de datos estructurados que mejoraron significativamente la trazabilidad del inventario y redujeron cuellos de botella operativos." }
           ]
         }
       ]
@@ -402,7 +404,7 @@ export const es = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Plataforma de riesgo crediticio end-to-end que simula un flujo cercano a producción en una institución financiera. Benchmark de LR, XGBoost, LightGBM y CatBoost con ROC-AUC, PR-AUC, Gini, KS. MLflow, FastAPI, PostgreSQL, Prefect, SHAP, monitoreo de drift y CI/CD con Docker y GitHub Actions.",
+      content: "Desarrollé una plataforma end-to-end de Machine Learning a nivel bancario para la evaluación de riesgo crediticio, diseñada para optimizar la aprobación de préstamos. Implementa benchmarking riguroso (XGBoost, LightGBM) y un pipeline completo de MLOps (MLflow, FastAPI, Prefect, CI/CD). Integra SHAP para explicabilidad regulatoria y monitoreo de drift para garantizar la fiabilidad del modelo en el tiempo.",
       stack: en.projects[0].stack
     },
     {
@@ -410,24 +412,24 @@ export const es = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Plataforma de ML para detección temprana de incrementos de malaria y generación de alertas de riesgo por distrito y semana epidemiológica. LightGBM + Optuna, MLflow, SHAP, FastAPI, Evidently para drift, walk-forward validation y reentrenamiento basado en desempeño. Docker + CI para reproducibilidad.",
+      content: "Ingeniería de un Sistema de Alerta Temprana con ML para predecir y mitigar brotes de malaria por distrito. Diseñada para respaldar la toma de decisiones en salud pública, la plataforma utiliza LightGBM, políticas de reentrenamiento automático y validación walk-forward para garantizar predicciones precisas. Totalmente contenerizada y desplegada con FastAPI y MLflow para un uso ágil en producción.",
       stack: en.projects[1].stack
     },
     {
       id: "proj-3",
-      title: "Rumbo - AI Agent Recruitment Matching Platform",
+      title: "Rumbo - AI Agent Recruitment Platform",
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Plataforma de matching profesional con IA que conecta perfiles con oportunidades laborales más allá de palabras clave. Clasificación semántica de roles, extracción de requisitos, búsqueda vectorial, agentes de IA para compatibilidad, roadmap de brechas y consentimiento progresivo. Desplegado en Google Cloud Run.",
+      content: "Arquitectura de una plataforma de reclutamiento impulsada por IA que trasciende la búsqueda por palabras clave para conectar talento con oportunidades laborales de forma inteligente. Utiliza LLMs (Gemini), búsqueda vectorial y agentes autónomos para la clasificación semántica y scoring de compatibilidad. Creada para maximizar la eficiencia de RRHH y la retención de usuarios, desplegada en Google Cloud Run.",
       stack: en.projects[2].stack
     },
     {
       id: "proj-4",
-      title: "Proyectos de Investigación",
+      title: "Investigación Estadística y Análisis",
       github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
       image: commonIcons.investigacion,
-      content: "Proyectos con documentación: Análisis del Problema de Heterocedasticidad, Consumer Credit Demand, Regresión Logística Bayesiana, etc.",
+      content: "Lideré proyectos de investigación estadística profunda enfocados en inteligencia de negocios y modelamiento econométrico. Los temas incluyen Demanda de Crédito al Consumidor, Regresión Logística Bayesiana y Análisis de Heterocedasticidad. Traducción de insights matemáticos complejos en recomendaciones estratégicas claras.",
       stack: en.projects[3].stack
     }
   ],
@@ -436,7 +438,7 @@ export const es = {
     name: "Wilder Gilmer Espinoza Luna",
     tagLine: "Statistics @ UNMSM | Machine Learning Engineer",
     phone: "+51 910 049 106",
-    intro: "Soy estudiante de Estadística enfocado en Data Science, Advanced Analytics, Machine Learning y MLOps, con interés en transformar problemas de negocio en soluciones basadas en datos que generen impacto y puedan llevarse a producción. Mi formación en Estadística me permite aportar una perspectiva cuantitativa, mientras que mi experiencia en desarrollo y MLOps me permite llevar soluciones analíticas hacia productos tecnológicos utilizables y mantenibles."
+    intro: "Soy estudiante de Estadística enfocado en Machine Learning y MLOps, con la convicción de que los datos deben resolver problemas de negocio reales. Mi metodología inicia comprendiendo la necesidad operativa para plantear preguntas analíticas, explorar modelos y construir soluciones accionables end-to-end. Combino mi rigor cuantitativo con ingeniería de software (FastAPI, Docker, CI/CD) para llevar los modelos más allá de la experimentación y convertirlos en productos mantenibles. Busco aportar valor como Intern en equipos de Advanced Analytics y ML para escalar soluciones de alto impacto."
   }
 };
 

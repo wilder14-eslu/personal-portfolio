@@ -1,8 +1,7 @@
 // styles is a prop
 import React from "react";
 const Button = ({ styles, text, icon }) => {
-  // Use the same teal as `.text-gradient` (`#82E8EB`) so the buttons match text styling.
-  const classNames = `py-3 px-4 bg-[#82E8EB] font-poppins font-medium text-[12px] text-primary outline-none ${styles ?? ''} rounded`
+  const classNames = `py-3 px-6 bg-gradient-to-r from-[#00b4d8] to-[#0077b6] font-poppins font-medium text-[14px] text-white shadow-md hover:shadow-lg hover:scale-105 transition-all outline-none ${styles ?? ''} rounded-full`
 
   return (
     icon ? (
