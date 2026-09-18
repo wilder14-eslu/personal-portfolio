@@ -16,6 +16,7 @@ import ml_project1 from './ml_project1.jpg';
 import parthmittal from "./profile.jpg";
 import profilePic from "./profile.jpg";
 import mlops_utopian from "./mlops_utopian.jpg";
+import professional_ml_engineer from "./professional_ml_engineer.jpg";
 
 // New real photos
 import duke from './duke.webp';
@@ -140,5 +141,6 @@ export {
   hackathon_curation_agent,
   kudos,
   web3_marketing_hackathon,
-  mlops_utopian
+  mlops_utopian,
+  professional_ml_engineer
 };

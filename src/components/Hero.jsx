@@ -44,53 +44,55 @@ const Hero = () => {
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-16 relative z-10`}
       >
         {/* Subtle Ambient Glow */}
-        <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] bg-gradient-to-tr from-cyan-100 to-blue-200 rounded-full blur-[80px] opacity-60"></div>
+        <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] bg-gradient-to-tr from-cyan-100 to-blue-200 rounded-full blur-[80px] opacity-60 z-0"></div>
         
         <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] flex items-center justify-center">
           
-          {/* Geometric Element 1: Rotating Dashed Ring */}
+          {/* Geometric Element 1: Rotating Dashed Ring (Symmetric) */}
           <motion.div 
             animate={{ rotate: 360 }} 
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-            className="absolute inset-0 rounded-full border-2 border-cyan-400/40 border-dashed"
+            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+            className="absolute inset-0 rounded-full border-2 border-cyan-400/40 border-dashed z-0"
           />
           
-          {/* Geometric Element 2: Rotating Rounded Square */}
+          {/* Geometric Element 2: Rotating Rounded Square (Symmetric) */}
           <motion.div 
             animate={{ rotate: -360 }} 
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            className="absolute inset-6 border-[1.5px] border-blue-400/30 rounded-[3rem]"
+            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+            className="absolute inset-4 border-[1.5px] border-blue-500/20 rounded-[3rem] z-0"
           />
 
-          {/* Geometric Element 3: Static Abstract Accents */}
-          <div className="absolute top-0 right-10 w-4 h-4 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"></div>
-          <div className="absolute bottom-10 left-4 w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50"></div>
-
-          {/* Floating Tech/Success Badges */}
+          {/* Geometric Element 3: Floating Triangle (Asymmetric) */}
           <motion.div 
-            animate={{ y: [-8, 8, -8] }} 
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-4 -left-4 sm:-left-10 bg-white/90 backdrop-blur shadow-xl rounded-xl px-4 py-2.5 border border-gray-100 flex items-center gap-3 z-20"
+            animate={{ y: [-15, 15, -15], rotate: [0, 20, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="absolute -top-4 -left-2 sm:-left-8 w-12 h-12 z-20"
           >
-            <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
-            <span className="font-poppins font-bold text-xs sm:text-sm text-gray-700 tracking-wide">Model Deployed</span>
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-cyan-400/80 drop-shadow-lg">
+              <polygon points="50,10 100,90 0,90" />
+            </svg>
           </motion.div>
 
+          {/* Geometric Element 4: Floating Dots Pattern (Asymmetric offset) */}
           <motion.div 
-            animate={{ y: [8, -8, 8] }} 
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-12 -right-4 sm:-right-8 bg-white/90 backdrop-blur shadow-xl rounded-xl px-4 py-2.5 border border-gray-100 flex items-center gap-2 z-20"
+            animate={{ y: [15, -15, 15], x: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-8 -right-6 sm:-right-12 z-20 grid grid-cols-3 gap-2 opacity-70"
           >
-            <span className="font-poppins font-bold text-sm sm:text-base text-cyan-600">ROI</span>
-            <div className="w-[1px] h-4 bg-gray-300 mx-1"></div>
-            <span className="font-poppins font-semibold text-xs sm:text-sm text-gray-600">Optimized</span>
+            {[...Array(9)].map((_, i) => (
+              <div key={i} className="w-2.5 h-2.5 bg-blue-500 rounded-full shadow-sm"></div>
+            ))}
           </motion.div>
 
-          {/* Actual Profile Picture */}
-          <div className="relative w-[230px] h-[230px] sm:w-[290px] sm:h-[290px] rounded-full overflow-hidden border-[6px] border-white shadow-2xl z-10 bg-gray-50">
+          {/* Geometric Element 5: Static Abstract Accents */}
+          <div className="absolute top-10 right-2 sm:right-6 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_10px_rgba(96,165,250,0.8)] z-20"></div>
+          <div className="absolute bottom-4 left-10 w-4 h-4 border-2 border-cyan-500 rotate-45 z-20"></div>
+
+          {/* Main Profile Picture */}
+          <div className="relative w-[230px] h-[230px] sm:w-[290px] sm:h-[290px] rounded-full overflow-hidden border-[8px] border-white shadow-2xl z-10 bg-gray-50">
             <img 
-              src={profilePic} 
-              alt="Wilder - ML Engineer" 
+              src={professional_ml_engineer} 
+              alt="Professional ML Engineer" 
               className="w-full h-full object-cover"
             />
           </div>
