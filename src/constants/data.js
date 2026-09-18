@@ -24,6 +24,7 @@ import mebol_new from "../assets/mebol_new.png";
 import municipalidad from "../assets/municipalidad.webp";
 import stanford_new from "../assets/stanford_new.webp";
 import unmsm_logo from "../assets/unmsm_logo.webp";
+import unmsm_university from "../assets/UNMSM.webp";
 import duke from "../assets/duke.webp";
 import google from "../assets/google.webp";
 import saylor from "../assets/saylor.webp";
@@ -40,7 +41,7 @@ const commonIcons = {
   ml_banking_icon, ai_health_icon, ai_hr_icon, data_research_icon, ai_cert_icon, python_coding_icon,
   // Real photos
   realml_new, mebol_new, municipalidad,
-  stanford_new, unmsm_logo,
+  stanford_new, unmsm_logo, unmsm_university,
   duke, google, saylor, university_michigan,
 };
 
@@ -133,7 +134,7 @@ export const en = {
   ],
   educationList: [
     {
-      id: "edu-1", icon: commonIcons.unmsm_logo,
+      id: "edu-1", icon: commonIcons.unmsm_university,
       title: "Universidad Nacional Mayor de San Marcos (UNMSM)",
       degree: "Licenciatura, Statistics",
       duration: "May 2022 - Dec 2027",

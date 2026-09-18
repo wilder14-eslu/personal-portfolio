@@ -26,6 +26,7 @@ import saylor from './saylor.webp';
 import stanford_new from './stanford_new.webp';
 import university_michigan from './university_michigan.jpg';
 import unmsm_logo from './unmsm_logo.webp';
+import unmsm_university from './UNMSM.webp';
 import peru_flag from './peru_flag.png';
 import menu from "./menu.svg";
 import close from "./close.svg";
@@ -94,6 +95,7 @@ export {
   stanford_new,
   university_michigan,
   unmsm_logo,
+  unmsm_university,
   peru_flag,
 
   menu,
