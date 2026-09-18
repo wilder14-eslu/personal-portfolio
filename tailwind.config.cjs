@@ -16,12 +16,20 @@ module.exports = {
       },
       keyframes: {
         popOut: {
-          '0%, 100%': { transform: 'scale(1) translateY(0)', boxShadow: '0 10px 30px rgba(255,0,110,0.3)' },
-          '50%': { transform: 'scale(1.15) translateY(-10px)', boxShadow: '0 25px 50px rgba(255,0,110,0.6)' },
+          '0%': { transform: 'scale(1) translateZ(0)', boxShadow: '0 0 0 rgba(0,0,0,0)' },
+          '50%': { transform: 'scale(1.05) translateZ(20px)', boxShadow: '0 20px 25px -5px rgba(255, 107, 107, 0.4), 0 10px 10px -5px rgba(255, 107, 107, 0.2)' },
+          '100%': { transform: 'scale(1) translateZ(0)', boxShadow: '0 0 0 rgba(0,0,0,0)' },
+        },
+        blob: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(20px, -30px) scale(1.1)" },
+          "66%": { transform: "translate(-10px, 15px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
         }
       },
       animation: {
-        'pop-out': 'popOut 2.5s ease-in-out infinite',
+        'pop-out': 'popOut 3s ease-in-out infinite',
+        'blob': 'blob 7s infinite',
       },
       boxShadow: {
         'utopia': '0 10px 30px rgba(0, 180, 216, 0.1), 0 0 40px rgba(255, 255, 255, 0.5)',
