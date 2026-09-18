@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import styles from "../style";
 import LetsConnect from "./LetsConnect";
-import TransformerCore from "./TransformerCore";
+import FissionCore from "./FissionCore";
 import data from "../constants/data";
 
 const Hero = () => {
@@ -42,7 +42,7 @@ const Hero = () => {
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
       >
         <div className="relative z-[5] w-full h-[500px] sm:h-[600px]">
-          <TransformerCore />
+          <FissionCore />
         </div>
         <div className="absolute z-[1] w-[50%] h-[50%] rounded-full bottom-40 blue__gradient"></div>
       </div>
