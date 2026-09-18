@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import styles from "../style";
 import LetsConnect from "./LetsConnect";
 import data from "../constants/data";
-import { profilePic } from "../assets"; 
+import { professional_ml_engineer } from "../assets"; 
 import { motion } from "framer-motion";
 
 const Hero = () => {
