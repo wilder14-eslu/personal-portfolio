@@ -5,16 +5,9 @@ import { SiDocker, SiFastapi, SiFirebase, SiGit, SiGithubactions, SiGoogle, SiGo
 import { RiGeminiFill } from "react-icons/ri";
 import { TbBrandFirebase } from "react-icons/tb";
 
-import ml_project1 from "../assets/ml_project1.jpg";
-import ml_project2 from "../assets/ml_project2.jpg";
-import ds_analytics from "../assets/ds_analytics.jpg";
-import placeholder from "../assets/placeholder.svg";
-import ml_banking_icon from "../assets/ml_banking_icon.jpg";
-import ai_health_icon from "../assets/ai_health_icon.jpg";
+import ml_banking_icon from "../assets/credit_risk_pipeline.webp";
+import ai_health_icon from "../assets/malaria_wape_chart.webp";
 import ai_hr_icon from "../assets/ai_hr_icon.jpg";
-import data_research_icon from "../assets/data_research_icon.jpg";
-import ai_cert_icon from "../assets/ai_cert_icon.jpg";
-import python_coding_icon from "../assets/python_coding_icon.jpg";
 import investigacion from "../assets/investigacion.avif";
 import devpost_icon from "../assets/Devpost.webp";
 
@@ -30,15 +23,16 @@ import google from "../assets/google.webp";
 import saylor from "../assets/saylor.webp";
 import university_michigan from "../assets/university_michigan.jpg";
 
-export const resumeLink = "/CV_Wilder_Espinoza_ES.pdf";
+export const resumeLinkEs = "/CV_Wilder_Espinoza_ES.pdf";
+export const resumeLinkEn = "/CV_Wilder_Espinoza_EN.pdf";
 export const repoLink = "https://github.com/wilder14-eslu/personal-portfolio";
 export const callToAction = "https://www.linkedin.com/in/wilder-eslu/";
 
 const commonIcons = {
   SiPython, SiR, SiMysql, SiGooglecloud, SiGit, SiFastapi, SiDocker, SiGithubactions, SiPostgresql, SiReact,
   AiFillGithub, AiFillLinkedin, AiFillMail,
-  ml_project1, ml_project2, ds_analytics, placeholder, investigacion,
-  ml_banking_icon, ai_health_icon, ai_hr_icon, data_research_icon, ai_cert_icon, python_coding_icon,
+  investigacion,
+  ml_banking_icon, ai_health_icon, ai_hr_icon,
   // Real photos
   realml_new, mebol_new, municipalidad,
   stanford_new, unmsm_logo, unmsm_university,
@@ -124,7 +118,7 @@ const skills_es = [
 ];
 
 export const en = {
-  resumeLink, repoLink, callToAction,
+  resumeLink: resumeLinkEn, repoLink, callToAction,
   navLinks: [
     { id: "skills", title: "Skills & Experience" },
     { id: "education", title: "Education" },
@@ -140,14 +134,6 @@ export const en = {
       duration: "May 2022 - Dec 2027",
       content1: "Focus on Data Science, Advanced Analytics, Machine Learning and MLOps.",
       content2: "PRONABEC Scholar (2024)."
-    },
-    {
-      id: "edu-2", icon: commonIcons.stanford_new,
-      title: "Stanford University",
-      degree: "Machine Learning Specialization",
-      duration: "Nov 2025 - Apr 2026",
-      content1: "Advanced algorithms, deep learning.",
-      content2: ""
     }
   ],
   achievements: [
@@ -234,27 +220,21 @@ export const en = {
       ]
     },
     {
-      organisation: "Municipalidad",
-      logo: commonIcons.municipalidad,
-      positions: [
-        {
-          title: "Human Resources Assistant",
-          duration: "2024 (3 months)",
-          content: [
-            { text: "Optimized personnel data management (payrolls, attendance, administrative records) using advanced Excel workflows, streamlining inter-departmental communication and ensuring strict data confidentiality." }
-          ]
-        }
-      ]
-    },
-    {
-      organisation: "Mebol",
+      organisation: "Other Experience",
       logo: commonIcons.mebol_new,
       positions: [
         {
-          title: "Warehouse Manager",
+          title: "Warehouse Manager - Mebol",
           duration: "2023 - 2024 (1 year)",
           content: [
-            { text: "Led inventory control and supply chain tracking using SQL and Excel. Designed and implemented structured data pipelines that significantly improved inventory traceability and reduced operational bottlenecks." }
+            { text: "Led inventory control and supply chain tracking using SQL and Excel, building structured tracking tables to improve traceability." }
+          ]
+        },
+        {
+          title: "Human Resources Assistant - Municipalidad",
+          duration: "2024 (3 months)",
+          content: [
+            { text: "Managed personnel data (payroll, attendance, records) in Excel, coordinating across departments." }
           ]
         }
       ]
@@ -267,7 +247,7 @@ export const en = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "End-to-end MLOps platform for automated credit risk assessment, directly reducing manual review times and optimizing loan approvals. Architected with XGBoost/LightGBM, CI/CD pipelines, and MLflow for robust model tracking. Includes SHAP explainability and drift monitoring to ensure strict regulatory compliance and sustained ROI.",
+      content: "End-to-end MLOps platform for automated credit risk assessment. Benchmarks 4 models (Logistic Regression, XGBoost, LightGBM, CatBoost) on ROC-AUC, PR-AUC, KS and calibration before promoting a champion model, with CI/CD pipelines and MLflow for tracking. Includes SHAP explainability and PSI-based drift monitoring to support regulatory review and sustained ROI.",
       stack: [
         { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
         { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting", color: "#F7931E" },
@@ -286,7 +266,7 @@ export const en = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Predictive ML system designed to proactively mitigate disease outbreaks and optimize the allocation of public health resources. Features automated retraining policies and walk-forward validation for high-accuracy forecasting. Containerized and deployed via FastAPI for seamless integration into real-time operational workflows.",
+      content: "Predictive ML system designed to proactively mitigate disease outbreaks and optimize the allocation of public health resources. LightGBM quantile-regression model beats the naive/moving-average baseline by 10-12% (WAPE 0.46 at 1 week to 0.54 at 4 weeks), with 80% prediction intervals covering ~94% of real outcomes. Containerized and deployed via FastAPI for seamless integration into real-time operational workflows.",
       stack: [
         { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
         { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna", color: "#1F77B4" },
@@ -344,7 +324,7 @@ export const en = {
 };
 
 export const es = {
-  resumeLink, repoLink, callToAction,
+  resumeLink: resumeLinkEs, repoLink, callToAction,
   navLinks: [
     { id: "skills", title: "Habilidades y Experiencia" },
     { id: "education", title: "Educación" },
@@ -372,27 +352,21 @@ export const es = {
       ]
     },
     {
-      organisation: "Municipalidad",
-      logo: commonIcons.municipalidad,
-      positions: [
-        {
-          title: "Auxiliar de Recursos Humanos",
-          duration: "2024 (3 meses)",
-          content: [
-            { text: "Optimicé la gestión de datos de personal (planillas, asistencia, registros administrativos) mediante flujos de trabajo avanzados en Excel, agilizando la comunicación interdepartamental y garantizando una estricta confidencialidad." }
-          ]
-        }
-      ]
-    },
-    {
-      organisation: "Mebol",
+      organisation: "Otras experiencias",
       logo: commonIcons.mebol_new,
       positions: [
         {
-          title: "Encargado de Almacén",
+          title: "Encargado de Almacén - Mebol",
           duration: "2023 a 2024 (1 año)",
           content: [
-            { text: "Lideré el control de inventario y el seguimiento logístico utilizando SQL y Excel. Diseñé e implementé pipelines de datos estructurados que mejoraron significativamente la trazabilidad del inventario y redujeron cuellos de botella operativos." }
+            { text: "Lideré el control de inventario y seguimiento logístico con SQL y Excel, implementando tablas de seguimiento estructuradas para mejorar la trazabilidad." }
+          ]
+        },
+        {
+          title: "Auxiliar de Recursos Humanos - Municipalidad",
+          duration: "2024 (3 meses)",
+          content: [
+            { text: "Gestioné datos de personal (planillas, asistencia, registros) en Excel, coordinando con distintas áreas." }
           ]
         }
       ]
@@ -405,7 +379,7 @@ export const es = {
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Plataforma MLOps end-to-end para la evaluación automatizada de riesgo crediticio, diseñada para reducir drásticamente los tiempos de revisión y optimizar la aprobación de préstamos. Arquitectura basada en XGBoost/LightGBM con pipelines CI/CD y MLflow. Integra explicabilidad (SHAP) y monitoreo de data drift para garantizar cumplimiento regulatorio y retorno de inversión sostenido.",
+      content: "Plataforma MLOps end-to-end para la evaluación automatizada de riesgo crediticio. Compara 4 modelos (Regresión Logística, XGBoost, LightGBM, CatBoost) en ROC-AUC, PR-AUC, KS y calibración antes de promover un modelo campeón, con pipelines CI/CD y MLflow para trazabilidad. Integra explicabilidad SHAP y monitoreo de drift (PSI) para apoyar cumplimiento regulatorio y retorno de inversión sostenido.",
       stack: en.projects[0].stack
     },
     {
@@ -413,7 +387,7 @@ export const es = {
       title: "Peru Malaria Early Warning Platform",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Sistema predictivo ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. Implementa políticas de reentrenamiento automático y validación walk-forward para máxima precisión. Completamente contenerizado y desplegado vía FastAPI para integrarse de manera fluida en flujos operativos y de toma de decisiones en tiempo real.",
+      content: "Sistema predictivo ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. El modelo LightGBM con regresión por cuantiles supera al baseline (naive/media móvil) en 10-12% (WAPE de 0.46 a 1 semana hasta 0.54 a 4 semanas), con intervalos de predicción al 80% que cubren ~94% de los casos reales. Completamente contenerizado y desplegado vía FastAPI para integrarse de manera fluida en flujos operativos y de toma de decisiones en tiempo real.",
       stack: en.projects[1].stack
     },
     {
