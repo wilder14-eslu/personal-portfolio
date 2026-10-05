@@ -1,8 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const HeroNetwork = () => {
   const canvasRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const { i18n } = useTranslation();
+  const isEn = i18n.language?.startsWith('en');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -215,7 +218,7 @@ const HeroNetwork = () => {
       {/* Floating HR Tooltip that appears on hover */}
       <div className={`absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-gray-900/80 backdrop-blur-md rounded-full border border-cyan-500/30 text-xs font-poppins text-cyan-50 tracking-wider whitespace-nowrap transition-all duration-500 flex items-center gap-2 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-        AI Data Core: Interactive Multi-dimensional Mapping
+        {isEn ? 'AI Data Core: Interactive Multi-dimensional Mapping' : 'Núcleo de Datos con IA: Mapeo Multidimensional Interactivo'}
       </div>
     </div>
   );

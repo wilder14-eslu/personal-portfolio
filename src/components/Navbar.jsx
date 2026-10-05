@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
+  const lang = i18n.language?.split('-')[0] || 'es';
+  const currentData = data[lang] || data.es;
   const { navLinks } = currentData;
 
   const [toggle, setToggle] = useState(false);

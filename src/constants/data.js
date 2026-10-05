@@ -104,17 +104,67 @@ const skills_en = [
 ];
 
 const skills_es = [
-  { ...skills_en[0], title: "Lenguajes y Herramientas" },
-  { ...skills_en[1], title: "Machine Learning & Deep Learning" },
-  { ...skills_en[2], title: "Generative AI & LLMs" },
-  { ...skills_en[3], title: "MLOps & Data Engineering" },
-  { ...skills_en[4], title: "Cloud y DevOps" },
-  { ...skills_en[5], title: "Métricas, Eval y Soft Skills", items: [
-    { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
-    { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation", color: "#9C27B0" },
-    { id: "s-30", icon: FaBrain, name: "Pensamiento Analítico", color: "#E67E22" },
-    { id: "s-31", icon: FaCogs, name: "Resolución de Problemas y Scrum", color: "#34495E" }
-  ]}
+  {
+    title: "Lenguajes y Herramientas",
+    items: [
+      { id: "s-1", icon: SiPython, name: "Python", color: "#3776AB" },
+      { id: "s-2", icon: SiR, name: "R", color: "#276DC3" },
+      { id: "s-3", icon: FaDatabase, name: "SQL", color: "#336791" },
+      { id: "s-4", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+      { id: "s-5", icon: FaChartBar, name: "Power BI", color: "#F2C811" },
+      { id: "s-6", icon: FaCogs, name: "PySpark", color: "#E25A1C" }
+    ]
+  },
+  {
+    title: "Machine Learning y Aprendizaje Profundo",
+    items: [
+      { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
+      { id: "s-8", icon: FaBrain, name: "Gradient Boosting", color: "#1F77B4" },
+      { id: "s-9", icon: SiTensorflow, name: "TensorFlow y Keras", color: "#FF6F00" },
+      { id: "s-10", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
+      { id: "s-11", icon: FaChartLine, name: "Series Temporales y PLN", color: "#6C5B7B" },
+      { id: "s-12", icon: BsGraphUp, name: "Visión por Computadora", color: "#355C7D" }
+    ]
+  },
+  {
+    title: "IA Generativa y LLMs",
+    items: [
+      { id: "s-13", icon: FaRobot, name: "IA Generativa y LLMs", color: "#FF007F" },
+      { id: "s-14", icon: SiOpenai, name: "OpenAI y Gemini", color: "#10A37F" },
+      { id: "s-15", icon: FaCogs, name: "RAG y MCP", color: "#00C4B6" },
+      { id: "s-16", icon: FaDatabase, name: "Búsqueda Vectorial", color: "#5B2C6F" },
+      { id: "s-17", icon: FaBrain, name: "Agentes de IA", color: "#F39C12" },
+      { id: "s-18", icon: FaCogs, name: "Embeddings", color: "#2980B9" }
+    ]
+  },
+  {
+    title: "MLOps e Ingeniería de Datos",
+    items: [
+      { id: "s-19", icon: FaCogs, name: "MLOps y MLflow", color: "#0194E2" },
+      { id: "s-20", icon: FaChartLine, name: "SHAP y Detección de Drift", color: "#FF2B2B" },
+      { id: "s-21", icon: FaDatabase, name: "Registro de Modelos", color: "#138D75" },
+      { id: "s-22", icon: SiFastapi, name: "FastAPI y Pydantic", color: "#009688" },
+      { id: "s-23", icon: FaCogs, name: "Prefect y ETL/ELT", color: "#0052FF" }
+    ]
+  },
+  {
+    title: "Nube y DevOps",
+    items: [
+      { id: "s-24", icon: FaAws, name: "AWS, Azure, GCP", color: "#FF9900" },
+      { id: "s-25", icon: SiDocker, name: "Docker y K8s", color: "#2496ED" },
+      { id: "s-26", icon: SiGit, name: "Git y GitHub Actions", color: "#F05032" },
+      { id: "s-27", icon: FaCogs, name: "Integración y Despliegue Continuo (CI/CD)", color: "#2088FF" }
+    ]
+  },
+  {
+    title: "Métricas, Evaluación y Habilidades Blandas",
+    items: [
+      { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
+      { id: "s-29", icon: FaChartLine, name: "Validación Walk-Forward", color: "#9C27B0" },
+      { id: "s-30", icon: FaBrain, name: "Pensamiento Analítico", color: "#E67E22" },
+      { id: "s-31", icon: FaCogs, name: "Resolución de Problemas y Scrum", color: "#34495E" }
+    ]
+  }
 ];
 
 export const en = {
@@ -323,6 +373,25 @@ export const en = {
   }
 };
 
+const stackNamesEs = {
+  "Feature Engineering Temporal": "Ingeniería de Variables Temporales",
+  "Evidently (Drift)": "Evidently (Detección de Drift)",
+  "CI / GitHub Actions": "Integración Continua / GitHub Actions",
+  "AI Agents": "Agentes de IA",
+  "Embeddings + Vector Search": "Embeddings + Búsqueda Vectorial",
+  "Firestore (Vector DB)": "Firestore (Base de Datos Vectorial)",
+};
+const stackEs = (stack) => stack.map((t) => ({ ...t, name: stackNamesEs[t.name] || t.name }));
+
+const achievementsEs = {
+  "a-1": { event: "Especialización en Machine Learning", position: "DeepLearning.AI y Stanford", content1: "Especialización completada" },
+  "a-2": { event: "Fundamentos de Python para MLOps", content1: "Flujos de trabajo y herramientas de MLOps" },
+  "a-3": { event: "Construyendo con Inteligencia Artificial", content1: "Fundamentos y aplicaciones de IA" },
+  "a-4": { event: "Programación para Todos (Python)", content1: "Fundamentos de Python" },
+  "a-5": { event: "Inglés de Negocios", content1: "ESL005" },
+  "a-6": { event: "Inglés Avanzado", content1: "ESL004" },
+};
+
 export const es = {
   resumeLink: resumeLinkEs, repoLink, callToAction,
   navLinks: [
@@ -332,8 +401,16 @@ export const es = {
     { id: "projects", title: "Proyectos" },
     { id: "contactMe", title: "Contáctame" }
   ],
-  educationList: en.educationList,
-  achievements: en.achievements,
+  educationList: [
+    {
+      ...en.educationList[0],
+      degree: "Licenciatura en Estadística",
+      duration: "Mayo 2022 - Dic 2027",
+      content1: "Enfoque en Ciencia de Datos, Analítica Avanzada, Machine Learning y MLOps.",
+      content2: "Becario PRONABEC (2024)."
+    }
+  ],
+  achievements: en.achievements.map((item) => ({ ...item, ...(achievementsEs[item.id] || {}) })),
   skills: skills_es,
   experiences: [
     {
@@ -341,11 +418,11 @@ export const es = {
       logo: commonIcons.realml_new,
       positions: [
         {
-          title: "Founder & CEO",
+          title: "Fundador y CEO",
           duration: "Mar 2026 - Actualidad",
           content: [
             { text: "Fundador y líder de RealML, iniciativa de Machine Learning aplicado dedicada a la arquitectura de productos de datos que resuelven desafíos de negocio reales y mejoran la experiencia del usuario." },
-            { text: "Dirijo el desarrollo end-to-end de sistemas de inteligencia de decisiones, transformando datos crudos en soluciones de IA escalables que generan valor medible y optimizan flujos operativos." },
+            { text: "Dirijo el desarrollo de extremo a extremo de sistemas de inteligencia para la toma de decisiones, transformando datos crudos en soluciones de IA escalables que generan valor medible y optimizan flujos operativos." },
             { text: "Áreas clave: Modelamiento de Riesgos, Analítica Predictiva, MLOps, Productos impulsados por IA y Optimización de Procesos." }
           ]
         }
@@ -375,29 +452,29 @@ export const es = {
   projects: [
     {
       id: "proj-1",
-      title: "Credit Risk ML Platform - End-to-End MLOps",
+      title: "Plataforma de Riesgo Crediticio con ML: MLOps de Extremo a Extremo",
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
       image: commonIcons.ml_banking_icon,
-      content: "Plataforma MLOps end-to-end para la evaluación automatizada de riesgo crediticio. Compara 4 modelos (Regresión Logística, XGBoost, LightGBM, CatBoost) en ROC-AUC, PR-AUC, KS y calibración antes de promover un modelo campeón, con pipelines CI/CD y MLflow para trazabilidad. Integra explicabilidad SHAP y monitoreo de drift (PSI) para apoyar cumplimiento regulatorio y retorno de inversión sostenido.",
-      stack: en.projects[0].stack
+      content: "Plataforma MLOps de extremo a extremo para la evaluación automatizada de riesgo crediticio. Compara 4 modelos (Regresión Logística, XGBoost, LightGBM, CatBoost) según ROC-AUC, PR-AUC, KS y calibración antes de promover un modelo campeón, con flujos de integración y despliegue continuo (CI/CD) y MLflow para la trazabilidad. Integra explicabilidad con SHAP y monitoreo de drift (PSI) para apoyar la revisión regulatoria y un retorno de inversión sostenido.",
+      stack: stackEs(en.projects[0].stack)
     },
     {
       id: "proj-2",
-      title: "Peru Malaria Early Warning Platform",
+      title: "Plataforma de Alerta Temprana de Malaria en Perú",
       github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
       image: commonIcons.ai_health_icon,
-      content: "Sistema predictivo ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. El modelo LightGBM con regresión por cuantiles supera al baseline (naive/media móvil) en 10-12% (WAPE de 0.46 a 1 semana hasta 0.54 a 4 semanas), con intervalos de predicción al 80% que cubren ~94% de los casos reales. Completamente contenerizado y desplegado vía FastAPI para integrarse de manera fluida en flujos operativos y de toma de decisiones en tiempo real.",
-      stack: en.projects[1].stack
+      content: "Sistema predictivo de ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. El modelo LightGBM con regresión por cuantiles supera al modelo de referencia (ingenuo/media móvil) en 10-12% (WAPE de 0.46 a 1 semana hasta 0.54 a 4 semanas), con intervalos de predicción al 80% que cubren ~94% de los casos reales. Contenerizado con Docker y desplegado mediante FastAPI para integrarse en flujos operativos y de toma de decisiones en tiempo real.",
+      stack: stackEs(en.projects[1].stack)
     },
     {
       id: "proj-3",
-      title: "Rumbo - AI Agent Recruitment Platform",
+      title: "Rumbo: Plataforma de Reclutamiento con Agentes de IA",
       github: "https://github.com/MelZarate-science/Rumbo",
       link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
       image: commonIcons.ai_hr_icon,
-      content: "Plataforma de reclutamiento impulsada por IA (LLMs y búsqueda vectorial) para automatizar la clasificación de roles y scoring de candidatos. Reduce considerablemente el tiempo de contratación y mejora la calidad del match mediante agentes autónomos. Arquitectura escalable desplegada en Google Cloud Run para maximizar la rentabilidad y eficiencia operativa de RRHH.",
-      stack: en.projects[2].stack
+      content: "Plataforma de reclutamiento impulsada por IA (LLMs y búsqueda vectorial) que automatiza la clasificación de roles y la puntuación de candidatos. Reduce el tiempo de contratación y mejora la calidad de la coincidencia entre perfiles y vacantes mediante agentes autónomos. Arquitectura escalable desplegada en Google Cloud Run para maximizar la eficiencia operativa de Recursos Humanos.",
+      stack: stackEs(en.projects[2].stack)
     },
     {
       id: "proj-4",
@@ -411,9 +488,9 @@ export const es = {
   socialMedia: en.socialMedia,
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Machine Learning Engineer | MLOps Specialist",
+    tagLine: "Ingeniero de Machine Learning | Especialista en MLOps",
     phone: "+51 910 049 106",
-    intro: "Machine Learning Engineer especializado en MLOps e Inteligencia Artificial escalable. Conecto el modelamiento estadístico con entornos de producción mediante la arquitectura de pipelines robustos y el despliegue de modelos que generan un ROI medible para el negocio. Mi enfoque está en automatizar el ciclo de vida del ML (CI/CD, Docker, MLflow, FastAPI) y traducir datos complejos en sistemas de toma de decisiones estratégicas."
+    intro: "Ingeniero de Machine Learning especializado en MLOps e Inteligencia Artificial escalable. Conecto el modelamiento estadístico con entornos de producción mediante el diseño de flujos de datos robustos y el despliegue de modelos que generan un retorno de inversión medible para el negocio. Mi enfoque está en automatizar el ciclo de vida del ML (CI/CD, Docker, MLflow, FastAPI) y traducir datos complejos en sistemas de apoyo a la toma de decisiones estratégicas."
   }
 };
 

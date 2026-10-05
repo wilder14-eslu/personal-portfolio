@@ -9,9 +9,9 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
-  const { socialMedia, aboutMe, resumeLink, repoLink } = currentData;
+  const lang = i18n.language?.split('-')[0] || 'es';
+  const currentData = data[lang] || data.es;
+  const { socialMedia, aboutMe } = currentData;
   return (
   <footer id="contactMe" className="bg-white border-t border-gray-100 sm:px-16 px-6 relative z-10 shadow-sm mt-12">
     <div
@@ -62,16 +62,6 @@ const Footer = () => {
           </a>
         )}
 
-        <div className="grid grid-cols-2">
-          <a href={resumeLink} target="_blank">
-            <Button
-              styles="mt-8 mr-3 inline-flex items-center justify-center bg-[#00b4d8] text-white hover:bg-[#0077b6] shadow-md border-none"
-              text={lang === 'es' ? 'Currículum' : 'Resume'}
-              icon={AiFillFilePdf}
-            />
-          </a>
-          
-        </div>
       </div>
 
       <div className="md:ml-auto mt-10 md:mt-0 flex justify-center items-center">

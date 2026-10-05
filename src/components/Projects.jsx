@@ -6,7 +6,7 @@ import { BsLink45Deg, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Project = (props) => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
+  const lang = i18n.language?.split('-')[0] || 'es';
   
   return (
     <div className="project-card flex-shrink-0 px-8 py-6 transition-all duration-300 transform border rounded-xl hover:border-transparent group border-gray-200 hover:shadow-2xl feature-card w-[320px] sm:w-[400px] md:w-[450px] snap-center bg-white/60 backdrop-blur-md">
@@ -18,13 +18,13 @@ const Project = (props) => {
         />
 
         <div className="mt-5 w-full">
-          <h1 className="text-xl font-semibold font-poppins text-gray-800 capitalize md:text-2xl leading-tight break-words">
+          <h1 className="text-xl font-semibold font-poppins text-gray-800 md:text-2xl leading-tight break-words">
             {props.title}
           </h1>
           <p className="font-poppins font-normal text-cyan-600 mt-2 mb-3 text-sm font-semibold uppercase tracking-wider">
-            Tech Stack
+            {lang === 'en' ? 'Tech Stack' : 'Tecnologías'}
           </p>
-          <div className="text-gray-500 capitalize group-hover:text-gray-700">
+          <div className="text-gray-500 group-hover:text-gray-700">
             <div className="flex flex-wrap gap-4">
               {props.stack.map((tech) => (
                 <div
@@ -69,8 +69,8 @@ const Project = (props) => {
 
 const Projects = () => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
+  const lang = i18n.language?.split('-')[0] || 'es';
+  const currentData = data[lang] || data.es;
   const { projects } = currentData;
   const carouselRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -125,7 +125,7 @@ const Projects = () => {
         <button
           onClick={scrollLeft}
           className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 w-12 h-12 hidden md:flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all shadow-xl opacity-0 group-hover:opacity-100 disabled:opacity-0"
-          aria-label="Previous project"
+          aria-label={lang === 'en' ? 'Previous project' : 'Proyecto anterior'}
         >
           <BsChevronLeft size={20} strokeWidth={1} />
         </button>
@@ -133,7 +133,7 @@ const Projects = () => {
         <button
           onClick={scrollRight}
           className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-12 h-12 hidden md:flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all shadow-xl opacity-0 group-hover:opacity-100 disabled:opacity-0"
-          aria-label="Next project"
+          aria-label={lang === 'en' ? 'Next project' : 'Proyecto siguiente'}
         >
           <BsChevronRight size={20} strokeWidth={1} />
         </button>

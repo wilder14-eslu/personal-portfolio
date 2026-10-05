@@ -6,8 +6,8 @@ import Button from "./Button";
 
 const BlogPost = (props) => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
+  const lang = i18n.language?.split('-')[0] || 'es';
+  const currentData = data[lang] || data.es;
   const {  } = currentData;
 
   return (

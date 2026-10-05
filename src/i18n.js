@@ -13,9 +13,9 @@ i18n
     },
     supportedLngs: ['en', 'es'], // Restrict to supported languages
     load: 'languageOnly', // e.g., 'es-ES' becomes 'es'
-    fallbackLng: 'en',
+    fallbackLng: 'es',
     detection: {
-      order: ['querystring', 'localStorage', 'navigator'], // Prioritize URL, then user preference, then browser
+      order: ['querystring', 'localStorage'], // URL o elección manual; si no hay, se usa español
       caches: ['localStorage'], // Remember user's manual choice
     },
     interpolation: { escapeValue: false }

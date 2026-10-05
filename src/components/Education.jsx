@@ -23,6 +23,8 @@ const Node = ({ title, subtitle, top, color, delay }) => (
 );
 
 const MLOpsPipelineGraph = () => {
+  const { i18n } = useTranslation();
+  const isEn = i18n.language?.startsWith('en');
   return (
     <div className="relative w-full h-full min-h-[450px] flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-[2rem] border border-white overflow-hidden shadow-[0_10px_40px_rgba(0,180,216,0.1)] group">
       
@@ -91,13 +93,13 @@ const MLOpsPipelineGraph = () => {
         <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 mb-2 shadow-inner flex items-center justify-center text-white font-bold font-poppins text-lg">
           ∑
         </div>
-        <span className="font-poppins font-bold text-center text-gray-800 text-[12px] leading-tight group-hover:text-blue-600 transition-colors">Statistics<br/>Core</span>
+        <span className="font-poppins font-bold text-center text-gray-800 text-[12px] leading-tight group-hover:text-blue-600 transition-colors">{isEn ? 'Statistics' : 'Núcleo'}<br/>{isEn ? 'Core' : 'Estadístico'}</span>
       </motion.div>
 
       {/* Output Pipeline Nodes */}
-      <Node title="Machine Learning" subtitle="Predictive Modeling" top="20%" color="#06b6d4" delay={0.6} />
-      <Node title="Data Engineering" subtitle="Scalable Pipelines" top="50%" color="#f59e0b" delay={0.8} />
-      <Node title="MLOps & Deploy" subtitle="CI/CD & Docker" top="80%" color="#ec4899" delay={1.0} />
+      <Node title="Machine Learning" subtitle={isEn ? 'Predictive Modeling' : 'Modelado Predictivo'} top="20%" color="#06b6d4" delay={0.6} />
+      <Node title={isEn ? 'Data Engineering' : 'Ingeniería de Datos'} subtitle={isEn ? 'Scalable Pipelines' : 'Flujos Escalables'} top="50%" color="#f59e0b" delay={0.8} />
+      <Node title={isEn ? 'MLOps & Deploy' : 'MLOps y Despliegue'} subtitle={isEn ? 'CI/CD & Docker' : 'CI/CD y Docker'} top="80%" color="#ec4899" delay={1.0} />
     </div>
   );
 };
@@ -122,7 +124,7 @@ const FeatureCard = ({
     <div className="absolute inset-0 bg-gradient-to-r from-blue-50/0 to-cyan-50/0 group-hover:from-blue-50/50 group-hover:to-cyan-50/50 transition-colors duration-300"></div>
 
     <div className="w-[70px] h-[70px] rounded-2xl flex items-center justify-center bg-blue-50 border border-blue-100/50 group-hover:bg-cyan-100/50 group-hover:scale-105 transition-all duration-300 shrink-0 z-10 shadow-sm">
-      <img src={icon} alt="institution logo" className="w-[60%] h-[60%] object-contain" />
+      <img src={icon} alt="Logo de la institución" className="w-[60%] h-[60%] object-contain" />
     </div>
     
     <div className="flex-1 flex flex-col ml-5 z-10">
@@ -151,15 +153,15 @@ const FeatureCard = ({
 
 const Education = () => {
   const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'en';
-  const currentData = data[lang] || data.en;
+  const lang = i18n.language?.split('-')[0] || 'es';
+  const currentData = data[lang] || data.es;
   const { educationList } = currentData;
 
   return (
     <section id="education" className="py-12 sm:py-20 relative">
       <div className="mb-14 text-center md:text-left relative z-10">
         <h2 className="font-poppins font-extrabold text-[36px] sm:text-[48px] text-gray-800 leading-tight tracking-tight">
-          Education & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Foundation</span>
+          {lang === 'en' ? 'Education & ' : 'Educación y '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{lang === 'en' ? 'Foundation' : 'Fundamentos'}</span>
         </h2>
         <p className="font-poppins text-gray-500 max-w-2xl mt-4 text-[16px] mx-auto md:mx-0">
           {lang === 'es' 
