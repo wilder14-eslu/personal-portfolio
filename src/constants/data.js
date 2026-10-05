@@ -21,10 +21,8 @@ import devpost_icon from "../assets/Devpost.webp";
 import mebol_new from "../assets/mebol_new.png";
 import municipalidad from "../assets/municipalidad.webp";
 import stanford_new from "../assets/stanford_new.webp";
-import unmsm_logo from "../assets/unmsm_logo.webp";
 import unmsm_university from "../assets/UNMSM.webp";
 import duke from "../assets/duke.webp";
-import google from "../assets/google.webp";
 import saylor from "../assets/saylor.webp";
 import university_michigan from "../assets/university_michigan.jpg";
 import sql_cert from "../assets/sql_cert.svg";
@@ -265,20 +263,6 @@ export const en = {
       position: "Saylor Academy",
       content1: "I learned to read, write and hold conversations in English at an advanced level.",
       project: "https://drive.google.com/file/d/1LgUePfHX_u-ITkyT0FwKGwHtlUsXrUK2/view?usp=sharing"
-    },
-    {
-      id: "a-8", icon: google,
-      event: "Digital Marketing",
-      position: "Specialized Course",
-      content1: "I learned the fundamentals of digital marketing.",
-      project: "https://drive.google.com/file/d/15G9WVPyt34ikl-tky9bJpfE2zR4h-WTi/view?usp=sharing"
-    },
-    {
-      id: "a-9", icon: unmsm_logo,
-      event: "UNMSM Certificate",
-      position: "Centro de Informática, UNMSM",
-      content1: "Computer skills certificate.",
-      project: "https://drive.google.com/file/d/1nQMy2fuV5QcOZQ5K6mhj5VZYantkOySd/view?usp=sharing"
     }
   ],
   skills: skills_en,
@@ -405,11 +389,7 @@ export const es = {
     { ...en.achievements[5], event: "Inglés de Negocios (ESL005)",
       content1: "Aprendí a comunicarme en inglés en contextos profesionales y de negocios." },
     { ...en.achievements[6], event: "Inglés Avanzado (ESL004)",
-      content1: "Aprendí a leer, escribir y conversar en inglés a nivel avanzado." },
-    { ...en.achievements[7], event: "Marketing Digital", position: "Curso Especializado",
-      content1: "Aprendí los fundamentos del marketing digital." },
-    { ...en.achievements[8], event: "Certificado UNMSM",
-      content1: "Certificado en informática." }
+      content1: "Aprendí a leer, escribir y conversar en inglés a nivel avanzado." }
   ],
   skills: skills_es,
   experiences: [

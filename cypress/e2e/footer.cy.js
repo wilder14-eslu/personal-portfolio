@@ -1,50 +1,43 @@
-import { aboutMe, socialMedia } from '../../src/constants';
+import data from '../../src/constants/data';
 
-describe('Footer section', () => {
+const { aboutMe, socialMedia } = data.es;
+
+describe('Pie de página (Contacto)', () => {
   beforeEach(() => {
     cy.waitForApp();
     cy.get('#contactMe', { timeout: 8000 }).scrollIntoView();
   });
 
-  it('displays name from constants', () => {
+  it('muestra el nombre y el titular', () => {
     cy.get('#contactMe').contains('h2', aboutMe.name).should('be.visible');
-  });
-
-  it('displays tagline from constants', () => {
     cy.get('#contactMe').contains(aboutMe.tagLine).should('be.visible');
   });
 
-  it('profile picture with name in alt is visible', () => {
+  it('muestra la foto de perfil', () => {
     cy.get('#contactMe').find(`img[alt="${aboutMe.name}"]`).should('be.visible');
   });
 
-  it('all social media links are rendered', () => {
-    cy.get('#contactMe').find('a[href]').should('have.length.at.least', socialMedia.length);
+  it('muestra todas las redes y el teléfono', () => {
     socialMedia.forEach((s) => {
       cy.get('#contactMe').find(`a[href="${s.link}"]`).should('exist');
     });
+    cy.get('#contactMe').find('a[href^="tel:"]').should('contain', aboutMe.phone);
   });
 
-  it('Resume and Star buttons are present', () => {
-    cy.get('#contactMe').contains('Resume').should('be.visible');
-    cy.get('#contactMe').contains('Star').should('be.visible');
+  it('no publica el CV en la página', () => {
+    cy.get('#contactMe').should('not.contain', 'Currículum');
+    cy.get('body').find('a[href*="CV_"]').should('not.exist');
   });
 
-  describe('Responsiveness', () => {
-    it('desktop: profile pic and info side by side', () => {
+  describe('Responsive', () => {
+    it('escritorio: datos y foto lado a lado', () => {
       cy.viewportPreset('desktop');
-      cy.get('#contactMe').scrollIntoView();
-      cy.get('#contactMe').find('[class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('row');
-      });
+      cy.get('#contactMe [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'row');
     });
 
-    it('mobile: stacked layout', () => {
-      cy.viewport(375, 667);
-      cy.get('#contactMe').scrollIntoView();
-      cy.get('#contactMe').find('[class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('column-reverse');
-      });
+    it('celular: apilado', () => {
+      cy.viewportPreset('mobile');
+      cy.get('#contactMe [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'column-reverse');
     });
   });
 });

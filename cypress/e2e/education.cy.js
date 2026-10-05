@@ -1,41 +1,44 @@
-import { educationList } from '../../src/constants';
+import data from '../../src/constants/data';
 
-describe('Education section', () => {
+const { educationList } = data.es;
+
+describe('Educación', () => {
   beforeEach(() => {
     cy.waitForApp();
     cy.get('#education', { timeout: 8000 }).scrollIntoView();
   });
 
-  it('shows section heading', () => {
-    cy.get('#education').contains('h1', 'Education').should('be.visible');
+  it('muestra el título de la sección', () => {
+    cy.get('#education').contains('h2', 'Educación').should('be.visible');
   });
 
-  it('renders all education cards with title, degree, duration', () => {
-    cy.get('#education .feature-card').each(($card, index) => {
-      const edu = educationList[index];
-      cy.wrap($card).contains(edu.title).should('be.visible');
-      if (edu.degree) {
-        cy.wrap($card).contains(edu.degree).should('be.visible');
-      }
-      cy.wrap($card).contains(edu.duration).should('be.visible');
+  it('muestra universidad, grado, fechas y logros', () => {
+    educationList.forEach((edu) => {
+      cy.get('#education').contains('h4', edu.title).should('exist');
+      cy.get('#education').contains(edu.degree).should('exist');
+      cy.get('#education').contains(edu.duration).should('exist');
+      cy.get('#education').contains(edu.content1).should('exist');
+      cy.get('#education').contains(edu.content2).should('exist');
     });
   });
 
-  describe('Responsiveness', () => {
-    it('desktop: Lottie and cards side by side', () => {
+  it('muestra la animación del ciclo de ML con sus 6 etapas', () => {
+    cy.get('#education').contains('Cómo construyo sistemas de ML').scrollIntoView().should('be.visible');
+    ['Datos', 'Entrenamiento', 'Validación', 'Registro', 'Despliegue', 'Monitoreo'].forEach((etapa) => {
+      cy.get('#education ol').contains(etapa).should('exist');
+    });
+    cy.get('#education').contains('El drift dispara el reentrenamiento').should('exist');
+  });
+
+  describe('Responsive', () => {
+    it('escritorio: animación y tarjeta lado a lado', () => {
       cy.viewportPreset('desktop');
-      cy.get('#education').scrollIntoView();
-      cy.get('#education').find('[class*="flex"][class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('row');
-      });
+      cy.get('#education [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'row');
     });
 
-    it('mobile: cards above animation (flex-col-reverse)', () => {
-      cy.viewport(375, 667);
-      cy.get('#education').scrollIntoView();
-      cy.get('#education').find('[class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('column-reverse');
-      });
+    it('celular: tarjeta arriba y animación abajo', () => {
+      cy.viewportPreset('mobile');
+      cy.get('#education [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'column-reverse');
     });
   });
 });

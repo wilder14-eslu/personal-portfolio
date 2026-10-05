@@ -1,55 +1,56 @@
-import { skills, experiences } from '../../src/constants';
+import data from '../../src/constants/data';
 
-describe('Skills & Experience section', () => {
+const { skills, experiences } = data.es;
+
+describe('Habilidades y Experiencia', () => {
   beforeEach(() => {
     cy.waitForApp();
     cy.get('#skills', { timeout: 8000 }).scrollIntoView();
   });
 
-  it('shows section heading', () => {
-    cy.get('#skills').within(() => {
-      cy.contains('h1', 'Skills & Experience').should('be.visible');
-    });
+  it('muestra el título de la sección', () => {
+    cy.get('#skills').contains('h1', 'Habilidades y Experiencia').should('be.visible');
   });
 
-  it('renders all skill category titles', () => {
+  it('muestra todas las categorías de habilidades', () => {
     skills.forEach((skill) => {
       cy.get('#skills').contains('h4', skill.title).should('exist');
     });
   });
 
-  it('shows at least one skill name per category', () => {
+  it('muestra todas las habilidades de cada categoría', () => {
     skills.forEach((skill) => {
-      cy.get('#skills')
-        .contains('h4', skill.title)
-        .parent()
-        .parent()
-        .within(() => {
-          const firstSkillName = skill.items[0].name;
-          cy.contains(firstSkillName).should('exist');
-        });
+      skill.items.forEach((item) => {
+        cy.get('#skills').contains('p', item.name).should('exist');
+      });
     });
   });
 
-  it('shows at least one experience organisation', () => {
-    cy.get('#skills').contains(experiences[0].organisation).should('be.visible');
+  it('muestra cada experiencia con su cargo, fecha y logros', () => {
+    experiences.forEach((exp) => {
+      cy.get('#skills').contains('h4', exp.organisation).should('exist');
+      exp.positions.forEach((pos) => {
+        cy.get('#skills').contains('h3', pos.title).should('exist');
+        cy.get('#skills').contains('time', pos.duration).should('exist');
+        cy.get('#skills').contains(pos.content[0].text).should('exist');
+      });
+    });
   });
 
-  describe('Responsiveness', () => {
-    it('desktop: skills and experience side by side', () => {
+  it('ya no muestra el cargo de Fundador y CEO', () => {
+    cy.get('#skills').should('not.contain', 'Fundador y CEO');
+    cy.get('#skills').should('not.contain', 'RealML');
+  });
+
+  describe('Responsive', () => {
+    it('escritorio: habilidades y experiencia lado a lado', () => {
       cy.viewportPreset('desktop');
-      cy.get('#skills').scrollIntoView();
-      cy.get('#skills').find('[class*="md:flex-row"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('row');
-      });
+      cy.get('#skills > div').first().invoke('css', 'flex-direction').should('equal', 'row');
     });
 
-    it('mobile: stacked layout', () => {
-      cy.viewport(375, 667);
-      cy.get('#skills').scrollIntoView();
-      cy.get('#skills').find('[class*="flex-col"]').first().invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('column');
-      });
+    it('celular: apilado', () => {
+      cy.viewportPreset('mobile');
+      cy.get('#skills > div').first().invoke('css', 'flex-direction').should('equal', 'column');
     });
   });
 });

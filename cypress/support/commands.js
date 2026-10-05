@@ -1,24 +1,20 @@
 // ***********************************************
-// Custom commands for Cypress E2E tests
+// Comandos personalizados para las pruebas E2E
 // ***********************************************
 
 /**
- * Visits the app and waits for the loading screen (1200ms) to finish.
- * Waits for the main content: nav (navbar) must be visible within 15s.
- * Use this when the dev server is already running (e.g. npm run dev in another terminal).
+ * Abre la página en español (idioma por defecto) y espera a que termine
+ * la pantalla de carga (1200 ms): el navbar debe ser visible.
  */
-Cypress.Commands.add('waitForApp', () => {
-  cy.visit('/');
+Cypress.Commands.add('waitForApp', (lng = 'es') => {
+  cy.visit(`/?lng=${lng}`);
   cy.get('nav', { timeout: 15000 }).should('be.visible');
 });
 
 /**
- * Asserts that the given element is within the viewport.
- * Uses getBoundingClientRect() and viewport dimensions.
+ * Verifica que el elemento esté dentro del viewport.
  */
 Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, (subject) => {
-  // Use `.should()` so Cypress can automatically retry until the element settles
-  // (e.g. smooth scroll + framer-motion layout changes).
   cy.wrap(subject).should(($el) => {
     const rect = $el[0].getBoundingClientRect();
     const vw = Cypress.config('viewportWidth');
@@ -31,8 +27,8 @@ Cypress.Commands.add('isInViewport', { prevSubject: 'element' }, (subject) => {
 });
 
 /**
- * Viewport presets for responsive tests.
- * Usage: cy.viewportPreset('mobile') etc.
+ * Tamaños de pantalla para pruebas responsive.
+ * Uso: cy.viewportPreset('mobile')
  */
 const VIEWPORT_PRESETS = {
   mobile: { width: 375, height: 667 },

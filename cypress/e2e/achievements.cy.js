@@ -1,59 +1,51 @@
-import { achievements } from '../../src/constants';
+import data from '../../src/constants/data';
 
-describe('Achievements section', () => {
+const { achievements } = data.es;
+
+describe('Certificaciones', () => {
   beforeEach(() => {
     cy.waitForApp();
     cy.get('#achievements', { timeout: 8000 }).scrollIntoView();
   });
 
-  it('shows section heading', () => {
-    cy.get('#achievements').contains('h1', 'Achievements').should('be.visible');
+  it('muestra el título de la sección', () => {
+    cy.get('#achievements').contains('h1', 'Certificaciones').should('exist');
   });
 
-  it('renders all achievement cards in the grid', () => {
-    cy.get('#achievements').find('[class*="grid"]').children().should('have.length', achievements.length);
+  it('muestra una tarjeta por cada certificación del CV', () => {
+    cy.get('#achievements .grid').children().should('have.length', achievements.length);
   });
 
-  it('each card shows event name and position', () => {
-    cy.get('#achievements .grid > div').each(($card, index) => {
-      const achievement = achievements[index];
-      cy.wrap($card).contains(achievement.event).should('exist');
-      cy.wrap($card).contains(achievement.position).should('exist');
+  it('cada tarjeta muestra nombre, institución y lo que aprendí', () => {
+    cy.get('#achievements .grid').children().each(($card, index) => {
+      const item = achievements[index];
+      cy.wrap($card).contains(item.event).should('exist');
+      cy.wrap($card).contains(item.position).should('exist');
+      cy.wrap($card).contains(item.content1).should('exist');
     });
   });
 
-  it('first achievement event and position match constants', () => {
-    const first = achievements[0];
-    cy.get('#achievements').contains(first.event).should('be.visible');
-    cy.get('#achievements').contains(first.position).should('be.visible');
+  it('no muestra certificaciones que no están en el CV', () => {
+    cy.get('#achievements').should('not.contain', 'Marketing Digital');
+    cy.get('#achievements').should('not.contain', 'Certificado UNMSM');
   });
 
-  it('cards with links render icon links', () => {
-    const withLink = achievements.find((a) => a.article || a.github || a.youtube || a.project);
-    if (withLink) {
-      cy.get('#achievements').find('a[href]').should('exist');
-    }
+  it('las certificaciones con enlace muestran el link al certificado', () => {
+    const conLink = achievements.filter((a) => a.project);
+    cy.get('#achievements a[href*="drive.google.com"]').should('have.length', conLink.length);
   });
 
-  describe('Responsiveness', () => {
-    it('mobile: section visible and grid present', () => {
-      cy.viewport(375, 667);
-      cy.get('#achievements').scrollIntoView();
-      cy.get('#achievements').should('be.visible');
-      cy.get('#achievements').find('.grid').should('exist');
+  describe('Responsive', () => {
+    it('celular: una columna', () => {
+      cy.viewportPreset('mobile');
+      cy.get('#achievements .grid').invoke('css', 'grid-template-columns').then((cols) => {
+        expect(cols.split(' ').length).to.equal(1);
+      });
     });
 
-    it('tablet: section visible and grid present', () => {
-      cy.viewport(768, 1024);
-      cy.get('#achievements').scrollIntoView();
-      cy.get('#achievements').should('be.visible');
-      cy.get('#achievements').find('.grid').should('exist');
-    });
-
-    it('desktop: 3 columns', () => {
+    it('escritorio: varias columnas', () => {
       cy.viewportPreset('desktop');
-      cy.get('#achievements').scrollIntoView();
-      cy.get('#achievements').find('.grid').invoke('css', 'grid-template-columns').then((cols) => {
+      cy.get('#achievements .grid').invoke('css', 'grid-template-columns').then((cols) => {
         expect(cols.split(' ').length).to.be.at.least(2);
       });
     });

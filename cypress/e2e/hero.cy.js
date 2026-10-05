@@ -1,46 +1,37 @@
-import { aboutMe } from '../../src/constants';
+import data from '../../src/constants/data';
 
-describe('Hero section', () => {
+const { aboutMe } = data.es;
+
+describe('Sección principal (Hero)', () => {
   beforeEach(() => {
     cy.waitForApp();
   });
 
-  it('renders heading "Hi there!" and "I am"', () => {
+  it('muestra el saludo en español', () => {
     cy.get('#home').within(() => {
-      cy.contains('Hi there!').should('be.visible');
-      cy.contains('I am').should('be.visible');
+      cy.contains('¡Hola!').should('be.visible');
+      cy.contains('Soy').should('be.visible');
     });
   });
 
-  it('displays name from constants with text-gradient class', () => {
-    cy.get('#home').contains('.text-gradient', aboutMe.name).should('be.visible');
-  });
-
-  it('displays intro text from constants', () => {
+  it('muestra el nombre y la presentación', () => {
+    cy.get('#home').contains(aboutMe.name).should('be.visible');
     cy.get('#home').contains(aboutMe.intro).should('be.visible');
   });
 
-  it('has Lottie animation container', () => {
-    cy.get('#home').find('[class*="z-index-[5]"]').should('exist');
+  it('tiene la animación de la red neuronal (canvas)', () => {
+    cy.get('#home canvas').should('exist');
   });
 
-  describe('Responsiveness', () => {
-    it('desktop: text and animation side by side', () => {
+  describe('Responsive', () => {
+    it('escritorio: texto y animación lado a lado', () => {
       cy.viewportPreset('desktop');
-      cy.get('#home').should('be.visible');
-      cy.get('#home').invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('row');
-      });
+      cy.get('#home').invoke('css', 'flex-direction').should('equal', 'row');
     });
 
-    it('mobile: stacked layout and Lets Connect visible below', () => {
-      cy.viewport(375, 667);
-      cy.get('#home').scrollIntoView();
-      cy.get('#home').should('be.visible');
-      // On mobile flex-col so direction column; Lets Connect visible in bottom area
-      cy.get('#home').invoke('css', 'flex-direction').then((dir) => {
-        expect(dir).to.equal('column');
-      });
+    it('celular: elementos apilados', () => {
+      cy.viewportPreset('mobile');
+      cy.get('#home').invoke('css', 'flex-direction').should('equal', 'column');
     });
   });
 });
