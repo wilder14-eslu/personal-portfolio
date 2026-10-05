@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import data from "../constants/data";
 import { AiFillGithub } from "react-icons/ai";
 import { BsLink45Deg, BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import devpostIcon from "../assets/Devpost.webp";
 
 const Project = (props) => {
   const { i18n } = useTranslation();
@@ -52,6 +53,11 @@ const Project = (props) => {
               size="1.5rem"
               className="text-gray-700 hover:text-cyan-600 transition-colors"
             />
+          </a>
+        )}
+        {props.devpost && (
+          <a href={props.devpost} target="_blank" rel="noreferrer" aria-label="Devpost" className="bg-gray-100 p-2 rounded-full hover:bg-cyan-100 transition-colors">
+            <img src={devpostIcon} alt="Devpost" className="w-6 h-6 object-contain" />
           </a>
         )}
         {props.link && (

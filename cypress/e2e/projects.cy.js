@@ -16,17 +16,23 @@ describe('Proyectos', () => {
     cy.get('#projects .project-card').should('have.length', projects.length);
   });
 
-  it('cada tarjeta muestra título, tecnologías, descripción y repositorio', () => {
+  it('cada tarjeta muestra título, tecnologías, descripción y enlace', () => {
     cy.get('#projects .project-card').each(($card, index) => {
       const project = projects[index];
       cy.wrap($card).contains('h1', project.title).should('exist');
       cy.wrap($card).contains('Tecnologías').should('exist');
       cy.wrap($card).contains(project.content).should('exist');
-      cy.wrap($card).find(`a[href="${project.github}"]`).should('exist');
-      if (project.link) {
-        cy.wrap($card).find(`a[href="${project.link}"]`).should('exist');
+      if (project.github) {
+        cy.wrap($card).find(`a[href="${project.github}"]`).should('exist');
+      }
+      if (project.devpost) {
+        cy.wrap($card).find(`a[href="${project.devpost}"]`).should('exist');
       }
     });
+  });
+
+  it('no muestra enlaces a demos', () => {
+    cy.get('#projects').find('a[href*="streamlit.app"], a[href*="run.app"]').should('not.exist');
   });
 
   it('el carrusel avanza con el botón siguiente', () => {

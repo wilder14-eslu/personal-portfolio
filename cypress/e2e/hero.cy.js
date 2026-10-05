@@ -19,19 +19,19 @@ describe('Sección principal (Hero)', () => {
     cy.get('#home').contains(aboutMe.intro).should('be.visible');
   });
 
-  it('tiene la animación de la red neuronal (canvas)', () => {
-    cy.get('#home canvas').should('exist');
+  it('ya no muestra la animación de la esfera', () => {
+    cy.get('#home canvas').should('not.exist');
   });
 
   describe('Responsive', () => {
-    it('escritorio: texto y animación lado a lado', () => {
+    it('escritorio: la presentación usa el ancho disponible', () => {
       cy.viewportPreset('desktop');
-      cy.get('#home').invoke('css', 'flex-direction').should('equal', 'row');
+      cy.get('#home p').first().invoke('outerWidth').should('be.greaterThan', 700);
     });
 
-    it('celular: elementos apilados', () => {
+    it('celular: la presentación se ve completa', () => {
       cy.viewportPreset('mobile');
-      cy.get('#home').invoke('css', 'flex-direction').should('equal', 'column');
+      cy.get('#home p').first().should('be.visible');
     });
   });
 });
