@@ -75,7 +75,7 @@ const skills_en = [
     ]
   },
   {
-    title: "Hands-on Cloud Basics",
+    title: "Cloud Basics",
     items: [
       { id: "s-19", icon: SiGooglecloud, name: "Vertex AI", color: "#4285F4" },
       { id: "s-20", icon: SiGooglecloud, name: "Cloud Run", color: "#34A853" },
@@ -93,7 +93,7 @@ const skillTitlesEs = [
   "Modelado y Machine Learning",
   "MLOps y Plataformas de Datos",
   "IA Generativa y LLMs",
-  "Nociones Prácticas en la Nube",
+  "Nociones Básicas en la Nube",
 ];
 const skills_es = skills_en.map((group, i) => ({
   title: skillTitlesEs[i],
