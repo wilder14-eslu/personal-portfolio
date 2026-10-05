@@ -1,7 +1,13 @@
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { BsGraphUp, BsLightbulb } from "react-icons/bs";
-import { FaAws, FaBrain, FaChartBar, FaChartLine, FaCogs, FaDatabase, FaDocker, FaEye, FaFire, FaGithub, FaRobot } from "react-icons/fa";
-import { SiDocker, SiFastapi, SiFirebase, SiGit, SiGithubactions, SiGoogle, SiGooglecloud, SiKeras, SiMlflow, SiMysql, SiOpenai, SiPostgresql, SiPrefect, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow, SiVite, SiPython } from "react-icons/si";
+import { BsGraphUp } from "react-icons/bs";
+import {
+  FaAws, FaBalanceScale, FaBrain, FaChartBar, FaChartLine, FaCheckCircle, FaDatabase, FaEye,
+  FaFileExcel, FaFire, FaFlask, FaLayerGroup, FaRobot, FaSlidersH, FaSyncAlt, FaTree, FaUsers,
+} from "react-icons/fa";
+import {
+  SiDatabricks, SiDocker, SiFastapi, SiGithubactions, SiGooglecloud, SiMlflow, SiOpenai, SiPostgresql,
+  SiPrefect, SiPython, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow,
+} from "react-icons/si";
 import { RiGeminiFill } from "react-icons/ri";
 import { TbBrandFirebase } from "react-icons/tb";
 
@@ -11,8 +17,7 @@ import ai_hr_icon from "../assets/ai_hr_icon.jpg";
 import investigacion from "../assets/investigacion.avif";
 import devpost_icon from "../assets/Devpost.webp";
 
-// Real institution/company photos
-import realml_new from "../assets/realml_new.jpg";
+// Fotos y logos reales de instituciones y empresas
 import mebol_new from "../assets/mebol_new.png";
 import municipalidad from "../assets/municipalidad.webp";
 import stanford_new from "../assets/stanford_new.webp";
@@ -22,151 +27,177 @@ import duke from "../assets/duke.webp";
 import google from "../assets/google.webp";
 import saylor from "../assets/saylor.webp";
 import university_michigan from "../assets/university_michigan.jpg";
+import sql_cert from "../assets/sql_cert.svg";
 
 export const resumeLinkEs = "/CV_Wilder_Espinoza_ES.pdf";
 export const resumeLinkEn = "/CV_Wilder_Espinoza_EN.pdf";
 export const repoLink = "https://github.com/wilder14-eslu/personal-portfolio";
 export const callToAction = "https://www.linkedin.com/in/wilder-eslu/";
 
-const commonIcons = {
-  SiPython, SiR, SiMysql, SiGooglecloud, SiGit, SiFastapi, SiDocker, SiGithubactions, SiPostgresql, SiReact,
-  AiFillGithub, AiFillLinkedin, AiFillMail,
-  investigacion,
-  ml_banking_icon, ai_health_icon, ai_hr_icon,
-  // Real photos
-  realml_new, mebol_new, municipalidad,
-  stanford_new, unmsm_logo, unmsm_university,
-  duke, google, saylor, university_michigan,
-};
-
+// ---------------------------------------------------------------------------
+// Habilidades (basadas en el CV)
+// ---------------------------------------------------------------------------
 const skills_en = [
   {
-    title: "Languages & Tools",
+    title: "Languages & BI",
     items: [
       { id: "s-1", icon: SiPython, name: "Python", color: "#3776AB" },
-      { id: "s-2", icon: SiR, name: "R", color: "#276DC3" },
-      { id: "s-3", icon: FaDatabase, name: "SQL", color: "#336791" },
-      { id: "s-4", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-      { id: "s-5", icon: FaChartBar, name: "Power BI", color: "#F2C811" },
-      { id: "s-6", icon: FaCogs, name: "PySpark", color: "#E25A1C" }
+      { id: "s-2", icon: FaDatabase, name: "SQL", color: "#336791" },
+      { id: "s-3", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+      { id: "s-4", icon: SiR, name: "R", color: "#276DC3" },
+      { id: "s-5", icon: FaFileExcel, name: "Advanced Excel", color: "#217346" },
+      { id: "s-6", icon: FaChartBar, name: "Power BI", color: "#F2C811" }
     ]
   },
   {
-    title: "Machine Learning & Deep Learning",
+    title: "Machine Learning",
     items: [
       { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
-      { id: "s-8", icon: FaBrain, name: "Gradient Boosting", color: "#1F77B4" },
-      { id: "s-9", icon: SiTensorflow, name: "TensorFlow & Keras", color: "#FF6F00" },
-      { id: "s-10", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
-      { id: "s-11", icon: FaChartLine, name: "Time Series & NLP", color: "#6C5B7B" },
-      { id: "s-12", icon: BsGraphUp, name: "Computer Vision", color: "#355C7D" }
-    ]
-  },
-  {
-    title: "Generative AI & LLMs",
-    items: [
-      { id: "s-13", icon: FaRobot, name: "Gen AI & LLMs", color: "#FF007F" },
-      { id: "s-14", icon: SiOpenai, name: "OpenAI & Gemini", color: "#10A37F" },
-      { id: "s-15", icon: FaCogs, name: "RAG & MCP", color: "#00C4B6" },
-      { id: "s-16", icon: FaDatabase, name: "Vector Search", color: "#5B2C6F" },
-      { id: "s-17", icon: FaBrain, name: "AI Agents", color: "#F39C12" },
-      { id: "s-18", icon: FaCogs, name: "Embeddings", color: "#2980B9" }
+      { id: "s-8", icon: FaBrain, name: "XGBoost, LightGBM, CatBoost", color: "#1F77B4" },
+      { id: "s-9", icon: FaTree, name: "Random Forest", color: "#2E7D32" },
+      { id: "s-10", icon: FaSlidersH, name: "Optuna", color: "#6C5B7B" },
+      { id: "s-11", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
+      { id: "s-12", icon: FaChartLine, name: "Forecasting (ARIMA/ETS)", color: "#355C7D" }
     ]
   },
   {
     title: "MLOps & Data Engineering",
     items: [
-      { id: "s-19", icon: FaCogs, name: "MLOps & MLflow", color: "#0194E2" },
-      { id: "s-20", icon: FaChartLine, name: "SHAP & Drift Detection", color: "#FF2B2B" },
-      { id: "s-21", icon: FaDatabase, name: "Model Registry", color: "#138D75" },
-      { id: "s-22", icon: SiFastapi, name: "FastAPI & Pydantic", color: "#009688" },
-      { id: "s-23", icon: FaCogs, name: "Prefect & ETL/ELT", color: "#0052FF" }
+      { id: "s-13", icon: SiMlflow, name: "MLflow & Model Registry", color: "#0194E2" },
+      { id: "s-14", icon: FaBalanceScale, name: "Champion/Challenger", color: "#138D75" },
+      { id: "s-15", icon: FaLayerGroup, name: "A/B Testing", color: "#8E44AD" },
+      { id: "s-16", icon: FaFire, name: "Drift (PSI, DDM, Evidently)", color: "#E25A1C" },
+      { id: "s-17", icon: SiPrefect, name: "Prefect & ETL/ELT", color: "#0052FF" },
+      { id: "s-18", icon: FaCheckCircle, name: "Pandera & Data Quality", color: "#16A085" }
     ]
   },
   {
-    title: "Cloud & DevOps",
+    title: "Cloud, DevOps & Serving",
     items: [
-      { id: "s-24", icon: FaAws, name: "AWS, Azure, GCP", color: "#FF9900" },
-      { id: "s-25", icon: SiDocker, name: "Docker & K8s", color: "#2496ED" },
-      { id: "s-26", icon: SiGit, name: "Git & GitHub Actions", color: "#F05032" },
-      { id: "s-27", icon: FaCogs, name: "CI/CD", color: "#2088FF" }
+      { id: "s-19", icon: SiGooglecloud, name: "GCP (Vertex AI, Cloud Run)", color: "#4285F4" },
+      { id: "s-20", icon: SiDatabricks, name: "Databricks & Delta Lake", color: "#FF3621" },
+      { id: "s-21", icon: SiDocker, name: "Docker", color: "#2496ED" },
+      { id: "s-22", icon: SiGithubactions, name: "GitHub Actions CI/CD", color: "#2088FF" },
+      { id: "s-23", icon: SiFastapi, name: "FastAPI & Pydantic", color: "#009688" },
+      { id: "s-24", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
     ]
   },
   {
-    title: "Metrics, Eval & Soft Skills",
+    title: "Generative AI & Deep Learning",
     items: [
-      { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
-      { id: "s-29", icon: FaChartLine, name: "Walk-Forward Validation", color: "#9C27B0" },
-      { id: "s-30", icon: FaBrain, name: "Analytical Thinking", color: "#E67E22" },
-      { id: "s-31", icon: FaCogs, name: "Problem Solving & Scrum", color: "#34495E" }
+      { id: "s-25", icon: RiGeminiFill, name: "Gemini & Google ADK", color: "#8E75B2" },
+      { id: "s-26", icon: SiOpenai, name: "OpenAI", color: "#10A37F" },
+      { id: "s-27", icon: FaRobot, name: "AI Agents", color: "#F39C12" },
+      { id: "s-28", icon: FaDatabase, name: "RAG & Vector Search", color: "#5B2C6F" },
+      { id: "s-29", icon: SiTensorflow, name: "TensorFlow & Keras", color: "#FF6F00" },
+      { id: "s-30", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" }
+    ]
+  },
+  {
+    title: "Statistics, Evaluation & Soft Skills",
+    items: [
+      { id: "s-31", icon: BsGraphUp, name: "ROC-AUC, PR-AUC, Gini, KS", color: "#4CAF50" },
+      { id: "s-32", icon: FaFlask, name: "Hypothesis Tests & Bootstrap", color: "#9C27B0" },
+      { id: "s-33", icon: FaSyncAlt, name: "Walk-Forward Validation", color: "#00838F" },
+      { id: "s-34", icon: FaAws, name: "AWS & Kubernetes (basics)", color: "#FF9900" },
+      { id: "s-35", icon: FaBrain, name: "Analytical Thinking", color: "#E67E22" },
+      { id: "s-36", icon: FaUsers, name: "Teamwork & Scrum", color: "#34495E" }
     ]
   }
 ];
 
-const skills_es = [
-  {
-    title: "Lenguajes y Herramientas",
-    items: [
-      { id: "s-1", icon: SiPython, name: "Python", color: "#3776AB" },
-      { id: "s-2", icon: SiR, name: "R", color: "#276DC3" },
-      { id: "s-3", icon: FaDatabase, name: "SQL", color: "#336791" },
-      { id: "s-4", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-      { id: "s-5", icon: FaChartBar, name: "Power BI", color: "#F2C811" },
-      { id: "s-6", icon: FaCogs, name: "PySpark", color: "#E25A1C" }
-    ]
-  },
-  {
-    title: "Machine Learning y Aprendizaje Profundo",
-    items: [
-      { id: "s-7", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
-      { id: "s-8", icon: FaBrain, name: "Gradient Boosting", color: "#1F77B4" },
-      { id: "s-9", icon: SiTensorflow, name: "TensorFlow y Keras", color: "#FF6F00" },
-      { id: "s-10", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" },
-      { id: "s-11", icon: FaChartLine, name: "Series Temporales y PLN", color: "#6C5B7B" },
-      { id: "s-12", icon: BsGraphUp, name: "Visión por Computadora", color: "#355C7D" }
-    ]
-  },
-  {
-    title: "IA Generativa y LLMs",
-    items: [
-      { id: "s-13", icon: FaRobot, name: "IA Generativa y LLMs", color: "#FF007F" },
-      { id: "s-14", icon: SiOpenai, name: "OpenAI y Gemini", color: "#10A37F" },
-      { id: "s-15", icon: FaCogs, name: "RAG y MCP", color: "#00C4B6" },
-      { id: "s-16", icon: FaDatabase, name: "Búsqueda Vectorial", color: "#5B2C6F" },
-      { id: "s-17", icon: FaBrain, name: "Agentes de IA", color: "#F39C12" },
-      { id: "s-18", icon: FaCogs, name: "Embeddings", color: "#2980B9" }
-    ]
-  },
-  {
-    title: "MLOps e Ingeniería de Datos",
-    items: [
-      { id: "s-19", icon: FaCogs, name: "MLOps y MLflow", color: "#0194E2" },
-      { id: "s-20", icon: FaChartLine, name: "SHAP y Detección de Drift", color: "#FF2B2B" },
-      { id: "s-21", icon: FaDatabase, name: "Registro de Modelos", color: "#138D75" },
-      { id: "s-22", icon: SiFastapi, name: "FastAPI y Pydantic", color: "#009688" },
-      { id: "s-23", icon: FaCogs, name: "Prefect y ETL/ELT", color: "#0052FF" }
-    ]
-  },
-  {
-    title: "Nube y DevOps",
-    items: [
-      { id: "s-24", icon: FaAws, name: "AWS, Azure, GCP", color: "#FF9900" },
-      { id: "s-25", icon: SiDocker, name: "Docker y K8s", color: "#2496ED" },
-      { id: "s-26", icon: SiGit, name: "Git y GitHub Actions", color: "#F05032" },
-      { id: "s-27", icon: FaCogs, name: "Integración y Despliegue Continuo (CI/CD)", color: "#2088FF" }
-    ]
-  },
-  {
-    title: "Métricas, Evaluación y Habilidades Blandas",
-    items: [
-      { id: "s-28", icon: BsGraphUp, name: "ROC/PR-AUC, Gini, KS", color: "#4CAF50" },
-      { id: "s-29", icon: FaChartLine, name: "Validación Walk-Forward", color: "#9C27B0" },
-      { id: "s-30", icon: FaBrain, name: "Pensamiento Analítico", color: "#E67E22" },
-      { id: "s-31", icon: FaCogs, name: "Resolución de Problemas y Scrum", color: "#34495E" }
-    ]
-  }
+const skillNamesEs = {
+  "Advanced Excel": "Excel Avanzado",
+  "Forecasting (ARIMA/ETS)": "Pronóstico (ARIMA/ETS)",
+  "MLflow & Model Registry": "MLflow y Registro de Modelos",
+  "Champion/Challenger": "Campeón/Retador",
+  "A/B Testing": "Pruebas A/B",
+  "Prefect & ETL/ELT": "Prefect y ETL/ELT",
+  "Pandera & Data Quality": "Pandera y Calidad de Datos",
+  "Databricks & Delta Lake": "Databricks y Delta Lake",
+  "FastAPI & Pydantic": "FastAPI y Pydantic",
+  "Gemini & Google ADK": "Gemini y Google ADK",
+  "AI Agents": "Agentes de IA",
+  "RAG & Vector Search": "RAG y Búsqueda Vectorial",
+  "TensorFlow & Keras": "TensorFlow y Keras",
+  "Hypothesis Tests & Bootstrap": "Pruebas de Hipótesis y Bootstrap",
+  "Walk-Forward Validation": "Validación Walk-Forward",
+  "AWS & Kubernetes (basics)": "AWS y Kubernetes (nociones)",
+  "Analytical Thinking": "Pensamiento Analítico",
+  "Teamwork & Scrum": "Trabajo en Equipo y Scrum",
+};
+const skillTitlesEs = [
+  "Lenguajes e Inteligencia de Negocios",
+  "Machine Learning",
+  "MLOps e Ingeniería de Datos",
+  "Nube, DevOps y Despliegue",
+  "IA Generativa y Aprendizaje Profundo",
+  "Estadística, Evaluación y Habilidades Blandas",
+];
+const skills_es = skills_en.map((group, i) => ({
+  title: skillTitlesEs[i],
+  items: group.items.map((item) => ({ ...item, name: skillNamesEs[item.name] || item.name })),
+}));
+
+// ---------------------------------------------------------------------------
+// Stacks de proyectos
+// ---------------------------------------------------------------------------
+const stacks = {
+  creditRisk: [
+    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
+    { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
+    { id: "t-3", icon: FaBrain, name: "XGBoost, LightGBM, CatBoost", color: "#1F77B4" },
+    { id: "t-4", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
+    { id: "t-5", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+    { id: "t-6", icon: SiDocker, name: "Docker", color: "#2496ED" },
+    { id: "t-7", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
+    { id: "t-8", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
+  ],
+  creditRisk2: [
+    { id: "t-1", icon: SiDatabricks, name: "Databricks", color: "#FF3621" },
+    { id: "t-2", icon: FaDatabase, name: "Delta Lake", color: "#00ADD4" },
+    { id: "t-3", icon: FaLayerGroup, name: "Unity Catalog", color: "#5B2C6F" },
+    { id: "t-4", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
+    { id: "t-5", icon: FaSlidersH, name: "Optuna", color: "#6C5B7B" },
+    { id: "t-6", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+    { id: "t-7", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
+  ],
+  malaria: [
+    { id: "t-1", icon: FaBrain, name: "LightGBM", color: "#1F77B4" },
+    { id: "t-2", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
+    { id: "t-3", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+    { id: "t-4", icon: SiDocker, name: "Docker", color: "#2496ED" },
+    { id: "t-5", icon: SiPrefect, name: "Prefect", color: "#0052FF" },
+    { id: "t-6", icon: FaCheckCircle, name: "Pandera", color: "#16A085" },
+    { id: "t-7", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" },
+    { id: "t-8", icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" }
+  ],
+  rumbo: [
+    { id: "t-1", icon: RiGeminiFill, name: "Gemini 3.5 + Google ADK", color: "#8E75B2" },
+    { id: "t-2", icon: SiGooglecloud, name: "Vertex AI + Cloud Run", color: "#4285F4" },
+    { id: "t-3", icon: FaRobot, name: "AI Agents", color: "#F39C12" },
+    { id: "t-4", icon: TbBrandFirebase, name: "Firestore", color: "#FFCA28" },
+    { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic", color: "#009688" },
+    { id: "t-6", icon: SiReact, name: "React", color: "#61DAFB" }
+  ],
+  research: [
+    { id: "t-1", icon: SiR, name: "R", color: "#276DC3" },
+    { id: "t-2", icon: SiPython, name: "Python", color: "#3776AB" }
+  ],
+};
+const stackEs = (stack) =>
+  stack.map((t) => ({ ...t, name: t.name === "AI Agents" ? "Agentes de IA" : t.name }));
+
+const socialMedia = [
+  { id: "sm-1", icon: AiFillLinkedin, link: "https://www.linkedin.com/in/wilder-eslu/" },
+  { id: "sm-2", icon: AiFillGithub, link: "https://github.com/wilder14-eslu" },
+  { id: "sm-3", icon: AiFillMail, link: "mailto:esluwilder@gmail.com" },
+  { id: "sm-4", img: devpost_icon, link: "https://devpost.com/wilder14-eslu?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" }
 ];
 
+// ---------------------------------------------------------------------------
+// Inglés
+// ---------------------------------------------------------------------------
 export const en = {
   resumeLink: resumeLinkEn, repoLink, callToAction,
   navLinks: [
@@ -178,113 +209,109 @@ export const en = {
   ],
   educationList: [
     {
-      id: "edu-1", icon: commonIcons.unmsm_university,
+      id: "edu-1", icon: unmsm_university,
       title: "Universidad Nacional Mayor de San Marcos (UNMSM)",
-      degree: "Licenciatura, Statistics",
+      degree: "Bachelor of Science in Statistics",
       duration: "May 2022 - Dec 2027",
-      content1: "Focus on Data Science, Advanced Analytics, Machine Learning and MLOps.",
-      content2: "PRONABEC Scholar (2024)."
+      content1: "Top third of the Professional School of Statistics.",
+      content2: "PRONABEC scholarship (2024) for outstanding academic performance."
     }
   ],
   achievements: [
-    { 
-      id: "a-1", 
-      icon: commonIcons.stanford_new, 
-      event: "Machine Learning Specialization", 
-      position: "DeepLearning.AI & Stanford", 
-      content1: "Completed specialization", 
-      project: "https://drive.google.com/file/d/14xpmUa2ejR1c9K0ldrOjsGt5xIUZakWz/view?usp=sharing" 
+    {
+      id: "a-1", icon: stanford_new,
+      event: "Machine Learning Specialization",
+      position: "DeepLearning.AI & Stanford University",
+      content1: "I learned regression, classification, neural networks, decision trees and unsupervised learning, and how to apply them to real problems.",
+      project: "https://drive.google.com/file/d/14xpmUa2ejR1c9K0ldrOjsGt5xIUZakWz/view?usp=sharing"
     },
-    { 
-      id: "a-2", 
-      icon: commonIcons.duke, 
-      event: "Python Essentials for MLOps", 
-      position: "Duke University", 
-      content1: "MLOps workflows & tools", 
-      project: "https://drive.google.com/file/d/1xVxK6HXfXaQn7y5F8c4qcMokiLbzsU0D/view?usp=sharing" 
+    {
+      id: "a-2", icon: sql_cert,
+      event: "SQL for Data Science",
+      position: "University of California, Davis",
+      content1: "I learned to query, filter, join and aggregate data with SQL to prepare it for analysis."
     },
-    { 
-      id: "a-3", 
-      icon: commonIcons.saylor, 
-      event: "Building with Artificial Intelligence", 
-      position: "CS205 - Saylor Academy", 
-      content1: "AI fundamentals & applications", 
-      project: "https://drive.google.com/file/d/1WBgnbuFwAwgZJYzE3y06km6YaXIbut6h/view?usp=sharing" 
+    {
+      id: "a-3", icon: saylor,
+      event: "Building with Artificial Intelligence (CS205)",
+      position: "Saylor Academy",
+      content1: "I learned AI fundamentals and how to build applications that use AI models.",
+      project: "https://drive.google.com/file/d/1WBgnbuFwAwgZJYzE3y06km6YaXIbut6h/view?usp=sharing"
     },
-    { 
-      id: "a-4", 
-      icon: commonIcons.university_michigan, 
-      event: "Programming for Everybody (Python)", 
-      position: "University of Michigan", 
-      content1: "Python Basics", 
-      project: "https://drive.google.com/file/d/1g1A59C-FWs9NllYtg4W0mElG9clEVsP7/view?usp=sharing" 
+    {
+      id: "a-4", icon: duke,
+      event: "Python Essentials for MLOps",
+      position: "Duke University",
+      content1: "I learned to write tested, maintainable Python and to build the tools and APIs used in MLOps workflows.",
+      project: "https://drive.google.com/file/d/1xVxK6HXfXaQn7y5F8c4qcMokiLbzsU0D/view?usp=sharing"
     },
-    { 
-      id: "a-5", 
-      icon: commonIcons.saylor, 
-      event: "Business-Proficient English", 
-      position: "Saylor Academy", 
-      content1: "ESL005", 
-      project: "https://drive.google.com/file/d/14QQ1lPW92gd1htn8tpV8QSVHVmXwhnu7/view?usp=sharing" 
+    {
+      id: "a-5", icon: university_michigan,
+      event: "Programming for Everybody (Getting Started with Python)",
+      position: "University of Michigan",
+      content1: "I learned the foundations of programming in Python: variables, conditionals, loops and functions.",
+      project: "https://drive.google.com/file/d/1g1A59C-FWs9NllYtg4W0mElG9clEVsP7/view?usp=sharing"
     },
-    { 
-      id: "a-6", 
-      icon: commonIcons.saylor, 
-      event: "Advanced English", 
-      position: "Saylor Academy", 
-      content1: "ESL004", 
-      project: "https://drive.google.com/file/d/1LgUePfHX_u-ITkyT0FwKGwHtlUsXrUK2/view?usp=sharing" 
+    {
+      id: "a-6", icon: saylor,
+      event: "Business-Proficient English (ESL005)",
+      position: "Saylor Academy",
+      content1: "I learned to communicate in English in professional and business settings.",
+      project: "https://drive.google.com/file/d/14QQ1lPW92gd1htn8tpV8QSVHVmXwhnu7/view?usp=sharing"
     },
-    { 
-      id: "a-7", 
-      icon: commonIcons.google, 
-      event: "Marketing Digital", 
-      position: "Curso Especializado", 
-      content1: "Marketing Digital", 
-      project: "https://drive.google.com/file/d/15G9WVPyt34ikl-tky9bJpfE2zR4h-WTi/view?usp=sharing" 
+    {
+      id: "a-7", icon: saylor,
+      event: "Advanced English (ESL004)",
+      position: "Saylor Academy",
+      content1: "I learned to read, write and hold conversations in English at an advanced level.",
+      project: "https://drive.google.com/file/d/1LgUePfHX_u-ITkyT0FwKGwHtlUsXrUK2/view?usp=sharing"
     },
-    { 
-      id: "a-8", 
-      icon: commonIcons.unmsm_logo, 
-      event: "Certificado UNMSM", 
-      position: "UNMSM", 
-      content1: "Centro de Informática", 
-      project: "https://drive.google.com/file/d/1nQMy2fuV5QcOZQ5K6mhj5VZYantkOySd/view?usp=sharing" 
+    {
+      id: "a-8", icon: google,
+      event: "Digital Marketing",
+      position: "Specialized Course",
+      content1: "I learned the fundamentals of digital marketing.",
+      project: "https://drive.google.com/file/d/15G9WVPyt34ikl-tky9bJpfE2zR4h-WTi/view?usp=sharing"
+    },
+    {
+      id: "a-9", icon: unmsm_logo,
+      event: "UNMSM Certificate",
+      position: "Centro de Informática, UNMSM",
+      content1: "Computer skills certificate.",
+      project: "https://drive.google.com/file/d/1nQMy2fuV5QcOZQ5K6mhj5VZYantkOySd/view?usp=sharing"
     }
   ],
   skills: skills_en,
   experiences: [
     {
-      organisation: "RealML",
-      logo: commonIcons.realml_new,
+      organisation: "Municipalidad de Áncash",
+      logo: municipalidad,
       positions: [
         {
-          title: "Founder & CEO",
-          duration: "Mar 2026 - Present",
+          title: "Junior Data Scientist",
+          duration: "2024 (3 months) · Áncash, Peru",
           content: [
-            { text: "Founded and lead RealML, an applied Machine Learning initiative dedicated to architecting data-driven products that address concrete business challenges and improve user experiences." },
-            { text: "Spearhead the end-to-end development of decision intelligence systems, translating raw data into scalable AI solutions that generate measurable value and optimize operational workflows." },
-            { text: "Core expertise: Risk Modeling, Predictive Analytics, MLOps, AI-Powered Products, and Business Process Optimization." }
+            { text: "Led the processing, validation and organization of personnel data in Excel, coordinating with multiple areas to ensure the consistency, integrity and confidentiality of institutional information." },
+            { text: "Designed tracking tables and structured reports that standardized information delivery to municipal management, reducing consolidation time and manual errors in recurring reports." },
+            { text: "Implemented data quality controls (duplicate, outlier and missing-field detection), ensuring decisions were based on reliable, auditable information." },
+            { text: "Gathered requirements from department heads and administrative teams, prioritizing deliverables and turning operational needs into clear, timely reports." }
           ]
         }
       ]
     },
     {
-      organisation: "Other Experience",
-      logo: commonIcons.mebol_new,
+      organisation: "Mebol (Food Industry)",
+      logo: mebol_new,
       positions: [
         {
-          title: "Warehouse Manager - Mebol",
-          duration: "2023 - 2024 (1 year)",
+          title: "Junior Data Analyst",
+          duration: "2023 - 2024 (1 year) · Lima, Peru",
           content: [
-            { text: "Led inventory control and supply chain tracking using SQL and Excel, building structured tracking tables to improve traceability." }
-          ]
-        },
-        {
-          title: "Human Resources Assistant - Municipalidad",
-          duration: "2024 (3 months)",
-          content: [
-            { text: "Managed personnel data (payroll, attendance, records) in Excel, coordinating across departments." }
+            { text: "Managed inventory control with advanced Excel and SQL, implementing tracking tables that improved product traceability and real-time stock visibility." },
+            { text: "Designed and ran SQL queries on operational databases to consolidate, validate and clean information, reducing recording errors and ensuring consistency across sources." },
+            { text: "Automated the generation of periodic inventory reports, cutting manual preparation time and freeing the team for analysis and decision-making." },
+            { text: "Coordinated with warehouse, purchasing and sales to align inventory data with daily operations, identifying discrepancies and proposing improvements to recording processes." },
+            { text: "Documented procedures and data structures, leaving traceability and making operational continuity and onboarding of new team members easier." }
           ]
         }
       ]
@@ -293,105 +320,59 @@ export const en = {
   projects: [
     {
       id: "proj-1",
-      title: "Credit Risk ML Platform - End-to-End MLOps",
+      title: "Credit Risk ML Platform: End-to-End MLOps",
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
       link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
-      image: commonIcons.ml_banking_icon,
-      content: "End-to-end MLOps platform for automated credit risk assessment. Benchmarks 4 models (Logistic Regression, XGBoost, LightGBM, CatBoost) on ROC-AUC, PR-AUC, KS and calibration before promoting a champion model, with CI/CD pipelines and MLflow for tracking. Includes SHAP explainability and PSI-based drift monitoring to support regulatory review and sustained ROI.",
-      stack: [
-        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-        { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn / Gradient Boosting", color: "#F7931E" },
-        { id: "t-3", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-        { id: "t-4", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-        { id: "t-5", icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
-        { id: "t-6", icon: SiPrefect, name: "Prefect", color: "#0052FF" },
-        { id: "t-7", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
-        { id: "t-8", icon: SiDocker, name: "Docker", color: "#2496ED" },
-        { id: "t-9", icon: SiGithubactions, name: "GitHub Actions / CI-CD", color: "#2088FF" },
-        { id: "t-10", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
-      ]
+      image: ml_banking_icon,
+      content: "Probability of default (PD) platform on 150K applicants: ROC-AUC 0.870, Gini 0.741, KS 0.582, PR-AUC 0.407 and ECE 0.0027. The approval threshold is set by expected cost (-38% cost vs. approving everyone; the top decile captures 56% of defaults, 5.6x lift). Includes SHAP explainability, PSI drift monitoring, a Champion/Challenger scheme, statistical validation (Nadeau-Bengio, DeLong, bootstrap) and 0.41 ms (p50) inference latency.",
+      stack: stacks.creditRisk
     },
     {
       id: "proj-2",
-      title: "Peru Malaria Early Warning Platform",
-      github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
-      image: commonIcons.ai_health_icon,
-      content: "Predictive ML system designed to proactively mitigate disease outbreaks and optimize the allocation of public health resources. LightGBM quantile-regression model beats the naive/moving-average baseline by 10-12% (WAPE 0.46 at 1 week to 0.54 at 4 weeks), with 80% prediction intervals covering ~94% of real outcomes. Containerized and deployed via FastAPI for seamless integration into real-time operational workflows.",
-      stack: [
-        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-        { id: "t-2", icon: FaBrain, name: "LightGBM + Optuna", color: "#1F77B4" },
-        { id: "t-3", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-        { id: "t-4", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
-        { id: "t-5", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-        { id: "t-6", icon: FaFire, name: "Evidently (Drift)", color: "#E25A1C" },
-        { id: "t-7", icon: FaChartLine, name: "Feature Engineering Temporal", color: "#6C5B7B" },
-        { id: "t-8", icon: SiDocker, name: "Docker", color: "#2496ED" },
-        { id: "t-9", icon: SiGithubactions, name: "CI / GitHub Actions", color: "#2088FF" }
-      ]
+      title: "Credit Risk Platform 2.0: Lending Club on Databricks",
+      github: "https://github.com/wilder14-eslu/credit-risk-platform-2.0",
+      image: ml_banking_icon,
+      content: "Credit risk platform on 2.26M real loans (2007-2018) with Level 2 MLOps on Databricks. Out-of-time validation with no leakage or censoring bias, A/B testing with automatic model promotion based on AUC bootstrap, drift detection (PSI, KS, DDM, Page-Hinkley), prior shift analysis, continuous retraining and rollback.",
+      stack: stacks.creditRisk2
     },
     {
       id: "proj-3",
-      title: "Rumbo - AI Agent Recruitment Platform",
-      github: "https://github.com/MelZarate-science/Rumbo",
-      link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
-      image: commonIcons.ai_hr_icon,
-      content: "AI-driven talent acquisition platform leveraging LLMs and vector search to automate role classification and candidate scoring. Significantly reduces time-to-hire and improves match quality through autonomous AI agents. Highly scalable architecture deployed on Google Cloud Run to maximize HR operational efficiency.",
-      stack: [
-        { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-        { id: "t-2", icon: RiGeminiFill, name: "Gemini + Google ADK", color: "#8E75B2" },
-        { id: "t-3", icon: FaRobot, name: "AI Agents", color: "#F39C12" },
-        { id: "t-4", icon: FaDatabase, name: "Embeddings + Vector Search", color: "#5B2C6F" },
-        { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic", color: "#009688" },
-        { id: "t-6", icon: SiReact, name: "React + Vite", color: "#61DAFB" },
-        { id: "t-7", icon: TbBrandFirebase, name: "Firestore (Vector DB)", color: "#FFCA28" },
-        { id: "t-8", icon: SiGooglecloud, name: "Google Cloud Run", color: "#4285F4" }
-      ]
+      title: "Peru Malaria Early Warning Platform",
+      github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
+      image: ai_health_icon,
+      content: "Probabilistic malaria forecasting with 25 years of MINSA data (1.21M cases, 1,645 districts). A quantile LightGBM model (q0.1/q0.5/q0.9) reaches a 1-week WAPE of 0.41, 12% better than the best baseline (Diebold-Mariano test, p < 1e-20). Validated with walk-forward, block bootstrap, pinball loss, WIS and interval coverage; 45 tests and CI with ruff, mypy, pytest and Docker.",
+      stack: stacks.malaria
     },
     {
       id: "proj-4",
+      title: "Rumbo: AI Agent Recruitment Matching Platform",
+      github: "https://github.com/MelZarate-science/Rumbo",
+      link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
+      image: ai_hr_icon,
+      content: "Multi-agent system with 3 agents (Role Classifier, Requirement Extractor, Fit Auditor) built with Google ADK and Gemini 3.5 on Vertex AI, deployed on Cloud Run with a FastAPI backend, structured outputs with Pydantic, Firestore and a React frontend. Built for Google Cloud's All Things Agentic Hackathon.",
+      stack: stacks.rumbo
+    },
+    {
+      id: "proj-5",
       title: "Statistical Research & Analysis",
       github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
-      image: commonIcons.investigacion,
-      content: "Data-driven research initiatives focusing on econometric modeling and consumer behavior. Translated complex statistical analyses (Bayesian Regression, Credit Demand) into strategic, actionable business recommendations for optimized financial decision-making.",
-      stack: [
-        { id: "s-1", icon: SiR, name: "R", color: "#276DC3" },
-        { id: "s-2", icon: SiPython, name: "Python", color: "#3776AB" }
-      ]
+      image: investigacion,
+      content: "Data-driven research focused on econometric modeling and consumer behavior. Turned complex statistical analyses (Bayesian Regression, Credit Demand) into strategic, actionable business recommendations for financial decision-making.",
+      stack: stacks.research
     }
   ],
-  socialMedia: [
-    { id: "sm-1", icon: commonIcons.AiFillLinkedin, link: "https://www.linkedin.com/in/wilder-eslu/" },
-    { id: "sm-2", icon: commonIcons.AiFillGithub, link: "https://github.com/wilder14-eslu" },
-    { id: "sm-3", icon: commonIcons.AiFillMail, link: "mailto:esluwilder@gmail.com" },
-    { id: "sm-4", img: devpost_icon, link: "https://devpost.com/wilder14-eslu?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" }
-  ],
+  socialMedia,
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Machine Learning Engineer | MLOps Specialist",
+    tagLine: "Machine Learning Engineer | MLOps | Data Analytics",
     phone: "+51 910 049 106",
-    intro: "Machine Learning Engineer specialized in MLOps and scalable AI solutions. I bridge the gap between statistical modeling and production by architecting robust data pipelines and deploying models that drive measurable business value. My expertise lies in automating ML lifecycles (CI/CD, Docker, MLflow, FastAPI) and translating complex data into actionable decision-intelligence systems."
+    intro: "Data professional with a background in Statistics (UNMSM, top third) and over a year of experience in data analytics and management in the public sector and the food industry. I build end-to-end ML systems: credit risk platforms on 2.26M loans (ROC-AUC 0.870), probabilistic malaria forecasting with MINSA data and AI agents with Gemini and Google ADK."
   }
 };
 
-const stackNamesEs = {
-  "Feature Engineering Temporal": "Ingeniería de Variables Temporales",
-  "Evidently (Drift)": "Evidently (Detección de Drift)",
-  "CI / GitHub Actions": "Integración Continua / GitHub Actions",
-  "AI Agents": "Agentes de IA",
-  "Embeddings + Vector Search": "Embeddings + Búsqueda Vectorial",
-  "Firestore (Vector DB)": "Firestore (Base de Datos Vectorial)",
-};
-const stackEs = (stack) => stack.map((t) => ({ ...t, name: stackNamesEs[t.name] || t.name }));
-
-const achievementsEs = {
-  "a-1": { event: "Especialización en Machine Learning", position: "DeepLearning.AI y Stanford", content1: "Especialización completada" },
-  "a-2": { event: "Fundamentos de Python para MLOps", content1: "Flujos de trabajo y herramientas de MLOps" },
-  "a-3": { event: "Construyendo con Inteligencia Artificial", content1: "Fundamentos y aplicaciones de IA" },
-  "a-4": { event: "Programación para Todos (Python)", content1: "Fundamentos de Python" },
-  "a-5": { event: "Inglés de Negocios", content1: "ESL005" },
-  "a-6": { event: "Inglés Avanzado", content1: "ESL004" },
-};
-
+// ---------------------------------------------------------------------------
+// Español
+// ---------------------------------------------------------------------------
 export const es = {
   resumeLink: resumeLinkEs, repoLink, callToAction,
   navLinks: [
@@ -406,44 +387,61 @@ export const es = {
       ...en.educationList[0],
       degree: "Licenciatura en Estadística",
       duration: "Mayo 2022 - Dic 2027",
-      content1: "Enfoque en Ciencia de Datos, Analítica Avanzada, Machine Learning y MLOps.",
-      content2: "Becario PRONABEC (2024)."
+      content1: "Tercio Superior de la Escuela Profesional de Estadística.",
+      content2: "Becario PRONABEC (2024) por rendimiento académico sobresaliente."
     }
   ],
-  achievements: en.achievements.map((item) => ({ ...item, ...(achievementsEs[item.id] || {}) })),
+  achievements: [
+    { ...en.achievements[0], event: "Especialización en Machine Learning", position: "DeepLearning.AI y Stanford University",
+      content1: "Aprendí regresión, clasificación, redes neuronales, árboles de decisión y aprendizaje no supervisado, y a aplicarlos a problemas reales." },
+    { ...en.achievements[1], event: "SQL para Ciencia de Datos",
+      content1: "Aprendí a consultar, filtrar, unir y agregar datos con SQL para prepararlos para el análisis." },
+    { ...en.achievements[2], event: "Construyendo con Inteligencia Artificial (CS205)",
+      content1: "Aprendí los fundamentos de la IA y a construir aplicaciones que usan modelos de IA." },
+    { ...en.achievements[3], event: "Fundamentos de Python para MLOps",
+      content1: "Aprendí a escribir Python probado y mantenible, y a construir las herramientas y APIs que se usan en flujos de MLOps." },
+    { ...en.achievements[4], event: "Programación para Todos: Introducción a Python",
+      content1: "Aprendí las bases de la programación en Python: variables, condicionales, bucles y funciones." },
+    { ...en.achievements[5], event: "Inglés de Negocios (ESL005)",
+      content1: "Aprendí a comunicarme en inglés en contextos profesionales y de negocios." },
+    { ...en.achievements[6], event: "Inglés Avanzado (ESL004)",
+      content1: "Aprendí a leer, escribir y conversar en inglés a nivel avanzado." },
+    { ...en.achievements[7], event: "Marketing Digital", position: "Curso Especializado",
+      content1: "Aprendí los fundamentos del marketing digital." },
+    { ...en.achievements[8], event: "Certificado UNMSM",
+      content1: "Certificado en informática." }
+  ],
   skills: skills_es,
   experiences: [
     {
-      organisation: "RealML",
-      logo: commonIcons.realml_new,
+      organisation: "Municipalidad de Áncash",
+      logo: municipalidad,
       positions: [
         {
-          title: "Fundador y CEO",
-          duration: "Mar 2026 - Actualidad",
+          title: "Científico de Datos Jr.",
+          duration: "2024 (3 meses) · Áncash, Perú",
           content: [
-            { text: "Fundador y líder de RealML, iniciativa de Machine Learning aplicado dedicada a la arquitectura de productos de datos que resuelven desafíos de negocio reales y mejoran la experiencia del usuario." },
-            { text: "Dirijo el desarrollo de extremo a extremo de sistemas de inteligencia para la toma de decisiones, transformando datos crudos en soluciones de IA escalables que generan valor medible y optimizan flujos operativos." },
-            { text: "Áreas clave: Modelamiento de Riesgos, Analítica Predictiva, MLOps, Productos impulsados por IA y Optimización de Procesos." }
+            { text: "Lideré el procesamiento, validación y organización de datos de personal en Excel, coordinando con múltiples áreas para asegurar consistencia, integridad y confidencialidad de la información institucional." },
+            { text: "Diseñé tablas de seguimiento y reportes estructurados que estandarizaron la entrega de información a la gestión municipal, reduciendo tiempos de consolidación y errores manuales en reportes recurrentes." },
+            { text: "Implementé controles de calidad de datos (detección de duplicados, valores atípicos y campos incompletos), garantizando decisiones basadas en información confiable y auditable." },
+            { text: "Levanté requerimientos con jefaturas y equipos administrativos, priorizando entregables y traduciendo necesidades operativas en reportes claros y oportunos." }
           ]
         }
       ]
     },
     {
-      organisation: "Otras experiencias",
-      logo: commonIcons.mebol_new,
+      organisation: "Mebol (Industria Alimentaria)",
+      logo: mebol_new,
       positions: [
         {
-          title: "Encargado de Almacén - Mebol",
-          duration: "2023 a 2024 (1 año)",
+          title: "Analista de Datos Jr.",
+          duration: "2023 - 2024 (1 año) · Lima, Perú",
           content: [
-            { text: "Lideré el control de inventario y seguimiento logístico con SQL y Excel, implementando tablas de seguimiento estructuradas para mejorar la trazabilidad." }
-          ]
-        },
-        {
-          title: "Auxiliar de Recursos Humanos - Municipalidad",
-          duration: "2024 (3 meses)",
-          content: [
-            { text: "Gestioné datos de personal (planillas, asistencia, registros) en Excel, coordinando con distintas áreas." }
+            { text: "Administré el control de inventarios con Excel avanzado y SQL, implementando tablas de seguimiento que mejoraron la trazabilidad de productos y la visibilidad del stock en tiempo real." },
+            { text: "Diseñé y ejecuté consultas SQL sobre bases de datos operativas para consolidar, validar y depurar información, reduciendo errores de registro y asegurando consistencia entre fuentes." },
+            { text: "Automaticé la generación de reportes periódicos de inventario, disminuyendo el tiempo de elaboración manual y liberando al equipo para el análisis y la toma de decisiones." },
+            { text: "Coordiné con almacén, compras y ventas para alinear la información de inventarios con la operación diaria, identificando discrepancias y proponiendo mejoras en los procesos de registro." },
+            { text: "Documenté procedimientos y estructuras de datos, dejando trazabilidad y facilitando la continuidad operativa y la incorporación de nuevos integrantes." }
           ]
         }
       ]
@@ -451,46 +449,41 @@ export const es = {
   ],
   projects: [
     {
-      id: "proj-1",
+      ...en.projects[0],
       title: "Plataforma de Riesgo Crediticio con ML: MLOps de Extremo a Extremo",
-      github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
-      link: "https://credit-risk-ml-platform-xk4rsvntltadpumscgcwko.streamlit.app/",
-      image: commonIcons.ml_banking_icon,
-      content: "Plataforma MLOps de extremo a extremo para la evaluación automatizada de riesgo crediticio. Compara 4 modelos (Regresión Logística, XGBoost, LightGBM, CatBoost) según ROC-AUC, PR-AUC, KS y calibración antes de promover un modelo campeón, con flujos de integración y despliegue continuo (CI/CD) y MLflow para la trazabilidad. Integra explicabilidad con SHAP y monitoreo de drift (PSI) para apoyar la revisión regulatoria y un retorno de inversión sostenido.",
-      stack: stackEs(en.projects[0].stack)
+      content: "Plataforma de probabilidad de incumplimiento (PD) sobre 150K solicitantes: ROC-AUC 0.870, Gini 0.741, KS 0.582, PR-AUC 0.407 y ECE 0.0027. El umbral de aprobación se define por costo esperado (-38% de costo frente a aprobar a todos; el decil superior concentra el 56% de los incumplimientos, lift de 5.6x). Incluye explicabilidad con SHAP, monitoreo de drift con PSI, esquema campeón/retador, validación estadística (Nadeau-Bengio, DeLong, bootstrap) y latencia de inferencia de 0.41 ms (p50).",
+      stack: stackEs(stacks.creditRisk)
     },
     {
-      id: "proj-2",
+      ...en.projects[1],
+      title: "Plataforma de Riesgo Crediticio 2.0: Lending Club en Databricks",
+      content: "Plataforma de riesgo crediticio sobre 2.26M de préstamos reales (2007-2018) con MLOps Nivel 2 en Databricks. Validación fuera de tiempo (out-of-time) sin fuga de datos ni sesgo de censura, pruebas A/B con promoción automática de modelos basada en bootstrap del AUC, detección de drift (PSI, KS, DDM, Page-Hinkley), análisis de cambio en la distribución a priori, reentrenamiento continuo y reversión de modelos (rollback).",
+      stack: stackEs(stacks.creditRisk2)
+    },
+    {
+      ...en.projects[2],
       title: "Plataforma de Alerta Temprana de Malaria en Perú",
-      github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
-      image: commonIcons.ai_health_icon,
-      content: "Sistema predictivo de ML para anticipar brotes epidemiológicos y optimizar la asignación de recursos en salud pública. El modelo LightGBM con regresión por cuantiles supera al modelo de referencia (ingenuo/media móvil) en 10-12% (WAPE de 0.46 a 1 semana hasta 0.54 a 4 semanas), con intervalos de predicción al 80% que cubren ~94% de los casos reales. Contenerizado con Docker y desplegado mediante FastAPI para integrarse en flujos operativos y de toma de decisiones en tiempo real.",
-      stack: stackEs(en.projects[1].stack)
+      content: "Pronóstico probabilístico de malaria con 25 años de datos del MINSA (1.21M casos, 1,645 distritos). Un modelo LightGBM cuantil (q0.1/q0.5/q0.9) logra un WAPE de 0.41 a 1 semana, 12% mejor que el mejor modelo de referencia (test de Diebold-Mariano, p < 1e-20). Validado con walk-forward, bootstrap por bloques, pérdida pinball, WIS y cobertura de intervalos; 45 pruebas automatizadas e integración continua con ruff, mypy, pytest y Docker.",
+      stack: stackEs(stacks.malaria)
     },
     {
-      id: "proj-3",
+      ...en.projects[3],
       title: "Rumbo: Plataforma de Reclutamiento con Agentes de IA",
-      github: "https://github.com/MelZarate-science/Rumbo",
-      link: "https://rumbo-dev-25592102293.us-central1.run.app/app/",
-      image: commonIcons.ai_hr_icon,
-      content: "Plataforma de reclutamiento impulsada por IA (LLMs y búsqueda vectorial) que automatiza la clasificación de roles y la puntuación de candidatos. Reduce el tiempo de contratación y mejora la calidad de la coincidencia entre perfiles y vacantes mediante agentes autónomos. Arquitectura escalable desplegada en Google Cloud Run para maximizar la eficiencia operativa de Recursos Humanos.",
-      stack: stackEs(en.projects[2].stack)
+      content: "Sistema multiagente de 3 agentes (clasificador de roles, extractor de requisitos y auditor de compatibilidad) construido con Google ADK y Gemini 3.5 en Vertex AI, desplegado en Cloud Run con backend en FastAPI, salidas estructuradas con Pydantic, Firestore y frontend en React. Desarrollado para el hackathon All Things Agentic de Google Cloud.",
+      stack: stackEs(stacks.rumbo)
     },
     {
-      id: "proj-4",
+      ...en.projects[4],
       title: "Investigación Estadística y Análisis",
-      github: "https://github.com/wilder14-eslu/Proyectos-de-Investigacion",
-      image: commonIcons.investigacion,
-      content: "Iniciativas de investigación basadas en datos centradas en modelamiento econométrico y comportamiento del consumidor. Traducción de análisis estadísticos complejos (Regresión Bayesiana, Demanda de Crédito) en recomendaciones de negocio estratégicas y accionables para la optimización de decisiones financieras.",
-      stack: en.projects[3].stack
+      content: "Investigación basada en datos centrada en modelamiento econométrico y comportamiento del consumidor. Traducción de análisis estadísticos complejos (Regresión Bayesiana, Demanda de Crédito) en recomendaciones de negocio estratégicas y accionables para la toma de decisiones financieras."
     }
   ],
-  socialMedia: en.socialMedia,
+  socialMedia,
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Ingeniero de Machine Learning | Especialista en MLOps",
+    tagLine: "Ingeniero de Machine Learning | MLOps | Analítica de Datos",
     phone: "+51 910 049 106",
-    intro: "Ingeniero de Machine Learning especializado en MLOps e Inteligencia Artificial escalable. Conecto el modelamiento estadístico con entornos de producción mediante el diseño de flujos de datos robustos y el despliegue de modelos que generan un retorno de inversión medible para el negocio. Mi enfoque está en automatizar el ciclo de vida del ML (CI/CD, Docker, MLflow, FastAPI) y traducir datos complejos en sistemas de apoyo a la toma de decisiones estratégicas."
+    intro: "Profesional de datos con formación en Estadística (UNMSM, Tercio Superior) y más de un año de experiencia en analítica y gestión de datos en el sector público y la industria alimentaria. Construyo sistemas de ML de extremo a extremo: plataformas de riesgo crediticio sobre 2.26M de préstamos (ROC-AUC 0.870), pronóstico probabilístico de malaria con datos del MINSA y agentes de IA con Gemini y Google ADK."
   }
 };
 
