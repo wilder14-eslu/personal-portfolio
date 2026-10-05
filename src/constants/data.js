@@ -2,11 +2,11 @@ import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
 import { BsGraphUp } from "react-icons/bs";
 import {
   FaAws, FaBalanceScale, FaBrain, FaChartBar, FaChartLine, FaCheckCircle, FaDatabase, FaEye,
-  FaFileExcel, FaFire, FaFlask, FaLayerGroup, FaRobot, FaSlidersH, FaSyncAlt, FaTree, FaUsers,
+  FaFileExcel, FaFire, FaPlug, FaShieldAlt, FaFlask, FaLayerGroup, FaRobot, FaSlidersH, FaSyncAlt, FaTree, FaUsers,
 } from "react-icons/fa";
 import {
   SiApachespark, SiDatabricks, SiDocker, SiFastapi, SiGithubactions, SiGooglecloud, SiMlflow, SiOpenai, SiPostgresql,
-  SiPrefect, SiPython, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow,
+  SiPrefect, SiPython, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow, SiTerraform, SiAmazonwebservices,
 } from "react-icons/si";
 import { RiGeminiFill } from "react-icons/ri";
 import { TbBrandFirebase } from "react-icons/tb";
@@ -25,6 +25,7 @@ import duke from "../assets/duke.webp";
 import saylor from "../assets/saylor.webp";
 import university_michigan from "../assets/university_michigan.jpg";
 import sql_cert from "../assets/sql_cert.svg";
+import riskrag_icon from "../assets/riskrag.svg";
 
 export const resumeLinkEs = "/CV_Wilder_Espinoza_ES.pdf";
 export const resumeLinkEn = "/CV_Wilder_Espinoza_EN.pdf";
@@ -65,11 +66,21 @@ const skills_en = [
     ]
   },
   {
+    title: "Generative AI & LLMs",
+    items: [
+      { id: "s-15", icon: FaDatabase, name: "RAG", color: "#5B2C6F" },
+      { id: "s-16", icon: FaPlug, name: "MCP", color: "#111827" },
+      { id: "s-17", icon: SiPostgresql, name: "pgvector", color: "#4169E1" },
+      { id: "s-18", icon: RiGeminiFill, name: "Gemini & Google ADK", color: "#8E75B2" }
+    ]
+  },
+  {
     title: "Hands-on Cloud Basics",
     items: [
-      { id: "s-15", icon: SiGooglecloud, name: "Vertex AI", color: "#4285F4" },
-      { id: "s-16", icon: SiGooglecloud, name: "Cloud Run", color: "#34A853" },
-      { id: "s-17", icon: RiGeminiFill, name: "Gemini & Google ADK", color: "#8E75B2" }
+      { id: "s-19", icon: SiGooglecloud, name: "Vertex AI", color: "#4285F4" },
+      { id: "s-20", icon: SiGooglecloud, name: "Cloud Run", color: "#34A853" },
+      { id: "s-21", icon: SiAmazonwebservices, name: "Amazon Bedrock", color: "#FF9900" },
+      { id: "s-22", icon: SiTerraform, name: "Terraform", color: "#7B42BC" }
     ]
   }
 ];
@@ -81,6 +92,7 @@ const skillTitlesEs = [
   "Lenguajes y Datos",
   "Modelado y Machine Learning",
   "MLOps y Plataformas de Datos",
+  "IA Generativa y LLMs",
   "Nociones Prácticas en la Nube",
 ];
 const skills_es = skills_en.map((group, i) => ({
@@ -92,6 +104,16 @@ const skills_es = skills_en.map((group, i) => ({
 // Stacks de proyectos
 // ---------------------------------------------------------------------------
 const stacks = {
+  riskrag: [
+    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
+    { id: "t-2", icon: SiFastapi, name: "FastAPI", color: "#009688" },
+    { id: "t-3", icon: FaPlug, name: "MCP", color: "#111827" },
+    { id: "t-4", icon: SiPostgresql, name: "PostgreSQL + pgvector", color: "#4169E1" },
+    { id: "t-5", icon: SiAmazonwebservices, name: "Amazon Bedrock", color: "#FF9900" },
+    { id: "t-6", icon: FaShieldAlt, name: "OWASP LLM Top 10", color: "#C0392B" },
+    { id: "t-7", icon: SiTerraform, name: "Terraform", color: "#7B42BC" },
+    { id: "t-8", icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" }
+  ],
   creditRisk: [
     { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
     { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
@@ -250,6 +272,14 @@ export const en = {
   ],
   projects: [
     {
+      id: "proj-rag",
+      title: "RiskRAG: RAG Assistant for Credit Risk & Insurance",
+      github: "https://github.com/wilder14-eslu/rag-riesgo-credito-seguros",
+      image: riskrag_icon,
+      content: "Helps credit risk and insurance analysts consult regulations with cited, verifiable answers, and calculates debtor classification and provisions with deterministic tools instead of relying on the LLM.",
+      stack: stacks.riskrag
+    },
+    {
       id: "proj-1",
       title: "Credit Risk ML Platform: End-to-End MLOps",
       github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
@@ -367,24 +397,29 @@ export const es = {
   projects: [
     {
       ...en.projects[0],
+      title: "RiskRAG: Asistente RAG Experto en Riesgo Crediticio y Seguros",
+      content: "Ayuda a analistas de riesgo crediticio y seguros a consultar la normativa con respuestas citadas y verificables, y calcula la clasificación del deudor y las provisiones con herramientas deterministas en lugar de depender del LLM."
+    },
+    {
+      ...en.projects[1],
       title: "Plataforma de Riesgo Crediticio con ML: MLOps de Extremo a Extremo",
       content: "Ayuda a una entidad financiera a decidir a quién aprobar un crédito, estimando la probabilidad de que cada solicitante no pague y explicando el porqué de cada decisión.",
       stack: stackEs(stacks.creditRisk)
     },
     {
-      ...en.projects[1],
+      ...en.projects[2],
       title: "Plataforma de Riesgo Crediticio 2.0: Lending Club en Databricks",
       content: "Mantiene confiable el modelo de riesgo crediticio de un banco en producción: detecta cuándo cambia el comportamiento de los clientes y reentrena y reemplaza el modelo de forma automática y segura.",
       stack: stackEs(stacks.creditRisk2)
     },
     {
-      ...en.projects[2],
+      ...en.projects[3],
       title: "Plataforma de Alerta Temprana de Malaria en Perú",
       content: "Anticipa cuántos casos de malaria tendrá cada distrito del Perú en las próximas semanas, para que las autoridades de salud distribuyan recursos y actúen antes de un brote.",
       stack: stackEs(stacks.malaria)
     },
     {
-      ...en.projects[3],
+      ...en.projects[4],
       title: "Rumbo: Plataforma de Reclutamiento con Agentes de IA",
       content: "Ayuda a reclutadores y candidatos a encontrar el mejor encaje entre un perfil y una vacante, con agentes de IA que leen el puesto, extraen sus requisitos y evalúan la compatibilidad.",
       stack: stackEs(stacks.rumbo)
