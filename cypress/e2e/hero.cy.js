@@ -26,12 +26,12 @@ describe('Sección principal (Hero)', () => {
   describe('Responsive', () => {
     it('escritorio: la presentación usa el ancho disponible', () => {
       cy.viewportPreset('desktop');
-      cy.get('#home p').first().invoke('outerWidth').should('be.greaterThan', 700);
+      cy.get('[data-testid="hero-intro"]').invoke('outerWidth').should('be.greaterThan', 700);
     });
 
     it('celular: la presentación se ve completa', () => {
       cy.viewportPreset('mobile');
-      cy.get('#home p').first().should('be.visible');
+      cy.get('[data-testid="hero-intro"]').should('be.visible');
     });
   });
 });

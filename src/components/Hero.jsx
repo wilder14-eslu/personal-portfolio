@@ -30,7 +30,7 @@ const Hero = () => {
         <h1 className="font-poppins font-bold ss:text-[68px] text-[52px] text-gray-900 ss:leading-[80px] leading-[64px] w-full">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00b4d8] to-[#0077b6] drop-shadow-md">{aboutMe.name}</span>
         </h1>
-        <p className="font-poppins font-normal text-gray-600 sm:text-[20px] text-[17px] sm:leading-[34px] leading-[30px] max-w-[1000px] mt-6">
+        <p data-testid="hero-intro" className="font-poppins font-normal text-gray-600 sm:text-[20px] text-[17px] sm:leading-[34px] leading-[30px] max-w-[1000px] mt-6">
           {aboutMe.intro}
         </p>
       </div>
