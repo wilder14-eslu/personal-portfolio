@@ -18,7 +18,7 @@ import devpost_icon from "../assets/Devpost.webp";
 
 // Fotos y logos reales de instituciones y empresas
 import mebol_new from "../assets/mebol_new.png";
-import municipalidad from "../assets/municipalidad.webp";
+
 import stanford_new from "../assets/stanford_new.webp";
 import unmsm_university from "../assets/UNMSM.webp";
 import duke from "../assets/duke.webp";
@@ -237,28 +237,12 @@ export const en = {
   skills: skills_en,
   experiences: [
     {
-      organisation: "Municipalidad",
-      logo: municipalidad,
-      positions: [
-        {
-          title: "Junior Data Scientist",
-          duration: "2024 (3 months) · Peru",
-          content: [
-            { text: "Led the processing, validation and organization of personnel data in Excel, coordinating with multiple areas to ensure the consistency, integrity and confidentiality of institutional information." },
-            { text: "Designed tracking tables and structured reports that standardized information delivery to municipal management, reducing consolidation time and manual errors in recurring reports." },
-            { text: "Implemented data quality controls (duplicate, outlier and missing-field detection), ensuring decisions were based on reliable, auditable information." },
-            { text: "Gathered requirements from department heads and administrative teams, prioritizing deliverables and turning operational needs into clear, timely reports." }
-          ]
-        }
-      ]
-    },
-    {
       organisation: "Mebol (Food Industry)",
       logo: mebol_new,
       positions: [
         {
           title: "Junior Data Analyst",
-          duration: "2023 - 2024 (1 year) · Lima, Peru",
+          duration: "Lima, Peru",
           content: [
             { text: "Managed inventory control with advanced Excel and SQL, implementing tracking tables that improved product traceability and real-time stock visibility." },
             { text: "Designed and ran SQL queries on operational databases to consolidate, validate and clean information, reducing recording errors and ensuring consistency across sources." },
@@ -361,28 +345,12 @@ export const es = {
   skills: skills_es,
   experiences: [
     {
-      organisation: "Municipalidad",
-      logo: municipalidad,
-      positions: [
-        {
-          title: "Científico de Datos Jr.",
-          duration: "2024 (3 meses) · Perú",
-          content: [
-            { text: "Lideré el procesamiento, validación y organización de datos de personal en Excel, coordinando con múltiples áreas para asegurar consistencia, integridad y confidencialidad de la información institucional." },
-            { text: "Diseñé tablas de seguimiento y reportes estructurados que estandarizaron la entrega de información a la gestión municipal, reduciendo tiempos de consolidación y errores manuales en reportes recurrentes." },
-            { text: "Implementé controles de calidad de datos (detección de duplicados, valores atípicos y campos incompletos), garantizando decisiones basadas en información confiable y auditable." },
-            { text: "Levanté requerimientos con jefaturas y equipos administrativos, priorizando entregables y traduciendo necesidades operativas en reportes claros y oportunos." }
-          ]
-        }
-      ]
-    },
-    {
       organisation: "Mebol (Industria Alimentaria)",
       logo: mebol_new,
       positions: [
         {
           title: "Analista de Datos Jr.",
-          duration: "2023 - 2024 (1 año) · Lima, Perú",
+          duration: "Lima, Perú",
           content: [
             { text: "Administré el control de inventarios con Excel avanzado y SQL, implementando tablas de seguimiento que mejoraron la trazabilidad de productos y la visibilidad del stock en tiempo real." },
             { text: "Diseñé y ejecuté consultas SQL sobre bases de datos operativas para consolidar, validar y depurar información, reduciendo errores de registro y asegurando consistencia entre fuentes." },
