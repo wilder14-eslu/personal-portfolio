@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="utokyoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0b3c68"/>
+      <stop offset="100%" style="stop-color:#031b33"/>
+    </linearGradient>
+    <linearGradient id="ginkgoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd166"/>
+      <stop offset="100%" style="stop-color:#f4a261"/>
+    </linearGradient>
+    <linearGradient id="ginkgoCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48cae4"/>
+      <stop offset="100%" style="stop-color:#0077b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#utokyoBg)"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  
+  <!-- Right Leaf (Gold Ginkgo) -->
+  <path d="M60 88 C60 70 65 52 78 40 C88 30 92 34 88 44 C84 54 80 58 84 66 C88 74 80 82 60 88 Z" fill="url(#ginkgoGold)" opacity="0.95"/>
+  
+  <!-- Left Leaf (Cyan/Blue Ginkgo) -->
+  <path d="M60 88 C60 68 54 50 40 38 C30 30 26 34 31 44 C36 53 40 58 35 66 C30 74 40 82 60 88 Z" fill="url(#ginkgoCyan)" opacity="0.95"/>
+  
+  <text x="60" y="106" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="8" font-weight="700" fill="#e0f2fe" letter-spacing="1">U-TOKYO</text>
+</svg>

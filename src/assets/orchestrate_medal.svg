@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c1917"/>
+      <stop offset="100%" style="stop-color:#0c0a09"/>
+    </linearGradient>
+    <linearGradient id="bronzeRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#df9b58"/>
+      <stop offset="50%" style="stop-color:#b46927"/>
+      <stop offset="100%" style="stop-color:#854415"/>
+    </linearGradient>
+    <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base Card -->
+  <rect width="120" height="120" rx="24" fill="url(#bgGrad)"/>
+  <rect width="116" height="116" x="2" y="2" rx="22" fill="none" stroke="url(#bronzeRing)" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Ribbon Top -->
+  <path d="M46 16 L60 28 L74 16 L74 38 L46 38 Z" fill="url(#ribbonGrad)" opacity="0.9"/>
+
+  <!-- Bronze Medal Outer -->
+  <circle cx="60" cy="62" r="30" fill="url(#bronzeRing)" stroke="#fed7aa" stroke-width="1.5"/>
+  <!-- Bronze Medal Inner -->
+  <circle cx="60" cy="62" r="25" fill="#78350f"/>
+  <circle cx="60" cy="62" r="23" fill="none" stroke="#d97706" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Star Icon & Text -->
+  <text x="60" y="55" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="10" font-weight="800" fill="#fef3c7" letter-spacing="0.5">TOP</text>
+  <text x="60" y="73" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="17" font-weight="900" fill="#fef3c7">54</text>
+
+  <!-- Bottom Badge Label -->
+  <rect x="24" y="96" width="72" height="16" rx="8" fill="#292524" stroke="url(#bronzeRing)" stroke-width="1"/>
+  <text x="60" y="107.5" text-anchor="middle" font-family="'Poppins', sans-serif" font-size="7" font-weight="700" fill="#fbbf24" letter-spacing="0.5">BRONZE MEDAL</text>
+</svg>
