@@ -1,150 +1,26 @@
-import { useTranslation } from 'react-i18next';
-import React from "react";
-import data from "../constants/data";
-import { layout } from "../style";
-import { motion } from "framer-motion";
-import { BsLink45Deg } from "react-icons/bs";
-import MLOpsMonitoring from "./MLOpsMonitoring";
-import MLArchitecture from "./MLArchitecture";
+import { FiArrowUpRight, FiCheck, FiMapPin } from "react-icons/fi";
+import SectionHeading from "./SectionHeading";
+import usePortfolio from "../lib/usePortfolio";
 
-export const SkillIcon = ({ icon, name, color }) => {
-  const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'es';
-  const currentData = data[lang] || data.es;
-  const { skills, experiences } = currentData;
-
+export default function SkillsAndExperience() {
+  const { experiences, skills, ui } = usePortfolio();
   return (
-    <div className="flex flex-col items-center text-center group cursor-default">
-      <span 
-        className="text-[28px] transition-transform duration-300 group-hover:scale-125"
-        style={{ color: color || "#4b5563" }}
-      >
-        {React.createElement(icon)}
-      </span>
-      <p className="font-poppins text-gray-600 text-[11px] mt-2 break-words w-full leading-tight group-hover:text-gray-900 transition-colors">{name}</p>
-    </div>
-  );
-};
-
-const SkillCard = (props) => {
-  return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mt-4 mb-6 border-l border-gray-200 dark:border-gray-700 mx-4"
-    >
-      <div className="relative w-3 h-3 bg-gray-200 rounded-full top-5 right-[6.2px] border dark:border-gray-900 dark:bg-gray-700"></div>
-      <div className="flex flex-row items-center mb-6 ml-6">
-        <h4 className="font-poppins font-semibold text-[20px] text-gradient leading-[32px]">
-          {props.title}
-        </h4>
+    <section id="skills" className="section experience-section"><div className="container">
+      <SectionHeading eyebrow={ui.experienceEyebrow} title={ui.experienceTitle} description={ui.experienceIntro} />
+      <div className="experience-layout">
+        <div className="experience-column">
+          <p className="eyebrow">{ui.workLabel}</p>
+          {experiences.map((experience) => <article className="experience-card" key={experience.organisation}>
+            <div className="company-row"><div className="company-mark" aria-hidden="true">m.</div><div><h3>{experience.organisation}</h3><span>{experience.industry}</span></div><FiArrowUpRight aria-hidden="true" /></div>
+            <h4>{experience.title}</h4><p className="experience-focus">{experience.focus}</p>
+            <p className="experience-date"><time>{experience.duration}</time><span><FiMapPin aria-hidden="true" />{experience.location}</span></p>
+            <ul className="experience-results">{experience.content.map((result) => <li key={result}><FiCheck aria-hidden="true" /><span>{result}</span></li>)}</ul>
+          </article>)}
+        </div>
+        <div className="skills-column"><h3>{ui.skillsTitle}</h3><p>{ui.skillsIntro}</p>
+          <div className="skills-grid">{skills.map((skill, index) => <article className="skill-group" key={skill.title}><span className="skill-index">0{index + 1}</span><h4>{skill.title}</h4><ul>{skill.items.map((item) => <li key={item}>{item}</li>)}</ul>{skill.note && <p className="skill-note">{skill.note}</p>}</article>)}</div>
+        </div>
       </div>
-      <div className="grid grid-cols-3 gap-8 ml-8">
-        {props.items.map((item, index) => (
-          <SkillIcon key={item.id} index={index} {...item} />
-        ))}
-      </div>
-    </motion.div>
+    </div></section>
   );
-};
-
-const Content = ({ text, link }) => {
-  return (
-    <div>
-      <p className="font-poppins font-normal text-[14px] text-dimWhite mt-4">
-        {text}{" "}
-        {link ? (
-          <a href={link} target="_blank">
-            <BsLink45Deg
-              size="1rem"
-              className="inline hover:text-teal-200"
-            ></BsLink45Deg>
-          </a>
-        ) : (
-          ""
-        )}
-      </p>
-    </div>
-  );
-};
-
-const ExperienceCard = (props) => {
-  return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div className="flex flex-row items-center mb-6">
-        <img
-          src={props.logo}
-          alt={props.organisation}
-          className="w-[52px] h-[52px] rounded-full z-[2]"
-        />
-        <h4 className="font-poppins font-semibold text-[20px] text-gradient leading-[32px] ml-2">
-          {props.organisation}
-        </h4>
-      </div>
-      <ol className="relative border-l border-gray-200 dark:border-gray-700 ml-6">
-        {props.positions.map((position, index) => (
-          <li
-            key={index}
-            className={`${
-              index === props.positions.length - 1 ? "mb-0" : "mb-4"
-            } ml-4`}
-          >
-            <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              {position.title}
-            </h3>
-            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              {position.duration}
-            </time>
-            {position.content.map((info, index) => (
-              <Content key={index} index={index} {...info} />
-            ))}
-            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"></p>
-          </li>
-        ))}
-      </ol>
-    </motion.div>
-  );
-};
-
-const SkillsAndExperience = () => {
-  const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'es';
-  const currentData = data[lang] || data.es;
-  const { skills, experiences } = currentData;
-
-  return (
-    <section id="skills" className="mb-12 w-full">
-      <h1 className="flex-1 font-poppins font-light ss:text-[55px] text-[45px] text-gray-800 ss:leading-[80px] leading-[80px] mb-8">
-        {lang === 'es' ? 'Habilidades y Experiencia' : 'Skills & Experience'}
-      </h1>
-
-      <div
-        className={`${layout.section} items-start`}
-      >
-        {/* Skills */}
-        <motion.div className={`ml-2 mb-6 ${layout.sectionInfo}`}>
-          {skills.map((skill, index) => (
-            <SkillCard key={index} index={index} {...skill} />
-          ))}
-        </motion.div>
-
-        {/* Experience */}
-        <motion.div className="flex flex-1 items-start justify-start flex-col">
-          {experiences.map((exp, index) => (
-            <ExperienceCard key={index} index={index} {...exp} />
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-export default SkillsAndExperience;
+}

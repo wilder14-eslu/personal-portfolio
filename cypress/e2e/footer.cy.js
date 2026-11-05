@@ -1,43 +1,21 @@
-import data from '../../src/constants/data';
+describe('Contacto y currículum', () => {
+  beforeEach(() => cy.waitForApp());
 
-const { aboutMe, socialMedia } = data.es;
-
-describe('Pie de página (Contacto)', () => {
-  beforeEach(() => {
-    cy.waitForApp();
-    cy.get('#contactMe', { timeout: 8000 }).scrollIntoView();
+  it('ofrece contacto y perfiles profesionales válidos', () => {
+    cy.get('#contactMe a[href="mailto:esluwilder@gmail.com"]').should('have.length', 2);
+    cy.get('#contactMe a[href="tel:+51910049106"]').should('contain', '+51 910 049 106');
+    cy.get('.social-links a').should('have.length', 4);
+    cy.get('.social-links a[href="https://www.linkedin.com/in/wilder-eslu/"]').should('contain', 'LinkedIn');
   });
 
-  it('muestra el nombre y el titular', () => {
-    cy.get('#contactMe').contains('h2', aboutMe.name).should('be.visible');
-    cy.get('#contactMe').contains(aboutMe.tagLine).should('be.visible');
-  });
-
-  it('muestra la foto de perfil', () => {
-    cy.get('#contactMe').find(`img[alt="${aboutMe.name}"]`).should('be.visible');
-  });
-
-  it('muestra todas las redes y el teléfono', () => {
-    socialMedia.forEach((s) => {
-      cy.get('#contactMe').find(`a[href="${s.link}"]`).should('exist');
+  it('sirve el CV en PDF y comunica su idioma en ambas versiones', () => {
+    cy.get('a[download]').should('have.attr', 'href', '/CV_Wilder_Espinoza_ES.pdf').and('have.attr', 'aria-label', 'Descargar CV (PDF · Español)');
+    cy.request({ url: '/CV_Wilder_Espinoza_ES.pdf', encoding: 'binary' }).then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.headers['content-type']).to.include('application/pdf');
+      expect(response.body.slice(0, 5)).to.equal('%PDF-');
     });
-    cy.get('#contactMe').find('a[href^="tel:"]').should('contain', aboutMe.phone);
-  });
-
-  it('no publica el CV en la página', () => {
-    cy.get('#contactMe').should('not.contain', 'Currículum');
-    cy.get('body').find('a[href*="CV_"]').should('not.exist');
-  });
-
-  describe('Responsive', () => {
-    it('escritorio: datos y foto lado a lado', () => {
-      cy.viewportPreset('desktop');
-      cy.get('#contactMe [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'row');
-    });
-
-    it('celular: apilado', () => {
-      cy.viewportPreset('mobile');
-      cy.get('#contactMe [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'column-reverse');
-    });
+    cy.get('button[aria-label="Switch to English"]').click();
+    cy.get('a[download]').should('have.attr', 'aria-label', 'Download CV (PDF · Spanish)').and('have.attr', 'href', '/CV_Wilder_Espinoza_ES.pdf');
   });
 });

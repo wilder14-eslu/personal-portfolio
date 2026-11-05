@@ -9,6 +9,18 @@ export default defineConfig({
     viewportWidth: 1280,
     viewportHeight: 720,
     setupNodeEvents(on) {
+      // Keep the headless browser screen larger than our largest screenshot viewport.
+      // https://docs.cypress.io/api/node-events/browser-launch-api
+      on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.isHeadless && browser.name === 'electron') {
+          launchOptions.preferences.width = 1600;
+          launchOptions.preferences.height = 1200;
+        } else if (browser.isHeadless && browser.family === 'chromium') {
+          launchOptions.args.push('--window-size=1600,1200');
+          launchOptions.args.push('--force-device-scale-factor=1');
+        }
+        return launchOptions;
+      });
       on(
         'file:preprocessor',
         vitePreprocessor({

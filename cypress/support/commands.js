@@ -4,7 +4,7 @@
 
 /**
  * Abre la página en español (idioma por defecto) y espera a que termine
- * la pantalla de carga (1200 ms): el navbar debe ser visible.
+ * el render inicial: el navbar debe ser visible.
  */
 Cypress.Commands.add('waitForApp', (lng = 'es') => {
   cy.visit(`/?lng=${lng}`);

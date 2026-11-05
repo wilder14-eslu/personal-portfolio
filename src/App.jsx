@@ -1,76 +1,34 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "./style";
+import { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import SkillsAndExperience from "./components/SkillsAndExperience";
+import Education from "./components/Education";
+import Achievements from "./components/Achievements";
+import Footer from "./components/Footer";
+import usePortfolio from "./lib/usePortfolio";
 
-import {
-  Navbar,
-  Hero,
-  Education,
-  SkillsAndExperience,
-  Footer,
-  Projects,
-  BlogPosts,
-  Loading,
-  Achievements,
-} from "./components";
-
-const App = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-  }, []);
-
+export default function App() {
+  const { lang, ui, aboutMe } = usePortfolio();
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.title = `Wilder Espinoza | ${lang === "es" ? "Riesgo crediticio y Machine Learning" : "Credit Risk & Machine Learning"}`;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", aboutMe.intro);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", aboutMe.intro);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", document.title);
+  }, [lang, aboutMe.intro]);
   return (
-    // A div to wrap the entire application
-    <div className="bg-primary w-full overflow-hidden">
-      <AnimatePresence>
-        {isLoading ? (
-          <Loading key="loading" />
-        ) : (
-          <motion.section
-            key="content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-              <div className={`${styles.boxWidth}`}>
-                <Navbar />
-              </div>
-            </div>
-
-            <div className={`bg-primary ${styles.flexStart} pt-[80px]`}>
-              <div className={`${styles.boxWidth}`}>
-                <Hero />
-              </div>
-            </div>
-
-            <div
-              className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
-            >
-              <div className={`${styles.boxWidth}`}>
-                <SkillsAndExperience />
-                <Education />
-              </div>
-            </div>
-            <Achievements />
-            <div
-              className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
-            >
-              <div className={`${styles.boxWidth}`}>
-                <Projects />
-                <BlogPosts enabled={false} />
-              </div>
-            </div>
-            <Footer />
-          </motion.section>
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <a className="skip-link" href="#main">{ui.skip}</a>
+      <Navbar />
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <Projects />
+        <SkillsAndExperience />
+        <Education />
+        <Achievements />
+      </main>
+      <Footer />
+    </>
   );
-};
-
-export default App;
+}

@@ -1,495 +1,195 @@
-import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
-import {
-  FaAws, FaBalanceScale, FaBrain, FaChartBar, FaChartLine, FaCheckCircle, FaDatabase, FaEye,
-  FaFileExcel, FaFire, FaGlobe, FaMapMarkedAlt, FaPlug, FaShieldAlt, FaFlask, FaLayerGroup, FaRobot, FaSlidersH, FaSyncAlt, FaTrophy, FaTree, FaUsers,
-} from "react-icons/fa";
-import {
-  SiApachespark, SiDatabricks, SiDocker, SiFastapi, SiGithubactions, SiGooglecloud, SiMlflow, SiOpenai, SiPostgresql,
-  SiPrefect, SiPython, SiPytorch, SiR, SiReact, SiScikitlearn, SiStreamlit, SiTensorflow, SiTerraform, SiAmazonwebservices,
-} from "react-icons/si";
-import { RiGeminiFill } from "react-icons/ri";
-import { TbBrandFirebase } from "react-icons/tb";
-
-import ml_banking_icon from "../assets/credit_risk_pipeline.webp";
-import ai_health_icon from "../assets/malaria_wape_chart.webp";
-import ai_hr_icon from "../assets/ai_hr_icon.jpg";
-import devpost_icon from "../assets/Devpost.webp";
-
-// Fotos y logos reales de instituciones y empresas
-import mebol_new from "../assets/mebol_new.png";
-
-import stanford_new from "../assets/stanford_new.webp";
-import unmsm_university from "../assets/UNMSM.webp";
+// Content checked against the visible pages of CV_ES.pdf, November 2026.
+// Project metrics describe the evaluations in the CV, not live production results.
+import unmsm from "../assets/UNMSM.webp";
+import tokyo from "../assets/utokyo_logo.svg";
+import databricks from "../assets/databricks_cert.svg";
 import duke from "../assets/duke.webp";
-import saylor from "../assets/saylor.webp";
-import university_michigan from "../assets/university_michigan.jpg";
-import sql_cert from "../assets/sql_cert.svg";
-import riskrag_icon from "../assets/riskrag.svg";
-import investigacion_icon from "../assets/investigacion.avif";
-import google_icon from "../assets/google.webp";
-import orchestrate_icon from "../assets/realml_new.jpg";
-import databricks_cert from "../assets/databricks_cert.svg";
-import orchestrate_medal from "../assets/orchestrate_medal.svg";
-import utokyo_logo from "../assets/utokyo_logo.svg";
+import stanford from "../assets/stanford_new.webp";
 
 export const resumeLinkEs = "/CV_Wilder_Espinoza_ES.pdf";
 export const resumeLinkEn = "/CV_Wilder_Espinoza_EN.pdf";
 export const repoLink = "https://github.com/wilder14-eslu/personal-portfolio";
-export const callToAction = "https://www.linkedin.com/in/wilder-eslu/";
-
-// ---------------------------------------------------------------------------
-// Habilidades (basadas en el CV)
-// ---------------------------------------------------------------------------
-const skills_en = [
-  {
-    title: "Languages & Data",
-    items: [
-      { id: "s-1", icon: SiPython, name: "Python", color: "#3776AB" },
-      { id: "s-2", icon: FaDatabase, name: "SQL", color: "#336791" },
-      { id: "s-3", icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-      { id: "s-4", icon: SiApachespark, name: "PySpark", color: "#E25A1C" },
-      { id: "s-23", icon: SiR, name: "R", color: "#276DC3" }
-    ]
-  },
-  {
-    title: "Modeling & Machine Learning",
-    items: [
-      { id: "s-5", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
-      { id: "s-6", icon: FaBrain, name: "XGBoost · LightGBM · CatBoost", color: "#1F77B4" },
-      { id: "s-7", icon: FaSlidersH, name: "Optuna", color: "#6C5B7B" },
-      { id: "s-8", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
-      { id: "s-24", icon: SiPytorch, name: "PyTorch", color: "#EE4C2C" }
-    ]
-  },
-  {
-    title: "MLOps & Data Platforms",
-    items: [
-      { id: "s-9", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-      { id: "s-10", icon: SiDatabricks, name: "Databricks", color: "#FF3621" },
-      { id: "s-11", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-      { id: "s-12", icon: SiDocker, name: "Docker", color: "#2496ED" },
-      { id: "s-13", icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" },
-      { id: "s-14", icon: SiPrefect, name: "Prefect", color: "#0052FF" }
-    ]
-  },
-  {
-    title: "Generative AI & LLMs",
-    items: [
-      { id: "s-15", icon: FaDatabase, name: "RAG", color: "#5B2C6F" },
-      { id: "s-16", icon: FaPlug, name: "MCP", color: "#111827" },
-      { id: "s-17", icon: SiPostgresql, name: "pgvector", color: "#4169E1" },
-      { id: "s-18", icon: RiGeminiFill, name: "Gemini & Google ADK", color: "#8E75B2" }
-    ]
-  },
-  {
-    title: "Basic Knowledge",
-    items: [
-      { id: "s-19", icon: SiGooglecloud, name: "Vertex AI", color: "#4285F4" },
-      { id: "s-20", icon: SiGooglecloud, name: "Cloud Run", color: "#34A853" },
-      { id: "s-21", icon: SiAmazonwebservices, name: "Amazon Bedrock", color: "#FF9900" },
-      { id: "s-22", icon: SiTerraform, name: "Terraform", color: "#7B42BC" }
-    ]
-  }
-];
-
-const skillNamesEs = {
-  "Gemini & Google ADK": "Gemini y Google ADK",
-};
-const skillTitlesEs = [
-  "Lenguajes y Datos",
-  "Modelado y Machine Learning",
-  "MLOps y Plataformas de Datos",
-  "IA Generativa y LLMs",
-  "Nociones Básicas",
-];
-const skills_es = skills_en.map((group, i) => ({
-  title: skillTitlesEs[i],
-  items: group.items.map((item) => ({ ...item, name: skillNamesEs[item.name] || item.name })),
-}));
-
-// ---------------------------------------------------------------------------
-// Stacks de proyectos
-// ---------------------------------------------------------------------------
-const stacks = {
-  riskrag: [
-    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-    { id: "t-2", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-    { id: "t-3", icon: FaPlug, name: "MCP", color: "#111827" },
-    { id: "t-4", icon: SiPostgresql, name: "PostgreSQL + pgvector", color: "#4169E1" },
-    { id: "t-5", icon: SiAmazonwebservices, name: "Amazon Bedrock", color: "#FF9900" },
-    { id: "t-6", icon: FaShieldAlt, name: "OWASP LLM Top 10", color: "#C0392B" },
-    { id: "t-7", icon: SiTerraform, name: "Terraform", color: "#7B42BC" },
-    { id: "t-8", icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" }
-  ],
-  creditRisk: [
-    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-    { id: "t-2", icon: SiScikitlearn, name: "Scikit-learn", color: "#F7931E" },
-    { id: "t-3", icon: FaBrain, name: "XGBoost, LightGBM, CatBoost", color: "#1F77B4" },
-    { id: "t-4", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-    { id: "t-5", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-    { id: "t-6", icon: SiDocker, name: "Docker", color: "#2496ED" },
-    { id: "t-7", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
-    { id: "t-8", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
-  ],
-  creditRisk2: [
-    { id: "t-1", icon: SiDatabricks, name: "Databricks", color: "#FF3621" },
-    { id: "t-2", icon: FaDatabase, name: "Delta Lake", color: "#00ADD4" },
-    { id: "t-3", icon: FaLayerGroup, name: "Unity Catalog", color: "#5B2C6F" },
-    { id: "t-4", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-    { id: "t-5", icon: FaSlidersH, name: "Optuna", color: "#6C5B7B" },
-    { id: "t-6", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-    { id: "t-7", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" }
-  ],
-  malaria: [
-    { id: "t-1", icon: FaBrain, name: "LightGBM", color: "#1F77B4" },
-    { id: "t-2", icon: SiMlflow, name: "MLflow", color: "#0194E2" },
-    { id: "t-3", icon: SiFastapi, name: "FastAPI", color: "#009688" },
-    { id: "t-4", icon: SiDocker, name: "Docker", color: "#2496ED" },
-    { id: "t-5", icon: SiPrefect, name: "Prefect", color: "#0052FF" },
-    { id: "t-6", icon: FaCheckCircle, name: "Pandera", color: "#16A085" },
-    { id: "t-7", icon: SiStreamlit, name: "Streamlit", color: "#FF4B4B" },
-    { id: "t-8", icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" }
-  ],
-  rumbo: [
-    { id: "t-1", icon: RiGeminiFill, name: "Gemini 3.5 + Google ADK", color: "#8E75B2" },
-    { id: "t-2", icon: SiGooglecloud, name: "Vertex AI + Cloud Run", color: "#4285F4" },
-    { id: "t-3", icon: FaRobot, name: "AI Agents", color: "#F39C12" },
-    { id: "t-4", icon: TbBrandFirebase, name: "Firestore", color: "#FFCA28" },
-    { id: "t-5", icon: SiFastapi, name: "FastAPI + Pydantic", color: "#009688" },
-    { id: "t-6", icon: SiReact, name: "React", color: "#61DAFB" }
-  ],
-  geobanca: [
-    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-    { id: "t-2", icon: FaMapMarkedAlt, name: "GeoPandas + PySAL", color: "#2ECC71" },
-    { id: "t-3", icon: FaGlobe, name: "Kriging + Spatial Models", color: "#1ABC9C" },
-    { id: "t-4", icon: FaBrain, name: "Random Forest", color: "#1F77B4" },
-    { id: "t-5", icon: FaEye, name: "SHAP", color: "#FF2B2B" },
-    { id: "t-6", icon: FaChartBar, name: "QGIS", color: "#589632" }
-  ],
-  orchestrate: [
-    { id: "t-1", icon: SiPython, name: "Python", color: "#3776AB" },
-    { id: "t-2", icon: RiGeminiFill, name: "Gemini 3.8 Flash", color: "#8E75B2" },
-    { id: "t-3", icon: FaRobot, name: "AI Agent", color: "#F39C12" },
-    { id: "t-4", icon: FaShieldAlt, name: "GDPR Auditing", color: "#C0392B" },
-    { id: "t-5", icon: FaDatabase, name: "Multi-DB Analysis", color: "#336791" }
-  ],
-};
-const stackEs = (stack) =>
-  stack.map((t) => ({ ...t, name: t.name === "AI Agents" ? "Agentes de IA" : t.name }));
-
+export const callToAction = "mailto:esluwilder@gmail.com";
+const github = "https://github.com/wilder14-eslu";
 const socialMedia = [
-  { id: "sm-1", icon: AiFillLinkedin, link: "https://www.linkedin.com/in/wilder-eslu/" },
-  { id: "sm-2", icon: AiFillGithub, link: "https://github.com/wilder14-eslu" },
-  { id: "sm-3", icon: AiFillMail, link: "mailto:esluwilder@gmail.com" },
-  { id: "sm-4", img: devpost_icon, link: "https://devpost.com/wilder14-eslu?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" }
+  { id: "linkedin", name: "LinkedIn", link: "https://www.linkedin.com/in/wilder-eslu/" },
+  { id: "github", name: "GitHub", link: github },
+  { id: "hackerrank", name: "HackerRank", link: "https://www.hackerrank.com/profile/wilder_espinoza3" },
+  { id: "gitlab", name: "GitLab", link: "https://gitlab.com/wilder14-eslu" },
 ];
 
-// ---------------------------------------------------------------------------
-// Inglés
-// ---------------------------------------------------------------------------
-export const en = {
-  resumeLink: resumeLinkEn, repoLink, callToAction,
-  navLinks: [
-    { id: "skills", title: "Skills & Experience" },
-    { id: "education", title: "Education" },
-    { id: "achievements", title: "Certifications" },
-    { id: "projects", title: "Projects" },
-    { id: "contactMe", title: "Contact Me" }
-  ],
-  educationList: [
-    {
-      id: "edu-1", icon: unmsm_university,
-      title: "Universidad Nacional Mayor de San Marcos (UNMSM)",
-      degree: "Bachelor of Science in Statistics",
-      duration: "May 2022 - Dec 2027",
-      content1: "Top third of the Professional School of Statistics.",
-      content2: "PRONABEC scholarship (2024) for outstanding academic performance."
-    },
-    {
-      id: "edu-2", icon: utokyo_logo,
-      title: "GCI World 2026 — Matsuo-Iwasawa Laboratory, The University of Tokyo",
-      degree: "International Data Science & Machine Learning Program",
-      duration: "Sep 2026 - Present",
-      content1: "Learned to transform data into actionable insights and business opportunities.",
-      content2: "Developed skills in supervised modeling and time series analysis applied to marketing, customer behavior and strategic decisions."
-    }
-  ],
-  achievements: [
-    {
-      id: "a-0-db", icon: databricks_cert,
-      event: "Advanced Machine Learning Operations",
-      position: "Databricks",
-      content1: "I learned to build and manage production ML pipelines on Databricks with MLflow, Delta Lake and Unity Catalog."
-    },
-    {
-      id: "a-0-orch", icon: orchestrate_medal,
-      event: "Orchestrate Hackathon — Bronze Medal 🥉",
-      position: "OpenAI × HackerRank · Top 54 / +60,000 participants",
-      content1: "Designed a GDPR data-erasure auditor agent that scored 71.5/100 (94% data precision, 1.000 remediation precision, 32/32 benchmark states).",
-      content2: "24-hour hackathon · October 24, 2026",
-      github: "https://github.com/wilder14-eslu/Orchestrate-October-26"
-    },
-    {
-      id: "a-1", icon: stanford_new,
-      event: "Machine Learning Specialization",
-      position: "DeepLearning.AI & Stanford University",
-      content1: "I learned regression, classification, neural networks, decision trees and unsupervised learning, and how to apply them to real problems.",
-      project: "https://drive.google.com/file/d/14xpmUa2ejR1c9K0ldrOjsGt5xIUZakWz/view?usp=sharing"
-    },
-    {
-      id: "a-2", icon: sql_cert,
-      event: "SQL for Data Science",
-      position: "University of California, Davis",
-      content1: "I learned to query, filter, join and aggregate data with SQL to prepare it for analysis."
-    },
-    {
-      id: "a-3", icon: saylor,
-      event: "Building with Artificial Intelligence (CS205)",
-      position: "Saylor Academy",
-      content1: "I learned AI fundamentals and how to build applications that use AI models.",
-      project: "https://drive.google.com/file/d/1WBgnbuFwAwgZJYzE3y06km6YaXIbut6h/view?usp=sharing"
-    },
-    {
-      id: "a-4", icon: duke,
-      event: "Python Essentials for MLOps",
-      position: "Duke University",
-      content1: "I learned to write tested, maintainable Python and to build the tools and APIs used in MLOps workflows.",
-      project: "https://drive.google.com/file/d/1xVxK6HXfXaQn7y5F8c4qcMokiLbzsU0D/view?usp=sharing"
-    },
-    {
-      id: "a-5", icon: university_michigan,
-      event: "Programming for Everybody (Getting Started with Python)",
-      position: "University of Michigan",
-      content1: "I learned the foundations of programming in Python: variables, conditionals, loops and functions.",
-      project: "https://drive.google.com/file/d/1g1A59C-FWs9NllYtg4W0mElG9clEVsP7/view?usp=sharing"
-    },
-    {
-      id: "a-6", icon: saylor,
-      event: "Business-Proficient English (ESL005)",
-      position: "Saylor Academy",
-      content1: "I learned to communicate in English in professional and business settings.",
-      project: "https://drive.google.com/file/d/14QQ1lPW92gd1htn8tpV8QSVHVmXwhnu7/view?usp=sharing"
-    },
-    {
-      id: "a-7", icon: saylor,
-      event: "Advanced English (ESL004)",
-      position: "Saylor Academy",
-      content1: "I learned to read, write and hold conversations in English at an advanced level.",
-      project: "https://drive.google.com/file/d/1LgUePfHX_u-ITkyT0FwKGwHtlUsXrUK2/view?usp=sharing"
-    }
-  ],
-  skills: skills_en,
-  experiences: [
-    {
-      organisation: "Mebol (Food Industry)",
-      logo: mebol_new,
-      positions: [
-        {
-          title: "Data Analytics and Business Intelligence",
-          duration: "Lima, Peru · 2024 – 2025 (6 months)",
-          content: [
-            { text: "Reduced recording errors by 28% through SQL queries that integrated, cleaned and validated data from multiple sources, strengthening consistency and integrity." },
-            { text: "Automated reporting workflows with SQL and Excel, cutting weekly processing time from ~6 hours to 1 hour (83%) and freeing 5 hours per week." },
-            { text: "Used Python for exploratory data analysis (EDA), anomaly detection, outlier identification and trend analysis, contributing to uncovering operational patterns." },
-            { text: "Used PySpark for distributed processing and transformation of large data volumes, facilitating data preparation for analytical workflows." },
-            { text: "Defined validation rules and standardization criteria with warehouse, purchasing and sales teams, strengthening data quality and reliability." },
-            { text: "Built Power BI dashboards to monitor availability and traceability of 450+ products, enabling KPI tracking and data-driven operational decisions." }
-          ]
-        }
-      ]
-    }
-  ],
-  projects: [
-    {
-      id: "proj-rag",
-      title: "RiskRAG: RAG Assistant for Credit Risk & Insurance",
-      github: "https://github.com/wilder14-eslu/rag-riesgo-credito-seguros",
-      image: riskrag_icon,
-      content: "Helps credit risk and insurance analysts consult regulations with cited, verifiable answers, and calculates debtor classification and provisions with deterministic tools instead of relying on the LLM.",
-      stack: stacks.riskrag
-    },
-    {
-      id: "proj-1",
-      title: "Credit Risk ML Platform: End-to-End MLOps",
-      github: "https://github.com/wilder14-eslu/credit-risk-ml-platform",
-      image: ml_banking_icon,
-      content: "Helps a lender decide who to approve for credit by estimating how likely each applicant is to default and explaining the reason behind every decision.",
-      stack: stacks.creditRisk
-    },
-    {
-      id: "proj-2",
-      title: "Credit Risk Platform 2.0: Lending Club on Databricks",
-      github: "https://github.com/wilder14-eslu/credit-risk-platform-2.0",
-      image: ml_banking_icon,
-      content: "Keeps a bank's credit risk model reliable in production: it detects when customer behavior changes and automatically and safely retrains and replaces the model.",
-      stack: stacks.creditRisk2
-    },
-    {
-      id: "proj-3",
-      title: "Peru Malaria Early Warning Platform",
-      github: "https://github.com/wilder14-eslu/malaria-prediction-peru",
-      image: ai_health_icon,
-      content: "Forecasts how many malaria cases each district in Peru will have in the coming weeks, so health authorities can allocate resources and act before an outbreak.",
-      stack: stacks.malaria
-    },
-    {
-      id: "proj-4",
-      title: "Rumbo: AI Agent Recruitment Matching Platform",
-      devpost: "https://devpost.com/software/rumbo",
-      image: ai_hr_icon,
-      content: "Helps recruiters and candidates find the best fit between a profile and a job opening, using AI agents that read the role, extract its requirements and assess the match.",
-      stack: stacks.rumbo
-    },
-    {
-      id: "proj-geo",
-      title: "GeoBanca Norte Peru: Spatial Analytics for Financial Channels",
-      github: "https://github.com/wilder14-eslu/geobanca-norte-peru",
-      image: investigacion_icon,
-      content: "Identifies where to open new bank branches, ATMs and special offices in northern Peru by combining financial access data, spatial econometrics, climate risk from El Niño, and integer optimization to cover 63,643 adults with 25 service points.",
-      stack: stacks.geobanca
-    },
-    {
-      id: "proj-orch",
-      title: "Orchestrate: GDPR Data-Erasure Auditor Agent 🥉",
-      github: "https://github.com/wilder14-eslu/Orchestrate-October-26",
-      image: orchestrate_icon,
-      content: "Bronze Medal — Top 54 globally among +60,000 participants. Built an AI agent that audits data erasure requests (GDPR Art. 17) across databases, replicas, logs and screenshots, achieving 94% data precision and 100% reproducibility.",
-      stack: stacks.orchestrate
-    }
-  ],
-  socialMedia,
-  aboutMe: {
-    name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Machine Learning Engineer | MLOps | Data Analytics",
-    phone: "+51 910 049 106",
-    intro: "Statistics student at UNMSM focused on advanced analytics for banking: probability of default models, scorecards, credit approval decisions and machine learning applied to business problems. I have built predictive and credit risk projects integrating temporal data validation, data leakage prevention, algorithm comparison, interpretability and decision evaluation. I complement this with business analytics: automated reports that cut processing time by 83% and helped reduce recording errors by 28%. I work with Python, SQL, Databricks, Google Cloud, Azure, REST APIs and CI/CD."
-  }
-};
-
-// ---------------------------------------------------------------------------
-// Español
-// ---------------------------------------------------------------------------
 export const es = {
-  resumeLink: resumeLinkEs, repoLink, callToAction,
+  resumeLink: resumeLinkEs, repoLink, callToAction, socialMedia,
   navLinks: [
-    { id: "skills", title: "Habilidades y Experiencia" },
-    { id: "education", title: "Educación" },
-    { id: "achievements", title: "Certificaciones" },
     { id: "projects", title: "Proyectos" },
-    { id: "contactMe", title: "Contáctame" }
+    { id: "skills", title: "Experiencia" },
+    { id: "education", title: "Formación" },
+    { id: "contactMe", title: "Contacto" },
   ],
-  educationList: [
-    {
-      ...en.educationList[0],
-      degree: "Licenciatura en Estadística",
-      duration: "Mayo 2022 - Dic 2027",
-      content1: "Tercio Superior de la Escuela Profesional de Estadística.",
-      content2: "Becario PRONABEC (2024) por rendimiento académico sobresaliente."
-    },
-    {
-      ...en.educationList[1],
-      title: "GCI World 2026 — Matsuo-Iwasawa Laboratory, The University of Tokyo",
-      degree: "Programa Internacional de Data Science y Machine Learning",
-      duration: "Sep 2026 - Actualidad",
-      content1: "Aprendí a transformar datos en insights accionables y oportunidades de negocio.",
-      content2: "Desarrollé competencias en modelado supervisado y análisis de series temporales, aplicados a marketing, comportamiento del cliente y decisiones estratégicas."
-    }
-  ],
-  achievements: [
-    { ...en.achievements[0], event: "Operaciones Avanzadas de Machine Learning",
-      content1: "Aprendí a construir y gestionar pipelines de ML en producción sobre Databricks con MLflow, Delta Lake y Unity Catalog." },
-    { ...en.achievements[1], event: "Hackathon Orchestrate — Medalla de Bronce 🥉",
-      position: "OpenAI × HackerRank · Top 54 / +60,000 participantes",
-      content1: "Diseñé un agente auditor de borrado y privacidad de datos (GDPR Art. 17) con score de 71.5/100 (94% precisión de datos, 1.000 de remediación, 32/32 benchmarks).",
-      content2: "Hackathon de 24 horas · 24 de octubre de 2026" },
-    { ...en.achievements[2], event: "Especialización en Machine Learning", position: "DeepLearning.AI y Stanford University",
-      content1: "Aprendí regresión, clasificación, redes neuronales, árboles de decisión y aprendizaje no supervisado, y a aplicarlos a problemas reales." },
-    { ...en.achievements[3], event: "SQL para Ciencia de Datos",
-      content1: "Aprendí a consultar, filtrar, unir y agregar datos con SQL para prepararlos para el análisis." },
-    { ...en.achievements[4], event: "Construyendo con Inteligencia Artificial (CS205)",
-      content1: "Aprendí los fundamentos de la IA y a construir aplicaciones que usan modelos de IA." },
-    { ...en.achievements[5], event: "Fundamentos de Python para MLOps",
-      content1: "Aprendí a escribir Python probado y mantenible, y a construir las herramientas y APIs que se usan en flujos de MLOps." },
-    { ...en.achievements[6], event: "Programación para Todos: Introducción a Python",
-      content1: "Aprendí las bases de la programación en Python: variables, condicionales, bucles y funciones." },
-    { ...en.achievements[7], event: "Inglés de Negocios (ESL005)",
-      content1: "Aprendí a comunicarme en inglés en contextos profesionales y de negocios." },
-    { ...en.achievements[8], event: "Inglés Avanzado (ESL004)",
-      content1: "Aprendí a leer, escribir y conversar en inglés a nivel avanzado." }
-  ],
-  skills: skills_es,
-  experiences: [
-    {
-      organisation: "Mebol (Industria Alimentaria)",
-      logo: mebol_new,
-      positions: [
-        {
-          title: "Data Analytics and Business Intelligence",
-          duration: "Lima, Perú · 2024 – 2025 (6 meses)",
-          content: [
-            { text: "Reduje en 28% los errores de registro de inventario mediante consultas SQL para integrar, depurar y validar datos de distintas fuentes, fortaleciendo su consistencia e integridad." },
-            { text: "Automaticé procesos de reportería con SQL y Excel, reduciendo el tiempo de procesamiento de ~6 a 1 hora semanal (83%) y liberando 5 horas de trabajo por semana." },
-            { text: "Utilicé Python para el análisis exploratorio de datos (EDA), identificación de anomalías, valores atípicos, variaciones y tendencias, contribuyendo a detectar inconsistencias y patrones operativos." },
-            { text: "Utilicé PySpark para el procesamiento y transformación distribuida de grandes volúmenes de datos, facilitando la preparación de información para análisis y flujos analíticos." },
-            { text: "Definí reglas de validación y criterios de estandarización junto con las áreas de almacén, compras y ventas, fortaleciendo la calidad y confiabilidad de los datos." },
-            { text: "Desarrollé dashboards en Power BI para monitorear la disponibilidad y trazabilidad de más de 450 productos, facilitando el seguimiento de KPIs y la toma de decisiones operativas." }
-          ]
-        }
-      ]
-    }
+  aboutMe: {
+    name: "Wilder Gilmer Espinoza Luna", shortName: "Wilder Espinoza",
+    tagLine: "Advanced Analytics · Credit Risk · ML Engineering",
+    location: "Lima, Perú", phone: "+51 910 049 106", email: "esluwilder@gmail.com",
+    intro: "Estudiante de Estadística en la UNMSM. Transformo problemas de negocio en soluciones medibles de machine learning, con enfoque en riesgo crediticio, analítica avanzada y MLOps.",
+  },
+  ui: {
+    skip: "Saltar al contenido", navigation: "Navegación principal", openMenu: "Abrir menú", closeMenu: "Cerrar menú",
+    language: "Switch to English", heroLabel: "ESTADÍSTICA + MACHINE LEARNING",
+    headline: "De los datos a", headlineAccent: "mejores decisiones.",
+    projectsCta: "Explorar proyectos", cvCta: "Descargar CV", cvNote: "PDF · Español",
+    focus: "Del problema de negocio al modelo en producción.",
+    caseLabel: "UN CASO DE MI PORTAFOLIO", caseTitle: "Del score a la decisión.", caseSubtitle: "Credit Risk Platform · Lending Club",
+    chartTitle: "Tasa de default", baseline: "Cartera de referencia", approved: "Cartera aprobada",
+    chartNote: "Evaluación del proyecto con umbral de 0.18. No representa resultados de una cartera real.",
+    caseMetric: "solicitudes aprobadas", caseData: "préstamos analizados", caseLink: "Conocer el proyecto",
+    steps: ["Datos", "Modelo de PD", "Política de crédito"],
+    impactLabel: "IMPACTO EN OPERACIONES", impactContext: "Mebol · 2024–2025",
+    impact: [{ value: "83%", label: "menos tiempo en reportes", note: "De 6 a 1 hora por semana" }, { value: "28%", label: "menos errores de registro", note: "Validación y calidad con SQL" }, { value: "450+", label: "productos monitoreados", note: "Dashboards operativos en Power BI" }],
+    projectsEyebrow: "01 / TRABAJO SELECCIONADO", projectsTitle: "Problemas reales. Soluciones medibles.",
+    projectsIntro: "Riesgo crediticio, analítica espacial e IA aplicada. El problema, la solución y la evidencia detrás de cada proyecto.",
+    filtersLabel: "Filtrar proyectos", filters: [{ id: "all", label: "Todos" }, { id: "risk", label: "Riesgo y ML" }, { id: "ai", label: "IA generativa" }, { id: "spatial", label: "Analítica espacial" }],
+    projectCount: "proyectos", featured: "PROYECTO DESTACADO", details: "Método y resultados", code: "Código", demo: "Ver demo", poster: "Ver póster", project: "Ver proyecto",
+    experienceEyebrow: "02 / EXPERIENCIA Y HABILIDADES", experienceTitle: "Analítica con contexto de negocio.",
+    experienceIntro: "Mi punto de partida es entender la operación. Después, construir una solución simple, mantenible y útil para tomar decisiones.",
+    workLabel: "EXPERIENCIA PROFESIONAL", skillsTitle: "Herramientas y criterio técnico", skillsIntro: "Una base estadística conectada con todo el ciclo de vida del modelo.",
+    educationEyebrow: "03 / APRENDIZAJE CONTINUO", educationTitle: "Formación que se lleva a la práctica.",
+    educationIntro: "Estadística, machine learning y una perspectiva de aprendizaje continuo.",
+    certificatesTitle: "Certificaciones", languagesTitle: "Idiomas", languages: "Español nativo · Inglés: Advanced English as a Second Language (Saylor)",
+    awardLabel: "HACKATHON ORCHESTRATE · OPENAI × HACKERRANK", awardTitle: "Medalla de bronce. Top 54 global.",
+    awardDescription: "Entre más de 60,000 participantes. Un agente auditor de borrado de datos, construido en 24 horas, con 72.1/100 de puntuación.", awardLink: "Explorar el agente", awardDate: "Octubre 2026",
+    contactEyebrow: "04 / CONECTEMOS", contactTitle: "La próxima buena decisión empieza con una conversación.",
+    contactDescription: "Conversemos sobre riesgo crediticio, analítica o cómo llevar una idea de machine learning a la práctica.",
+    contactCta: "Escríbeme", backTop: "Volver arriba", footerNote: "Estadística, código y decisiones con evidencia.",
+  },
+  experiences: [{
+    organisation: "Mebol", industry: "Industria alimentaria", title: "Encargado de Almacén",
+    duration: "2024–2025 · 6 meses", location: "Lima, Perú", focus: "Analítica aplicada a operaciones",
+    content: [
+      "Reduje 28% los errores de registro de inventario al estandarizar reglas de validación con compras y ventas e implementarlas en SQL.",
+      "Automaticé la reportería de inventario con SQL y Excel: de unas 6 horas a 1 hora semanal, liberando 5 horas para analizar stock y reposición.",
+      "Desarrollé dashboards en Power BI para seguir la disponibilidad y trazabilidad de más de 450 productos y apoyar decisiones del almacén.",
+    ],
+  }],
+  skills: [
+    { title: "Riesgo y negocio", items: ["Probability of Default", "Scorecards WoE/IV", "Políticas de aprobación", "Cut-offs por costo", "Backtesting", "KPIs"] },
+    { title: "Estadística y modelado", items: ["Validación out-of-time", "Series temporales", "Calibración", "ROC-AUC · KS · Gini", "SHAP", "Pruebas estadísticas"] },
+    { title: "Datos y machine learning", items: ["Python · SQL · R", "PySpark · pandas", "scikit-learn", "CatBoost · XGBoost · LightGBM", "Optuna", "PyTorch"] },
+    { title: "MLOps e ingeniería", items: ["Databricks · MLflow", "Delta Lake · Unity Catalog", "FastAPI · Docker", "GitHub Actions · CI/CD", "Champion / challenger", "Drift y reentrenamiento"] },
+    { title: "IA aplicada y comunicación", items: ["RAG · embeddings · MCP", "Agentes de IA", "Power BI · Streamlit", "Scrum · Jira", "Comunicación con stakeholders"] },
+    { title: "Nube · fundamentos", note: "Databricks: uso práctico. Azure y AWS: fundamentos y nociones básicas.", items: ["Google Cloud Run", "Azure Container Apps", "Azure OpenAI", "Terraform", "AWS"] },
   ],
   projects: [
     {
-      ...en.projects[0],
-      title: "RiskRAG: Asistente RAG Experto en Riesgo Crediticio y Seguros",
-      content: "Ayuda a analistas de riesgo crediticio y seguros a consultar la normativa con respuestas citadas y verificables, y calcula la clasificación del deudor y las provisiones con herramientas deterministas en lugar de depender del LLM."
+      id: "credit-risk", category: "risk", kind: "RIESGO CREDITICIO / MLOPS", title: "Credit Risk Platform", subtitle: "Del modelo de PD a una política de aprobación.",
+      content: "Modelé la probabilidad de default con 887 mil préstamos de Lending Club, comparé cuatro algoritmos con un scorecard WoE/IV y conecté el resultado con decisiones de crédito y un flujo MLOps en Databricks.",
+      date: "Sep–Oct 2026", featured: true,
+      metrics: [{ value: "0.691", label: "ROC-AUC en test" }, { value: "61.3%", label: "aprobación en evaluación" }, { value: "169", label: "pruebas automatizadas" }],
+      stack: ["Python", "CatBoost", "Databricks", "MLflow", "FastAPI", "SHAP"],
+      details: ["Validación out-of-time y exclusión de 22 variables posteriores al desembolso para prevenir data leakage. Benchmark WoE/IV: ROC-AUC 0.681.", "Con umbral de 0.18 y costo FN:FP de 5:1, la tasa de default pasa de 15.5% a 9.6% en la cartera aprobada de la evaluación.", "CI/CD, Model Registry, champion/challenger y rollback. En replay temporal se activaron dos reentrenamientos; el challenger no se promovió por falta de evidencia estadística (p = 0.61)."],
+      github: `${github}/credit-risk-platform-2.0`, link: "https://credit-risk-platform-20-adqnv9j2qftznvu9uzdqem.streamlit.app/", linkType: "demo",
     },
     {
-      ...en.projects[1],
-      title: "Plataforma de Riesgo Crediticio con ML: MLOps de Extremo a Extremo",
-      content: "Ayuda a una entidad financiera a decidir a quién aprobar un crédito, estimando la probabilidad de que cada solicitante no pague y explicando el porqué de cada decisión.",
-      stack: stackEs(stacks.creditRisk)
+      id: "geobanca", category: "spatial", kind: "ANALÍTICA ESPACIAL", title: "GeoBanca Norte Perú", subtitle: "Dónde expandir el acceso financiero.",
+      content: "Integré datos financieros, demográficos y climáticos de 327 distritos para evaluar dónde ubicar nuevos canales de atención, equilibrando cobertura y riesgo por El Niño.",
+      date: "Oct 2026", metrics: [{ value: "63,643", label: "adultos cubiertos en la optimización" }],
+      stack: ["GeoPandas", "PySAL", "Kriging", "SHAP", "QGIS"],
+      details: ["25 puntos de servicio propuestos con programación entera (MCLP, solver CBC).", "El modelo Durbin espacial obtuvo AIC 1648 frente a 1696; el kriging redujo 23% el RMSE frente a IDW en validación cruzada.", "Resultados presentados en un póster interactivo con mapas y 29 figuras."],
+      github: `${github}/geobanca-norte-peru`, link: "https://wilder14-eslu.github.io/geobanca-norte-peru/", linkType: "poster",
     },
     {
-      ...en.projects[2],
-      title: "Plataforma de Riesgo Crediticio 2.0: Lending Club en Databricks",
-      content: "Mantiene confiable el modelo de riesgo crediticio de un banco en producción: detecta cuándo cambia el comportamiento de los clientes y reentrena y reemplaza el modelo de forma automática y segura.",
-      stack: stackEs(stacks.creditRisk2)
+      id: "riskrag", category: "ai", kind: "IA GENERATIVA / RIESGO", title: "RiskRAG", subtitle: "Respuestas con evidencia. Cálculos deterministas.",
+      content: "Asistente para consultar normativa de riesgo crediticio y seguros de la SBS con citas verificables. Las provisiones y clasificaciones se calculan con reglas de negocio, separadas del LLM.",
+      date: "Oct 2026", metrics: [{ value: "89.6%", label: "precisión de citas en evaluación" }],
+      stack: ["RAG híbrido", "FastAPI", "pgvector", "MCP", "Terraform"],
+      details: ["Búsqueda vectorial + BM25, fusión RRF, reranking y abstención cuando no hay evidencia suficiente.", "88 pruebas y ocho métricas en CI/CD; 91.7% de detección de intención y 100% de contención adversaria en el conjunto evaluado.", "Infraestructura de Azure escrita en Terraform y validada; aún no desplegada en una suscripción real."],
+      github: `${github}/rag-riesgo-credito-seguros`, link: "https://wilder14-eslu.github.io/rag-riesgo-credito-seguros/", linkType: "demo",
     },
     {
-      ...en.projects[3],
-      title: "Plataforma de Alerta Temprana de Malaria en Perú",
-      content: "Anticipa cuántos casos de malaria tendrá cada distrito del Perú en las próximas semanas, para que las autoridades de salud distribuyan recursos y actúen antes de un brote.",
-      stack: stackEs(stacks.malaria)
+      id: "orchestrate", category: "ai", kind: "AGENTES DE IA / HACKATHON", title: "Orchestrate", subtitle: "El modelo percibe. El código decide.",
+      content: "Construí en 24 horas un agente que audita solicitudes de borrado de datos, reconstruye identidades y genera planes de remediación. Medalla de bronce en OpenAI × HackerRank.",
+      date: "Oct 2026", metrics: [{ value: "Top 54", label: "global · más de 60,000 participantes" }],
+      stack: ["Python", "Tesseract OCR", "Gemini", "SHA-256"],
+      details: ["Puntuación final: 72.1/100. Auditoría de 518 solicitudes sin violaciones contractuales.", "32/32 casos correctos en muestras públicas; precisión de pasos 1.000, recall 0.979 y F1 0.990.", "OCR como fuente autoritativa y caché por SHA-256 para reproducibilidad offline, con defensas contra prompt injection."],
+      github: `${github}/Orchestrate-October-26`,
     },
     {
-      ...en.projects[4],
-      title: "Rumbo: Plataforma de Reclutamiento con Agentes de IA",
-      content: "Ayuda a reclutadores y candidatos a encontrar el mejor encaje entre un perfil y una vacante, con agentes de IA que leen el puesto, extraen sus requisitos y evalúan la compatibilidad.",
-      stack: stackEs(stacks.rumbo)
+      id: "rumbo", category: "ai", kind: "AGENTES DE IA / TRABAJO EN EQUIPO", title: "Rumbo", subtitle: "Conectar perfiles, oportunidades y habilidades.",
+      content: "En un equipo de cuatro, codiseñé tres agentes y un score estadístico para evaluar el encaje entre candidatos y vacantes, identificar brechas de habilidades y proponer rutas de carrera.",
+      date: "Jul–Ago 2026", metrics: [{ value: "3 agentes", label: "clasificación, requisitos y compatibilidad" }],
+      stack: ["Gemini", "Google ADK", "Cloud Run", "Firestore", "React"],
+      details: ["All Things Agentic Hackathon 2026, track Taskmaster (Google Cloud).", "Pipeline de exact match, preselección por embeddings y una llamada batch al LLM para reducir inferencia. Desplegado en Cloud Run con FastAPI y React."],
+      link: "https://devpost.com/software/rumbo", linkType: "project",
     },
     {
-      ...en.projects[5],
-      title: "GeoBanca Norte Perú: Analítica Espacial para Canales Financieros",
-      content: "Identifica dónde abrir nuevas oficinas bancarias, cajeros y EOBs en el norte del Perú combinando datos de acceso financiero, econometría espacial, riesgo climático por El Niño y optimización entera para cubrir 63,643 adultos con 25 puntos de servicio.",
-      stack: stackEs(stacks.geobanca)
+      id: "credit-ml", category: "risk", kind: "MÁS PROYECTOS / MACHINE LEARNING", title: "Credit Risk ML", subtitle: "Un flujo de riesgo de extremo a extremo.",
+      content: "Proyecto de modelamiento de riesgo crediticio con comparación de algoritmos, interpretabilidad con SHAP y servicios para explorar predicciones.",
+      stack: ["scikit-learn", "XGBoost", "MLflow", "Docker", "Streamlit"],
+      github: `${github}/credit-risk-ml-platform`,
     },
     {
-      ...en.projects[6],
-      title: "Orchestrate: Agente Auditor de Borrado de Datos (GDPR) 🥉",
-      content: "Medalla de Bronce — Top 54 global entre +60,000 participantes. Construí un agente de IA que audita solicitudes de borrado de datos (GDPR Art. 17) a través de bases de datos, réplicas, logs y capturas de pantalla, logrando 94% de precisión de datos y 100% de reproducibilidad.",
-      stack: stackEs(stacks.orchestrate)
-    }
+      id: "malaria", category: "risk", kind: "MÁS PROYECTOS / ML EN SALUD", title: "Alerta temprana de malaria", subtitle: "Pronóstico para anticipar necesidades.",
+      content: "Proyecto de predicción de casos de malaria por distrito del Perú, con validación de datos y un pipeline para explorar señales de alerta temprana.",
+      stack: ["LightGBM", "MLflow", "Prefect", "Pandera", "FastAPI"],
+      github: `${github}/malaria-prediction-peru`,
+    },
   ],
-  socialMedia,
-  aboutMe: {
-    name: "Wilder Gilmer Espinoza Luna",
-    tagLine: "Ingeniero de Machine Learning | MLOps | Analítica de Datos",
-    phone: "+51 910 049 106",
-    intro: "Estudiante de Estadística en la UNMSM, con enfoque en analítica avanzada para banca: modelos de probabilidad de default (PD), scorecards y decisiones de aprobación crediticia, además de machine learning aplicado a problemas de negocio. He desarrollado proyectos de modelamiento predictivo y riesgo crediticio que integran validación temporal de datos, prevención de data leakage, comparación de algoritmos, interpretabilidad y evaluación de decisiones. Complemento esta experiencia con analítica de negocio: automaticé reportes que redujeron 83% el tiempo de procesamiento y contribuí a disminuir 28% los errores de registro. Manejo Python, SQL, Databricks, Google Cloud, Azure, APIs REST y CI/CD."
-  }
+  educationList: [
+    { id: "unmsm", icon: unmsm, title: "Universidad Nacional Mayor de San Marcos", degree: "Estudios de Estadística", duration: "2022–2027 · En curso", content: "Formación en modelado estadístico y análisis cuantitativo. Becario PRONABEC (2024) por rendimiento académico sobresaliente." },
+    { id: "tokyo", icon: tokyo, title: "The University of Tokyo", degree: "GCI World 2026 · Data Science & Machine Learning", duration: "Sep 2026–Actualidad", content: "Matsuo-Iwasawa Laboratory. Modelado supervisado y series temporales aplicados a insights de negocio y marketing." },
+  ],
+  achievements: [
+    { id: "databricks", icon: databricks, event: "Advanced ML Operations", position: "Databricks" },
+    { id: "duke", icon: duke, event: "MLOps Specialization", position: "Duke University" },
+    { id: "stanford", icon: stanford, event: "Machine Learning Specialization", position: "DeepLearning.AI · Stanford" },
+  ],
 };
 
-const data = { en, es };
-export default data;
+export const en = {
+  ...es,
+  // Only the supplied Spanish PDF has been refreshed; label its language honestly.
+  resumeLink: resumeLinkEs,
+  navLinks: [{ id: "projects", title: "Projects" }, { id: "skills", title: "Experience" }, { id: "education", title: "Education" }, { id: "contactMe", title: "Contact" }],
+  aboutMe: { ...es.aboutMe, location: "Lima, Peru", intro: "Statistics student at UNMSM. I turn business problems into measurable machine learning solutions, focusing on credit risk, advanced analytics and MLOps." },
+  ui: {
+    skip: "Skip to content", navigation: "Main navigation", openMenu: "Open menu", closeMenu: "Close menu", language: "Cambiar a español",
+    heroLabel: "STATISTICS + MACHINE LEARNING", headline: "From data to", headlineAccent: "better decisions.",
+    projectsCta: "Explore projects", cvCta: "Download CV", cvNote: "PDF · Spanish", focus: "From the business problem to the model in production.",
+    caseLabel: "A CASE FROM MY PORTFOLIO", caseTitle: "From score to decision.", caseSubtitle: "Credit Risk Platform · Lending Club",
+    chartTitle: "Default rate", baseline: "Reference portfolio", approved: "Approved portfolio", chartNote: "Project evaluation at a 0.18 threshold. These are not results from a live loan portfolio.",
+    caseMetric: "applications approved", caseData: "loans analyzed", caseLink: "Explore the project", steps: ["Data", "PD model", "Credit policy"],
+    impactLabel: "OPERATIONAL IMPACT", impactContext: "Mebol · 2024–2025", impact: [{ value: "83%", label: "less reporting time", note: "From 6 to 1 hour per week" }, { value: "28%", label: "fewer recording errors", note: "SQL validation and data quality" }, { value: "450+", label: "products monitored", note: "Operational Power BI dashboards" }],
+    projectsEyebrow: "01 / SELECTED WORK", projectsTitle: "Real problems. Measurable solutions.", projectsIntro: "Credit risk, spatial analytics and applied AI. The problem, the solution and the evidence behind each project.",
+    filtersLabel: "Filter projects", filters: [{ id: "all", label: "All" }, { id: "risk", label: "Risk & ML" }, { id: "ai", label: "Generative AI" }, { id: "spatial", label: "Spatial analytics" }],
+    projectCount: "projects", featured: "FEATURED PROJECT", details: "Method & results", code: "Code", demo: "View demo", poster: "View poster", project: "View project",
+    experienceEyebrow: "02 / EXPERIENCE & SKILLS", experienceTitle: "Analytics with business context.", experienceIntro: "I start by understanding the operation, then build a simple, maintainable solution that supports useful decisions.",
+    workLabel: "PROFESSIONAL EXPERIENCE", skillsTitle: "Tools and technical judgment", skillsIntro: "A statistical foundation connected to the full model lifecycle.",
+    educationEyebrow: "03 / CONTINUOUS LEARNING", educationTitle: "Learning that becomes practice.", educationIntro: "Statistics, machine learning and a commitment to continuous learning.",
+    certificatesTitle: "Certifications", languagesTitle: "Languages", languages: "Native Spanish · English: Advanced English as a Second Language (Saylor)",
+    awardLabel: "ORCHESTRATE HACKATHON · OPENAI × HACKERRANK", awardTitle: "Bronze medal. Global Top 54.", awardDescription: "Among more than 60,000 participants. A data-erasure auditor agent built in 24 hours, scoring 72.1/100.", awardLink: "Explore the agent", awardDate: "October 2026",
+    contactEyebrow: "04 / LET'S CONNECT", contactTitle: "The next good decision starts with a conversation.", contactDescription: "Let's talk about credit risk, analytics or bringing a machine learning idea into practice.", contactCta: "Email me", backTop: "Back to top", footerNote: "Statistics, code and evidence-based decisions.",
+  },
+  experiences: [{ organisation: "Mebol", industry: "Food industry", title: "Warehouse Supervisor", duration: "2024–2025 · 6 months", location: "Lima, Peru", focus: "Analytics applied to operations", content: ["Reduced inventory recording errors by 28% by standardizing validation rules with purchasing and sales and implementing them in SQL.", "Automated inventory reporting with SQL and Excel, cutting processing from about 6 hours to 1 per week and freeing 5 hours for stock and replenishment analysis.", "Built Power BI dashboards tracking availability and traceability for more than 450 products to support warehouse decisions."] }],
+  skills: [
+    { title: "Risk & business", items: ["Probability of Default", "WoE/IV scorecards", "Approval policies", "Cost-sensitive cut-offs", "Backtesting", "KPIs"] },
+    { title: "Statistics & modeling", items: ["Out-of-time validation", "Time series", "Calibration", "ROC-AUC · KS · Gini", "SHAP", "Statistical testing"] },
+    { ...es.skills[2], title: "Data & machine learning" },
+    { ...es.skills[3], title: "MLOps & engineering", items: [...es.skills[3].items.slice(0, 5), "Drift & retraining"] },
+    { title: "Applied AI & communication", items: ["RAG · embeddings · MCP", "AI agents", "Power BI · Streamlit", "Scrum · Jira", "Stakeholder communication"] },
+    { ...es.skills[5], title: "Cloud · foundations", note: "Hands-on Databricks experience. Foundational knowledge of Azure and AWS." },
+  ],
+  projects: [
+    { ...es.projects[0], kind: "CREDIT RISK / MLOPS", subtitle: "From a PD model to an approval policy.", date: "Sep–Oct 2026", content: "Modeled probability of default on 887,000 Lending Club loans, compared four algorithms with a WoE/IV scorecard and connected predictions to credit decisions and a Databricks MLOps workflow.", metrics: [{ value: "0.691", label: "test ROC-AUC" }, { value: "61.3%", label: "approval in evaluation" }, { value: "169", label: "automated tests" }], details: ["Out-of-time validation and exclusion of 22 post-disbursement features to prevent data leakage. WoE/IV benchmark ROC-AUC: 0.681.", "At a 0.18 threshold and 5:1 FN:FP cost ratio, the default rate drops from 15.5% to 9.6% for the approved portfolio in the evaluation.", "CI/CD, Model Registry, champion/challenger and rollback. A temporal replay triggered two retraining runs; the challenger was not promoted without statistical evidence (p = 0.61)."] },
+    { ...es.projects[1], kind: "SPATIAL ANALYTICS", subtitle: "Where to expand financial access.", content: "Combined financial, demographic and climate data from 327 districts to locate new service points while balancing coverage and El Niño exposure.", metrics: [{ value: "63,643", label: "adults covered in the optimization" }], details: ["25 proposed service points using integer programming (MCLP, CBC solver).", "The spatial Durbin model achieved AIC 1648 versus 1696; kriging reduced cross-validation RMSE by 23% compared with IDW.", "Findings presented in an interactive poster with maps and 29 figures."] },
+    { ...es.projects[2], kind: "GENERATIVE AI / RISK", subtitle: "Evidence-based answers. Deterministic calculations.", content: "An assistant for SBS credit risk and insurance regulations with verifiable citations. Provisioning and classification use business rules kept separate from the LLM.", metrics: [{ value: "89.6%", label: "citation precision in evaluation" }], stack: ["Hybrid RAG", "FastAPI", "pgvector", "MCP", "Terraform"], details: ["Vector search + BM25, RRF fusion, reranking and abstention when evidence is insufficient.", "88 tests and eight CI/CD metrics; 91.7% intent detection and 100% adversarial containment on the evaluated dataset.", "Azure infrastructure written in Terraform and validated; not yet deployed to a real subscription."] },
+    { ...es.projects[3], kind: "AI AGENTS / HACKATHON", subtitle: "The model perceives. The code decides.", content: "Built an agent in 24 hours to audit data-erasure requests, reconstruct identities and generate remediation plans. Bronze medal at OpenAI × HackerRank.", metrics: [{ value: "Top 54", label: "globally · over 60,000 participants" }], details: ["Final score: 72.1/100. Audited 518 requests with no contract violations.", "32/32 correct public sample cases; step precision 1.000, recall 0.979 and F1 0.990.", "Authoritative OCR and SHA-256 caching for offline reproducibility, with prompt-injection defenses."] },
+    { ...es.projects[4], kind: "AI AGENTS / TEAM PROJECT", subtitle: "Connecting profiles, opportunities and skills.", date: "Jul–Aug 2026", content: "In a team of four, co-designed three agents and a statistical matching score to assess job fit, identify skill gaps and propose career paths.", metrics: [{ value: "3 agents", label: "classification, requirements and fit" }], details: ["All Things Agentic Hackathon 2026, Taskmaster track (Google Cloud).", "Exact matching, embedding preselection and one batch LLM call to reduce inference. Deployed on Cloud Run with FastAPI and React."] },
+    { ...es.projects[5], kind: "MORE PROJECTS / MACHINE LEARNING", subtitle: "An end-to-end risk workflow.", content: "A credit risk modeling project with algorithm comparison, SHAP interpretability and services for exploring predictions." },
+    { ...es.projects[6], kind: "MORE PROJECTS / ML FOR HEALTH", title: "Malaria early warning", subtitle: "Forecasting to anticipate needs.", content: "A district-level malaria forecasting project in Peru, with data validation and a pipeline to explore early-warning signals." },
+  ],
+  educationList: [
+    { ...es.educationList[0], degree: "Statistics studies", duration: "2022–2027 · In progress", content: "Statistical modeling and quantitative analysis. PRONABEC scholarship recipient (2024) for outstanding academic performance." },
+    { ...es.educationList[1], duration: "Sep 2026–Present", content: "Matsuo-Iwasawa Laboratory. Supervised modeling and time series applied to business insights and marketing." },
+  ],
+};
+
+export default { es, en };

@@ -1,184 +1,57 @@
-import { useTranslation } from 'react-i18next';
-import React, { useRef, useState } from "react";
-import data from "../constants/data";
-import { AiFillGithub } from "react-icons/ai";
-import { BsLink45Deg, BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import devpostIcon from "../assets/Devpost.webp";
+import { useEffect, useState } from "react";
+import { FiArrowUpRight, FiChevronDown, FiGithub, FiLayers, FiTarget, FiTrendingUp } from "react-icons/fi";
+import SectionHeading from "./SectionHeading";
+import usePortfolio from "../lib/usePortfolio";
 
-const Project = (props) => {
-  const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'es';
-  
+function ProjectCard({ project, ui }) {
+  const Icon = project.category === "spatial" ? FiTarget : project.category === "ai" ? FiLayers : FiTrendingUp;
   return (
-    <div className="project-card flex-shrink-0 px-8 py-6 transition-all duration-300 transform border rounded-xl hover:border-transparent group border-gray-200 hover:shadow-2xl feature-card w-[320px] sm:w-[400px] md:w-[450px] snap-center bg-white/60 backdrop-blur-md">
-      <div className="flex flex-col items-start">
-        <img
-          className="flex-shrink-0 object-cover w-20 h-20 rounded-full ring-4 ring-gray-100 shadow-sm"
-          src={props.image}
-          alt={props.title}
-        />
-
-        <div className="mt-5 w-full">
-          <h1 className="text-xl font-semibold font-poppins text-gray-800 md:text-2xl leading-tight break-words">
-            {props.title}
-          </h1>
-          <p className="font-poppins font-normal text-cyan-600 mt-2 mb-3 text-sm font-semibold uppercase tracking-wider">
-            {lang === 'en' ? 'Tech Stack' : 'Tecnologías'}
-          </p>
-          <div className="text-gray-500 group-hover:text-gray-700">
-            <div className="flex flex-wrap gap-4">
-              {props.stack.map((tech) => (
-                <div
-                  key={tech.id}
-                  className="text-[24px] tooltip transition-transform duration-300 hover:scale-125 hover:-translate-y-1"
-                  style={{ color: tech.color || "#4b5563" }}
-                >
-                  {React.createElement(tech.icon)}
-                  <span className="tooltiptext">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <article id={`project-${project.id}`} className={`project-card${project.featured ? " featured-project" : ""}`} data-category={project.category}>
+      <div className="project-copy">
+        <div className="project-topline"><span className={`project-symbol symbol-${project.category}`}><Icon aria-hidden="true" /></span><span className="eyebrow">{project.featured ? ui.featured : project.kind}</span>{project.date && <span className="project-date">{project.date}</span>}</div>
+        <h3>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p>
+        <p className="project-description">{project.content}</p>
+        {!project.featured && project.metrics && <div className="project-single-metric"><strong>{project.metrics[0].value}</strong><span>{project.metrics[0].label}</span></div>}
+        <ul className="tech-list" aria-label={project.title + " — stack"}>{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
+        {project.details && <details className="project-details"><summary>{ui.details}<FiChevronDown aria-hidden="true" /></summary><ul>{project.details.map((detail) => <li key={detail}>{detail}</li>)}</ul></details>}
+        <div className="project-links">
+          {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${ui.code}: ${project.title}`}><FiGithub aria-hidden="true" />{ui.code}<FiArrowUpRight aria-hidden="true" /></a>}
+          {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`${ui[project.linkType]}: ${project.title}`}>{ui[project.linkType]}<FiArrowUpRight aria-hidden="true" /></a>}
         </div>
       </div>
-
-      <p className="mt-6 text-gray-600 font-poppins break-words leading-relaxed text-[15px]">
-        {props.content}
-      </p>
-
-      <div className="flex mt-6 gap-4">
-        {props.github && (
-          <a href={props.github} target="_blank" rel="noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-cyan-100 transition-colors">
-            <AiFillGithub
-              size="1.5rem"
-              className="text-gray-700 hover:text-cyan-600 transition-colors"
-            />
-          </a>
-        )}
-        {props.devpost && (
-          <a href={props.devpost} target="_blank" rel="noreferrer" aria-label="Devpost" className="bg-gray-100 p-2 rounded-full hover:bg-cyan-100 transition-colors">
-            <img src={devpostIcon} alt="Devpost" className="w-6 h-6 object-contain" />
-          </a>
-        )}
-        {props.link && (
-          <a href={props.link} target="_blank" rel="noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-cyan-100 transition-colors">
-            <BsLink45Deg
-              size="1.5rem"
-              className="text-gray-700 hover:text-cyan-600 transition-colors"
-            />
-          </a>
-        )}
-      </div>
-    </div>
+      {project.featured && <aside className="project-evidence" aria-label={ui.details}>
+        <span className="evidence-caption">LENDING CLUB / OUT-OF-TIME TEST</span>
+        {project.metrics.map((metric) => <div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>)}
+        <span className="evidence-footer">PYTHON → DATABRICKS → DECISION</span>
+      </aside>}
+    </article>
   );
-};
+}
 
-const Projects = () => {
-  const { i18n } = useTranslation();
-  const lang = i18n.language?.split('-')[0] || 'es';
-  const currentData = data[lang] || data.es;
-  const { projects } = currentData;
-  const carouselRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftPos, setScrollLeftPos] = useState(0);
-
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      const cardWidth = window.innerWidth > 768 ? 474 : 344; // Card width + gap
-      carouselRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (carouselRef.current) {
-      const cardWidth = window.innerWidth > 768 ? 474 : 344;
-      carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-    }
-  };
-
-  // Mouse drag logic for PC
-  const onMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - carouselRef.current.offsetLeft);
-    setScrollLeftPos(carouselRef.current.scrollLeft);
-  };
-
-  const onMouseLeave = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5; // Drag speed multiplier
-    carouselRef.current.scrollLeft = scrollLeftPos - walk;
-  };
-
+export default function Projects() {
+  const { projects, ui } = usePortfolio();
+  const [filter, setFilter] = useState("all");
+  useEffect(() => {
+    const revealLinkedProject = () => {
+      const id = window.location.hash.slice(1);
+      if (!projects.some((project) => `project-${project.id}` === id)) return;
+      setFilter("all");
+      requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: "start" }));
+    };
+    revealLinkedProject();
+    window.addEventListener("hashchange", revealLinkedProject);
+    return () => window.removeEventListener("hashchange", revealLinkedProject);
+  }, [projects]);
+  const visible = projects.filter((project) => filter === "all" || project.category === filter);
   return (
-    <section id="projects" className="w-full py-10">
-      <h1 className="font-poppins font-bold text-[36px] sm:text-[48px] text-gray-800 leading-tight mb-10">
-        {lang === 'es' ? 'Proyectos' : 'Projects'}
-      </h1>
-
-      <div className="relative w-full group">
-        {/* Floating Navigation Buttons for PC */}
-        <button
-          onClick={scrollLeft}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 w-12 h-12 hidden md:flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all shadow-xl opacity-0 group-hover:opacity-100 disabled:opacity-0"
-          aria-label={lang === 'en' ? 'Previous project' : 'Proyecto anterior'}
-        >
-          <BsChevronLeft size={20} strokeWidth={1} />
-        </button>
-
-        <button
-          onClick={scrollRight}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-12 h-12 hidden md:flex items-center justify-center bg-white border border-gray-200 rounded-full text-gray-600 hover:bg-cyan-500 hover:text-white hover:border-cyan-500 transition-all shadow-xl opacity-0 group-hover:opacity-100 disabled:opacity-0"
-          aria-label={lang === 'en' ? 'Next project' : 'Proyecto siguiente'}
-        >
-          <BsChevronRight size={20} strokeWidth={1} />
-        </button>
-
-        {/* Carousel Container */}
-        <div 
-          ref={carouselRef}
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
-          className={`flex overflow-x-auto gap-6 pb-10 pt-4 px-2 custom-scrollbar ${isDragging ? 'cursor-grabbing snap-none' : 'cursor-grab snap-x snap-mandatory'}`}
-        >
-          {projects.map((project) => (
-            <Project key={project.id} {...project} />
-          ))}
-        </div>
+    <section id="projects" className="section projects-section">
+      <div className="container">
+        <SectionHeading eyebrow={ui.projectsEyebrow} title={ui.projectsTitle} description={ui.projectsIntro} />
+        <div className="project-toolbar"><div className="project-filters" role="group" aria-label={ui.filtersLabel}>
+          {ui.filters.map((item) => <button key={item.id} type="button" aria-pressed={filter === item.id} onClick={() => setFilter(item.id)}>{item.label}</button>)}
+        </div><p className="project-count" role="status">{visible.length} {ui.projectCount}</p></div>
+        <div className="projects-grid">{visible.map((project) => <ProjectCard key={project.id} project={project} ui={ui} />)}</div>
       </div>
-
-      <style jsx>{`
-        /* Beautiful Custom Scrollbar for PC */
-        .custom-scrollbar::-webkit-scrollbar {
-          height: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f5f9;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 10px;
-          border: 2px solid #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #00b4d8;
-        }
-      `}</style>
     </section>
   );
-};
-
-export default Projects;
+}

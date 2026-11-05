@@ -1,44 +1,19 @@
-import data from '../../src/constants/data';
+describe('Formación', () => {
+  beforeEach(() => cy.waitForApp());
 
-const { educationList } = data.es;
-
-describe('Educación', () => {
-  beforeEach(() => {
-    cy.waitForApp();
-    cy.get('#education', { timeout: 8000 }).scrollIntoView();
+  it('presenta estudios en curso, la beca y el programa internacional', () => {
+    cy.get('.education-card').should('have.length', 2);
+    cy.get('#education').should('contain', 'Estudios de Estadística').and('contain', 'En curso').and('contain', 'PRONABEC').and('contain', 'GCI World 2026');
+    cy.get('#education').should('not.contain', 'Licenciatura');
+    cy.get('button[aria-label="Switch to English"]').click();
+    cy.get('#education').should('contain', 'Statistics studies').and('contain', 'In progress');
   });
 
-  it('muestra el título de la sección', () => {
-    cy.get('#education').contains('h2', 'Educación').should('be.visible');
-  });
-
-  it('muestra universidad, grado, fechas y logros', () => {
-    educationList.forEach((edu) => {
-      cy.get('#education').contains('h4', edu.title).should('exist');
-      cy.get('#education').contains(edu.degree).should('exist');
-      cy.get('#education').contains(edu.duration).should('exist');
-      cy.get('#education').contains(edu.content1).should('exist');
-      cy.get('#education').contains(edu.content2).should('exist');
-    });
-  });
-
-  it('muestra la animación del ciclo de ML con sus 6 etapas', () => {
-    cy.get('#education').contains('Cómo construyo sistemas de ML').scrollIntoView().should('be.visible');
-    ['Datos', 'Entrenamiento', 'Validación', 'Registro', 'Despliegue', 'Monitoreo'].forEach((etapa) => {
-      cy.get('#education ol').contains(etapa).should('exist');
-    });
-    cy.get('#education').contains('El drift dispara el reentrenamiento').should('exist');
-  });
-
-  describe('Responsive', () => {
-    it('escritorio: animación y tarjeta lado a lado', () => {
-      cy.viewportPreset('desktop');
-      cy.get('#education [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'row');
-    });
-
-    it('celular: tarjeta arriba y animación abajo', () => {
-      cy.viewportPreset('mobile');
-      cy.get('#education [class*="flex-col-reverse"]').first().invoke('css', 'flex-direction').should('equal', 'column-reverse');
+  it('carga las imágenes locales de instituciones y perfil', () => {
+    cy.get('img').each(($img) => {
+      cy.wrap($img).scrollIntoView().should(($image) => {
+        expect($image[0].naturalWidth, $image[0].src).to.be.greaterThan(0);
+      });
     });
   });
 });
