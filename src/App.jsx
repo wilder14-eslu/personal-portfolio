@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import { AboutAndResearch, Publications } from "./components/EditorialSections";
 import Projects from "./components/Projects";
 import SkillsAndExperience from "./components/SkillsAndExperience";
 import Education from "./components/Education";
@@ -23,7 +24,9 @@ export default function App() {
       <Navbar />
       <main id="main" tabIndex={-1}>
         <Hero />
+        <AboutAndResearch />
         <Projects />
+        <Publications />
         <SkillsAndExperience />
         <Education />
         <Achievements />

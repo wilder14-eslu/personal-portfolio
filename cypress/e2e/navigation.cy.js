@@ -2,7 +2,7 @@ describe('Navegación accesible', () => {
   beforeEach(() => cy.waitForApp());
 
   it('navega con enlaces reales y vuelve al inicio', () => {
-    ['projects', 'skills', 'education', 'contactMe'].forEach((id) => {
+    ['about', 'research', 'projects', 'publications', 'skills', 'contactMe'].forEach((id) => {
       cy.get(`nav a[href="#${id}"]`).click();
       cy.location('hash').should('equal', `#${id}`);
       cy.get(`#${id}`).should(($section) => {
@@ -26,7 +26,7 @@ describe('Navegación accesible', () => {
   it('cambia el idioma, actualiza metadatos y recuerda la elección', () => {
     cy.get('button[aria-label="Switch to English"]').click();
     cy.get('html').should('have.attr', 'lang', 'en');
-    cy.get('h1').should('contain', 'better decisions');
+    cy.get('.hero-statement').should('contain', 'understanding');
     cy.title().should('contain', 'Credit Risk');
     cy.reload();
     cy.get('html').should('have.attr', 'lang', 'en');
@@ -34,7 +34,7 @@ describe('Navegación accesible', () => {
     cy.get('html').should('have.attr', 'lang', 'en');
     cy.get('button[aria-label="Cambiar a español"]').click();
     cy.get('html').should('have.attr', 'lang', 'es');
-    cy.get('h1').should('contain', 'mejores decisiones');
+    cy.get('.hero-statement').should('contain', 'conocimiento');
   });
 
   it('abre y cierra el menú móvil con Escape y al navegar', () => {

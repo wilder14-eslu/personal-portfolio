@@ -28,7 +28,7 @@ describe('Exploración de proyectos', () => {
   it('el acceso desde el inicio recupera el proyecto aunque esté filtrado', () => {
     cy.contains('.project-filters button', 'IA generativa').click();
     cy.get('#project-credit-risk').should('not.exist');
-    cy.get('.case-link').click();
+    cy.window().then((win) => { win.location.hash = '#project-credit-risk'; });
     cy.get('#project-credit-risk').should('exist');
     cy.location('hash').should('equal', '#project-credit-risk');
   });

@@ -21,10 +21,9 @@ const socialMedia = [
 export const es = {
   resumeLink: resumeLinkEs, repoLink, callToAction, socialMedia,
   navLinks: [
-    { id: "projects", title: "Proyectos" },
-    { id: "skills", title: "Experiencia" },
-    { id: "education", title: "Formación" },
-    { id: "contactMe", title: "Contacto" },
+    { id: "about", title: "Perfil" }, { id: "research", title: "Investigación" },
+    { id: "projects", title: "Proyectos" }, { id: "publications", title: "Publicaciones" },
+    { id: "skills", title: "Experiencia" }, { id: "contactMe", title: "Contacto" },
   ],
   aboutMe: {
     name: "Wilder Gilmer Espinoza Luna", shortName: "Wilder Espinoza",
@@ -148,7 +147,7 @@ export const en = {
   ...es,
   // Only the supplied Spanish PDF has been refreshed; label its language honestly.
   resumeLink: resumeLinkEs,
-  navLinks: [{ id: "projects", title: "Projects" }, { id: "skills", title: "Experience" }, { id: "education", title: "Education" }, { id: "contactMe", title: "Contact" }],
+  navLinks: [{ id: "about", title: "About" }, { id: "research", title: "Research" }, { id: "projects", title: "Projects" }, { id: "publications", title: "Publications" }, { id: "skills", title: "Experience" }, { id: "contactMe", title: "Contact" }],
   aboutMe: { ...es.aboutMe, location: "Lima, Peru", intro: "Statistics student at UNMSM. I turn business problems into measurable machine learning solutions, focusing on credit risk, advanced analytics and MLOps." },
   ui: {
     skip: "Skip to content", navigation: "Main navigation", openMenu: "Open menu", closeMenu: "Close menu", language: "Cambiar a español",

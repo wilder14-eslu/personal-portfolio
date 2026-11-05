@@ -1,15 +1,16 @@
 describe('Presentación y diseño adaptable', () => {
   beforeEach(() => cy.waitForApp());
 
-  it('presenta el perfil y contextualiza las cifras del caso de estudio', () => {
-    cy.get('h1').should('have.length', 1).and('contain', 'mejores decisiones');
-    cy.get('#home').should('contain', 'Estudiante de Estadística').and('contain', 'Wilder Gilmer Espinoza Luna');
-    cy.get('.credit-chart').should('contain', '15.5%').and('contain', '9.6%');
-    cy.get('.case-note').should('contain', 'No representa resultados de una cartera real');
-    cy.get('.impact-strip').should('contain', '83%').and('contain', '28%').and('contain', '450+');
+  it('presenta el perfil y los enlaces profesionales', () => {
+    cy.get('h1').should('have.length', 1).and('contain', 'Wilder Gilmer Espinoza Luna');
+    cy.get('#home').should('contain', 'Estudiante de Estadística');
+    cy.get('#home a[download]').should('have.attr', 'href').and('include', '.pdf');
+    cy.get('#home a').contains('GitHub').should('have.attr', 'href').and('include', 'github.com');
+    cy.get('#home a').contains('LinkedIn').should('have.attr', 'href').and('include', 'linkedin.com');
+    cy.get('#publications').should('contain', 'no es una publicación revisada por pares');
   });
 
-  [320, 375, 768, 1440].forEach((width) => {
+  [320, 375, 768, 1024, 1440].forEach((width) => {
     it(`no desborda horizontalmente a ${width}px`, () => {
       cy.viewport(width, 900);
       cy.document().should((doc) => {
