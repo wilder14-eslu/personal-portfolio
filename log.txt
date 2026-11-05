@@ -64,3 +64,26 @@ Voy a revisar los archivos pendientes, crear el commit y hacer push a la rama ac
 
 IA — RESPUESTA FINAL:
 Push realizado a `origin/main`, incluidos los cambios del portafolio y `log.txt`.
+
+======================================================================
+ENTRADA 005 | 2026-11-05
+======================================================================
+USUARIO:
+no se actualiza en mi página de vercel
+
+IA — AVANCE 1:
+Voy a comprobar si Vercel recibió el último commit y revisar la configuración de despliegue del proyecto.
+
+IA — PREGUNTA DE ACLARACIÓN:
+¿Cuál es la URL de tu página en Vercel que sigue mostrando la versión anterior?
+
+IA — AVANCE 2:
+Los cambios sí quedaron en `main` de GitHub. Todavía no tengo acceso al estado de Vercel; voy a revisar las comprobaciones que dejó en el commit para distinguir si falló el despliegue o si la página apunta a otra versión.
+
+IA — AVANCE 3:
+GitHub confirma que las pruebas del último commit pasaron, pero no aparece ninguna comprobación ni despliegue de Vercel asociado. Eso apunta a revisar la conexión del proyecto con GitHub; aún no permite confirmar la causa. Necesito la URL que te pedí para comprobar qué versión está publicada.
+
+IA — RESPUESTA:
+El código está subido a `main` (`643a20f`) y las [pruebas en GitHub](https://github.com/wilder14-eslu/personal-portfolio/actions/runs/42036752837) pasaron. En GitHub no aparece ningún despliegue ni comprobación de Vercel asociado al último commit.
+
+Pásame la URL de tu página en Vercel para comprobar qué versión está publicada. Todavía no puedo confirmar la causa sin identificar ese despliegue.
